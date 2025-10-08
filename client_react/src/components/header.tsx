@@ -42,7 +42,7 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky z-20 top-0 bg-white flex justify-around items-center py-6">
+    <header className="sticky z-50 top-0 bg-white flex justify-around items-center py-6">
       <div className={isMobileMenuOpen ? "hidden" : "block"}>
         <span className="flex items-center gap-2">
           <img

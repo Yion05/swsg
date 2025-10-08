@@ -4,9 +4,9 @@ import Header from "./header";
 
 const Main = () => {
   return (
-    <div className="px-4 lg:px-54">
+    <div className="">
       <Header></Header>
-      <main className="px-12">
+      <main className="">
         <Outlet></Outlet>
       </main>
       <Footer></Footer>

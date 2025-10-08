@@ -1,6 +1,10 @@
 const Service = () => {
   return (
-    <div>Service</div>
+    <section>
+      <div className="bg-[url(/assets/serviceBG.webp)] bg-cover bg-center h-screen">
+
+      </div>
+    </section>
   )
 }
 

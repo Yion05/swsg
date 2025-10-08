@@ -7,9 +7,12 @@
 @theme {
     --font-main: "Poppins", sans-serif;
 
-    --color-main: #faf3e0;
+    --color-main: #A60000;
     --color-secondary: #b9a8b2;
     --color-button: #960000;
     --color-button-secondary: #D9D9D9;
     --color-button-green: #00964E;
+    --color-img-deco: #F4F4F4;
+    --color-text-secondary: #FFBB00;
+    --color-hero-gray: #8C8C8C;
 }
