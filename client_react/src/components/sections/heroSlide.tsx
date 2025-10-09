@@ -8,7 +8,7 @@ const HeroSlide = () => {
   const { t } = useTranslation("slide"); 
 
   return (
-    <div className="w-full flex relative items-center justify-center py-20">
+    <div className="flex relative items-center justify-center py-20">
       <IoMdArrowDropleft className="text-5xl absolute left-4 z-20 text-secondary cursor-pointer top-1/2 -translate-y-1/2" />
       <section className="grid grid-cols-1 lg:grid-cols-2 items-center mx-auto px-4 sm:px-8 lg:px-12">
         <div className="px-4 sm:px-8 lg:px-16 order-2 lg:order-1">

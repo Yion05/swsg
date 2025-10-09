@@ -5,7 +5,7 @@ const HomeHero = () => {
   const { t } = useTranslation("home");
 
   return (
-    <div className="w-full bg-main relative overflow-hidden">
+    <div className="w-full rounded-lg bg-main relative overflow-hidden">
       <h1 className="text-white font-semibold text-4xl sm:text-5xl text-center pt-16 pb-12">
         {t("hero2_h1")}
       </h1>

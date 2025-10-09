@@ -11,5 +11,12 @@ export interface accolades_schema {
     accolades_des: string,  
 };
 
+export interface nationalityData_schema {
+          nationality: string,
+      basicPrice: number,
+      advancedPrice: number,
+      currencyText: string,
+}
+
 
 export type slidePage = 0 | 1 | 2 | 3 | 4 | 5 | 6;

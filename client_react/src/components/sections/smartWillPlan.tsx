@@ -1,190 +1,85 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { IoIosFlash } from "react-icons/io";
-import { FaCheck } from "react-icons/fa";
+import {
+  basicFeatures,
+  advancedFeatures,
+  nationalityData,
+} from "../../data/componentData";
+import PlanCard from "../layout/planCard";
 
 const SmartWillPlan = () => {
-  const [currentSelect, setCurrentSelect] = useState<boolean>(true);
+  const [currentSelect, setCurrentSelect] = useState<string>("Singaporean"); // to contributor reading (hi again), Nationality on site can be switch here
   const { t } = useTranslation("service");
 
-  // to CONTRIBUTOR reading this (hello!!), the plan price display can be modify here
-  const nationalityData = [
-    {
-      nationality: "Singaporean",
-      basicPrice: 98,
-      advancedPrice: 238,
-      currencyText: "SDG",
-    },
-    {
-      nationality: "Non-Singaporean",
-      basicPrice: 98,
-      advancedPrice: 238,
-      currencyText: "SDG",
-    },
-  ];
+  const selectedData =
+    nationalityData.find((item) => item.nationality === currentSelect) ||
+    nationalityData[0];
+  const otherNationality =
+    nationalityData.find((item) => item.nationality !== currentSelect) ||
+    nationalityData[1];
 
-  const swapSelect = () => {};
+  const handleSwapSelect = (nationality: string) => {
+    setCurrentSelect(nationality);
+  };
 
   return (
-    <div className="max-w-5xl">
-      <section className="bg-button-secondary/30 rounded-full">span</section>
-      <section className="bg-linear-to-r from-button to-element-one rounded-xl">
-        <h1 className="text-2xl text-center py-2 px-64 font-semibold text-white">
-          {t("SmartWills Plans")}
-        </h1>
-      </section>
-      <section className="grid grid-cols-2">
-        <div className="px-4 max-w-sm p-6 bg-white rounded-lg">
-          <section className="flex justify-between items-center">
-            <span className="flex gap-2">
-              <div className="bg-linear-to-r from-button to-element-one rounded-xl p-3 w-fit">
-                <IoIosFlash className="text-5xl text-white"></IoIosFlash>
-              </div>
-              <div>
-                {" "}
-                <p className="text-2xl font-semibold text-wrap w-0">
-                  Basic Plan
-                </p>
-              </div>
-            </span>
-            <span className="flex gap-2">
-              <p className="text-4xl font-bold text-wrap text-button">
-                {currentSelect
-                  ? nationalityData[0].basicPrice
-                  : nationalityData[1].basicPrice}
-              </p>
-              <p className="text-base font-bold text-wrap text-button">
-                {nationalityData[0].currencyText}
-              </p>
-            </span>
-          </section>
-          <section className="mt-8 grid-rows-6 grid gap-5 px-2">
-            <span className="flex gap-2 items-center">
-              <span className="p-1.5 bg-green-400 rounded-full text-white">
-                <FaCheck className="text-sm"></FaCheck>
-              </span>
-              <p className="text-hero-gray font-semibold text-lg">
-                Lumpsum Distribution
-              </p>
-            </span>
-            <span className="flex gap-2 items-center">
-              <span className="p-1.5 bg-green-600 rounded-full text-white">
-                <FaCheck className="text-sm"></FaCheck>
-              </span>
-              <p className="text-hero-gray font-semibold text-lg">
-                Lumpsum Distribution
-              </p>
-            </span>
-            <span className="flex gap-2 items-center">
-              <span className="p-1.5 bg-green-600 rounded-full text-white">
-                <FaCheck className="text-sm"></FaCheck>
-              </span>
-              <p className="text-hero-gray font-semibold text-lg">
-                Lumpsum Distribution
-              </p>
-            </span>
-            <span className="flex gap-2 items-center">
-              <span className="p-1.5 bg-green-600 rounded-full text-white">
-                <FaCheck className="text-sm"></FaCheck>
-              </span>
-              <p className="text-hero-gray font-semibold text-lg">
-                Lumpsum Distribution
-              </p>
-            </span>
-            <span className="flex gap-2 items-center">
-              <span className="p-1.5 bg-green-600 rounded-full text-white">
-                <FaCheck className="text-sm"></FaCheck>
-              </span>
-              <p className="text-hero-gray font-semibold text-lg">
-                Lumpsum Distribution
-              </p>
-            </span>
-            <span className="flex gap-2 items-center">
-              <span className="p-1.5 bg-green-600 rounded-full text-white">
-                <FaCheck className="text-sm"></FaCheck>
-              </span>
-              <p className="text-hero-gray font-semibold text-lg">
-                Lumpsum Distribution
-              </p>
-            </span>
-          </section>
-        </div>
-        <div className="px-4 max-w-sm p-6 bg-white rounded-lg">
-          <section className="flex justify-between items-center">
-            <span className="flex gap-2">
-              <div className="bg-linear-to-r from-button to-element-one rounded-xl p-3 w-fit">
-                <IoIosFlash className="text-5xl text-white"></IoIosFlash>
-              </div>
-              <div>
-                {" "}
-                <p className="text-2xl font-semibold text-wrap w-0">
-                  Basic Plan
-                </p>
-              </div>
-            </span>
-            <span className="flex gap-2">
-              <p className="text-4xl font-bold text-wrap text-button">
-                {currentSelect
-                  ? nationalityData[0].basicPrice
-                  : nationalityData[1].basicPrice}
-              </p>
-              <p className="text-base font-bold text-wrap text-button">
-                {nationalityData[0].currencyText}
-              </p>
-            </span>
-          </section>
-          <section className="mt-8 grid-rows-6 grid gap-5 px-2">
-            <span className="flex gap-2 items-center">
-              <span className="p-1.5 bg-green-400 rounded-full text-white">
-                <FaCheck className="text-sm"></FaCheck>
-              </span>
-              <p className="text-hero-gray font-semibold text-lg">
-                Lumpsum Distribution
-              </p>
-            </span>
-            <span className="flex gap-2 items-center">
-              <span className="p-1.5 bg-green-600 rounded-full text-white">
-                <FaCheck className="text-sm"></FaCheck>
-              </span>
-              <p className="text-hero-gray font-semibold text-lg">
-                Lumpsum Distribution
-              </p>
-            </span>
-            <span className="flex gap-2 items-center">
-              <span className="p-1.5 bg-green-600 rounded-full text-white">
-                <FaCheck className="text-sm"></FaCheck>
-              </span>
-              <p className="text-hero-gray font-semibold text-lg">
-                Lumpsum Distribution
-              </p>
-            </span>
-            <span className="flex gap-2 items-center">
-              <span className="p-1.5 bg-green-600 rounded-full text-white">
-                <FaCheck className="text-sm"></FaCheck>
-              </span>
-              <p className="text-hero-gray font-semibold text-lg">
-                Lumpsum Distribution
-              </p>
-            </span>
-            <span className="flex gap-2 items-center">
-              <span className="p-1.5 bg-green-600 rounded-full text-white">
-                <FaCheck className="text-sm"></FaCheck>
-              </span>
-              <p className="text-hero-gray font-semibold text-lg">
-                Lumpsum Distribution
-              </p>
-            </span>
-            <span className="flex gap-2 items-center">
-              <span className="p-1.5 bg-green-600 rounded-full text-white">
-                <FaCheck className="text-sm"></FaCheck>
-              </span>
-              <p className="text-hero-gray font-semibold text-lg">
-                Lumpsum Distribution
-              </p>
-            </span>
-          </section>
-        </div>
-      </section>
+    <div className="w-full flex flex-col items-center py-16">
+      <div className="grid grid-cols-2 gap-4 bg-button-secondary/30 px-2 rounded-full py-2 overflow-hidden mb-12">
+        <button
+          onClick={() => handleSwapSelect(selectedData.nationality)}
+          className={`px-8 py-1 font-semibold rounded-full transition-colors ${
+            selectedData.nationality === "Singaporean"
+              ? `bg-button text-white`
+              : `bg-none text-black`
+          }`}
+        >
+          Singaporean
+        </button>
+        <button
+          onClick={() => handleSwapSelect(otherNationality.nationality)}
+          className={`px-8 py-1 font-semibold rounded-full transition-colors ${
+            selectedData.nationality === "Non-Singaporean" ? `bg-button text-white` : `bg-none text-black`
+          }`}
+        >
+          Non-Singaporean
+        </button>
+      </div>
+
+      <div className="max-w-4xl w-full mx-auto px-4 sm:px-6">
+        <section className="bg-linear-to-r from-button to-element-one rounded-xl py-3">
+          <h1 className="text-2xl text-center font-semibold text-white">
+            SmartWills Plans
+          </h1>
+        </section>
+
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-0">
+          <PlanCard
+            planType="Basic Plan"
+            price={selectedData.basicPrice}
+            currencyText={selectedData.currencyText}
+            features={basicFeatures}
+            linkTo="/"
+            iconSrc="/assets/icon/flash.webp"
+          />
+          <PlanCard
+            planType="Advanced Plan"
+            price={selectedData.advancedPrice}
+            currencyText={selectedData.currencyText}
+            features={advancedFeatures}
+            linkTo="/"
+            iconSrc="/assets/icon/rocket.webp"
+          />
+        </section>
+      </div>
+      <span className="text-base bg-button-secondary/30 rounded-full py-2 px-6 mt-4">
+        <p className="text-[#404040] text-center mx-auto font-medium">
+          {t("service_footer1")}
+          <span className="text-button font-bold">{t("service_footer2")}</span>
+        </p>
+        <p className="text-[#404040] text-center mx-auto font-medium">
+          {t("service_footer3")}
+        </p>
+      </span>
     </div>
   );
 };

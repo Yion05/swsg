@@ -12,8 +12,8 @@ const Home = () => {
   const { t } = useTranslation("home");
   // const [countrySelect, setCountrySelect] = useState<string>("For Malaysian");
   return (
-    <section className="flex flex-col items-center justify-center gap-20 w-full">
-      <div className="w-full max-w-7xl mx-auto flex flex-col gap-4 pt-16 px-4 sm:px-8 lg:px-12">
+    <section className="flex flex-col items-center justify-center gap-8 w-full px-4 sm:px-16 lg:px-36">
+      <div className="w-full mx-auto flex flex-col gap-4 pt-16 px-4 sm:px-8 lg:px-12 my-24">
         <h3 className="text-base bg-button-secondary/30 rounded-xl px-2 py-1 w-fit">
           {t("page_quote")}
         </h3>
@@ -36,7 +36,7 @@ const Home = () => {
         </span>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-4 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+      <div className="flex flex-wrap items-center justify-center gap-4 w-full mx-auto px-4 sm:px-8 lg:px-12">
         <select
           className="appearance-auto text-lg px-6 py-2.5 border-2 rounded-xl border-button-secondary"
           name="planCheck"
@@ -63,10 +63,10 @@ const Home = () => {
 
       <HomeHero />
 
-      <div className="w-full flex relative items-center justify-center py-20">
-        <IoMdArrowDropleft className="text-5xl absolute left-4 z-20 text-secondary cursor-pointer top-1/2 -translate-y-1/2" />
-        <section className="grid grid-cols-1 lg:grid-cols-2 items-center mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="px-4 sm:px-8 lg:px-16 order-2 lg:order-1">
+      <div className="w-full flex relative items-center justify-center py-20 rounded-xl">
+        <IoMdArrowDropleft className="text-5xl absolute -left-4 z-20 text-secondary cursor-pointer top-1/2 -translate-y-1/2" />
+        <section className="grid grid-cols-1 lg:grid-cols-2 items-center">
+          <div className=" order-2 lg:order-1 px-12">
             <h1 className="text-4xl lg:text-5xl font-semibold mb-2">
               {t("hero4_why1_slide1")}{" "}
               <b className="text-button font-semibold">{t("You")}</b>
@@ -79,7 +79,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="order-1 lg:order-2 p-4">
+          <div className="order-1 lg:order-2">
             <img
               src="/assets/heroFourBG.png"
               alt="imageWhyYouNeedAValidWill"
@@ -87,9 +87,9 @@ const Home = () => {
             />
           </div>
         </section>
-        <IoMdArrowDropright className="text-5xl absolute right-4 z-20 text-secondary cursor-pointer top-1/2 -translate-y-1/2" />
+        <IoMdArrowDropright className="text-5xl absolute right-4 z-20 text-white cursor-pointer top-1/2 -translate-y-1/2" />
       </div>
-      <div className="px-4 bg-hero-gray w-full text-white flex flex-col items-center text-center gap-2 py-16">
+      <div className="px-4 bg-hero-gray w-full rounded-xl text-white flex flex-col items-center text-center gap-2 py-16">
         <p className="text-base bg-button-secondary/70 px-3 py-1 rounded-xl text-black">
           {t("hero5_p1")}
         </p>
@@ -98,7 +98,7 @@ const Home = () => {
         <p className="text-base text-wrap md:w-3xl">{t("hero5_p3")}</p>
       </div>
       <TestimonyHero></TestimonyHero>
-      <div className="px-4 bg-hero-gray w-full text-white flex flex-col items-center text-center gap-2 py-16">
+      <div className="px-4 bg-hero-gray w-full rounded-xl text-white flex flex-col items-center text-center gap-2 py-16">
         <p className="text-base bg-button-secondary/70 px-3 py-1 rounded-xl text-black">
           {t("hero5_p1")}
         </p>

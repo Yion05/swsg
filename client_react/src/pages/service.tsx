@@ -4,8 +4,8 @@ import SmartWillPlan from "../components/sections/smartWillPlan";
 const Service = () => {
   const { t } = useTranslation("service");
   return (
-    <section>
-      <div className="bg-[url(/assets/serviceBG.webp)] bg-cover bg-center h-screen flex flex-col items-center justify-center gap-4">
+    <section className="px-36">
+      <div className="bg-[url(/assets/serviceBG.webp)] h- rounded-xl bg-cover bg-center flex flex-col items-center justify-center gap-4">
         <h3 className="text-base bg-button-secondary/75 rounded-xl px-2 py-1 w-fit mb-4">
           {t("sect1_page_quote")}
         </h3>
