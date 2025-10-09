@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
-import type { slidePage } from "../types/types";
+import type { slidePage } from "../../types/types";
 
 const HeroSlide = () => {
   const [slideIndex, setSlideIndex] = useState<slidePage>(0);
-  const { t } = useTranslation("slide");
-  const 
+  const { t } = useTranslation("slide"); 
 
   return (
     <div className="w-full flex relative items-center justify-center py-20">

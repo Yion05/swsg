@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import WaveSeparator from "./waveSVG";
+import WaveSeparator from "../ui/waveSVG";
 
 const HomeHero = () => {
   const { t } = useTranslation("home");

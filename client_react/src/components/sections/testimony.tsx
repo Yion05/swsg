@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
-import type { clientReview_schema } from "../types/types";
+import type { clientReview_schema } from "../../types/types";
 
 const TestimonyHero = () => {
   const { t } = useTranslation("home");

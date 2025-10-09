@@ -5,6 +5,7 @@ WORKDIR /app
 COPY package.json ./
 COPY bun.lock ./
 COPY src ./
+COPY public ./
 
 ENV VITE_BACKEND_URL=http://localhost:8080
 

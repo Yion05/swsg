@@ -2,10 +2,11 @@ import "../config/i18n";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 import { RiArrowRightLine } from "react-icons/ri";
-import HomeHero from "../components/homeHero";
+import HomeHero from "../components/sections/homeHero";
 import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
-import TestimonyHero from "../components/testimony";
+import TestimonyHero from "../components/sections/testimony";
+import AccoladesHero from "../components/sections/accolades";
 
 const Home = () => {
   const { t } = useTranslation("home");
@@ -105,6 +106,7 @@ const Home = () => {
         <p className="text-xl font-normal text-main">{t("hero5_p2")}</p>
         <p className="text-base text-wrap md:w-3xl">{t("hero5_p3")}</p>
       </div>
+      <AccoladesHero></AccoladesHero>
     </section>
   );
 };
