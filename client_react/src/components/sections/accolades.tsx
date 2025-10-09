@@ -76,7 +76,7 @@ const AccoladesHero = () => {
   };
 
   return (
-    <section className="w-10/12 py-16">
+    <section className="shadow-lg rounded-2xl w-full py-16">
       <div className="flex flex-col items-center text-center max-w-full mx-auto gap-4">
         <h1 className="font-semibold text-3xl sm:text-4xl">
           {t("ourAccolades")}

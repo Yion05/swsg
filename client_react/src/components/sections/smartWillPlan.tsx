@@ -14,19 +14,16 @@ const SmartWillPlan = () => {
   const selectedData =
     nationalityData.find((item) => item.nationality === currentSelect) ||
     nationalityData[0];
-  const otherNationality =
-    nationalityData.find((item) => item.nationality !== currentSelect) ||
-    nationalityData[1];
 
   const handleSwapSelect = (nationality: string) => {
     setCurrentSelect(nationality);
   };
 
   return (
-    <div className="w-full flex flex-col items-center py-16">
+    <div className="shadow-lg rounded-2xl w-full flex flex-col items-center py-16">
       <div className="grid grid-cols-2 gap-4 bg-button-secondary/30 px-2 rounded-full py-2 overflow-hidden mb-12">
         <button
-          onClick={() => handleSwapSelect(selectedData.nationality)}
+          onClick={() => handleSwapSelect("Singaporean")}
           className={`px-8 py-1 font-semibold rounded-full transition-colors ${
             selectedData.nationality === "Singaporean"
               ? `bg-button text-white`
@@ -36,7 +33,7 @@ const SmartWillPlan = () => {
           Singaporean
         </button>
         <button
-          onClick={() => handleSwapSelect(otherNationality.nationality)}
+          onClick={() => handleSwapSelect("Non-Singaporean")}
           className={`px-8 py-1 font-semibold rounded-full transition-colors ${
             selectedData.nationality === "Non-Singaporean" ? `bg-button text-white` : `bg-none text-black`
           }`}
@@ -73,11 +70,11 @@ const SmartWillPlan = () => {
       </div>
       <span className="text-base bg-button-secondary/30 rounded-full py-2 px-6 mt-4">
         <p className="text-[#404040] text-center mx-auto font-medium">
-          {t("service_footer1")}
-          <span className="text-button font-bold">{t("service_footer2")}</span>
+          {currentSelect === "Singaporean" ? t("service_sg_footer1") : t('service_non_footer1')}
+          <span className="text-button font-bold">{currentSelect === "Singaporean" ? t("service_sg_footer2") : t('service_non_footer2')}</span>
         </p>
         <p className="text-[#404040] text-center mx-auto font-medium">
-          {t("service_footer3")}
+          {currentSelect === "Singaporean" ? t("service_sg_footer3") : t('service_non_footer3')}
         </p>
       </span>
     </div>

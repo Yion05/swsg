@@ -4,6 +4,7 @@ import { FaAlignJustify } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { BiShoppingBag } from "react-icons/bi";
 import LanguageSwitcher from "./languageSwitch";
+
 const Header = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] =

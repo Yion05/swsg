@@ -12,8 +12,8 @@ const Home = () => {
   const { t } = useTranslation("home");
   // const [countrySelect, setCountrySelect] = useState<string>("For Malaysian");
   return (
-    <section className="flex flex-col items-center justify-center gap-8 w-full px-4 sm:px-16 lg:px-36">
-      <div className="w-full mx-auto flex flex-col gap-4 pt-16 px-4 sm:px-8 lg:px-12 my-24">
+    <section className="flex flex-col items-center justify-center gap-12 w-full px-4 sm:px-16 lg:px-36">
+      <div className="shadow-lg p-8 rounded-2xl w-full mx-auto flex flex-col gap-4 pt-16 px-4 sm:px-8 lg:px-12 mt-36">
         <h3 className="text-base bg-button-secondary/30 rounded-xl px-2 py-1 w-fit">
           {t("page_quote")}
         </h3>
@@ -35,10 +35,9 @@ const Home = () => {
           </Link>
         </span>
       </div>
-
-      <div className="flex flex-wrap items-center justify-center gap-4 w-full mx-auto px-4 sm:px-8 lg:px-12">
+      <div className="shadow-lg p-6 rounded-2xl max-w-7xl flex flex-wrap items-center justify-center gap-8 mx-auto">
         <select
-          className="appearance-auto text-lg px-6 py-2.5 border-2 rounded-xl border-button-secondary"
+          className="appearance-auto text-lg px-8 py-2.5 border-2 rounded-xl border-button-secondary"
           name="planCheck"
           id="planCheck"
         >
@@ -46,12 +45,14 @@ const Home = () => {
             For Malaysian
           </option>
         </select>
-        <h3 className="text-lg px-4 py-2.5 rounded-xl bg-button-secondary/30">
-          SmartWills Plan Basic <b className="font-semibold">(RM388)</b>
-        </h3>
-        <h3 className="text-lg px-4 py-2.5 rounded-xl bg-button-secondary/30">
-          SmartWills Plan Advanced <b className="font-semibold">(RM788)</b>
-        </h3>
+        <span className="grid grid-cols-2 gap-8">
+          <h3 className="text-lg px-4 py-2.5 rounded-xl bg-button-secondary/30">
+            SmartWills Plan Basic <b className="font-semibold">(RM388)</b>
+          </h3>
+          <h3 className="text-lg px-4 py-2.5 rounded-xl bg-button-secondary/30">
+            SmartWills Plan Advanced <b className="font-semibold">(RM788)</b>
+          </h3>
+        </span>
         <Link
           to={"/"}
           className="gap-2 rounded-xl bg-button-green py-2.5 px-4 text-lg flex items-center text-white"
@@ -63,8 +64,8 @@ const Home = () => {
 
       <HomeHero />
 
-      <div className="w-full flex relative items-center justify-center py-20 rounded-xl">
-        <IoMdArrowDropleft className="text-5xl absolute -left-4 z-20 text-secondary cursor-pointer top-1/2 -translate-y-1/2" />
+      <div className="shadow-lg rounded-2xl w-full flex relative items-center justify-centerl">
+        <IoMdArrowDropleft className="text-5xl absolute -left-0 z-20 text-secondary cursor-pointer top-1/2 -translate-y-1/2" />
         <section className="grid grid-cols-1 lg:grid-cols-2 items-center">
           <div className=" order-2 lg:order-1 px-12">
             <h1 className="text-4xl lg:text-5xl font-semibold mb-2">
@@ -87,7 +88,7 @@ const Home = () => {
             />
           </div>
         </section>
-        <IoMdArrowDropright className="text-5xl absolute right-4 z-20 text-white cursor-pointer top-1/2 -translate-y-1/2" />
+        <IoMdArrowDropright className="text-5xl absolute right-0 z-20 text-white cursor-pointer top-1/2 -translate-y-1/2" />
       </div>
       <div className="px-4 bg-hero-gray w-full rounded-xl text-white flex flex-col items-center text-center gap-2 py-16">
         <p className="text-base bg-button-secondary/70 px-3 py-1 rounded-xl text-black">
