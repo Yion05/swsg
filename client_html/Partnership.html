@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SmartWills | Partnership</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .font-semibold {
+            font-weight: 600;
+        }
+        .bg-custom-red {
+            background-color: #960001;
+        }
+        .text-custom-red {
+            color: #960001;
+        }
+        .bg-custom-gray-light {
+            background-color: #f4f4f4;
+        }
+        .btn-transition {
+            transition: all 0.3s ease;
+        }
+        .btn-transition:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .icon-transition {
+            transition: all 0.3s ease;
+        }
+        .icon-transition:hover {
+            transform: scale(1.1);
+        }
+        .fixed-width-container {
+            width: 1280px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 2rem;
+            border-radius: 10px;
+        }
+        .no-stack {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .mobile-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .mobile-menu.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .language-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        .language-dropdown.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .section-wrapper {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto 2rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .header-wrapper {
+            width: 100%;
+            max-width: 1280px;
+            height: 80px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .section-padding {
+            padding: 2rem 1rem;
+        }
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 3rem 2rem;
+            }
+        }
+        /* --- Section 1: Reseller --- */
+        .section-1 {
+            height: 450px;
+            background-color: #fff;
+            overflow: hidden;
+        }
+        .section-1 .image-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .section-1 .full-width-image {
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+        .section-1 .half-circle-right {
+            clip-path: ellipse(100% 100% at 100% 50%);
+        }
+        /* --- Section 2: Join --- */
+        .section-2 {
+            min-height: 600px;
+            background: linear-gradient(to right, #960001, #7a0001);
+            color: white;
+            text-align: center;
+        }
+        .section-2 .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        .section-2 .icon-transition {
+            background-color: #fff;
+            color: #960001;
+        }
+        /* --- Section 3: Planner --- */
+        .section-3 {
+            height: 450px;
+            background-color: #fff;
+            overflow: hidden;
+        }
+        .section-3 .image-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .section-3 .full-width-image {
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+        .section-3 .half-circle-right {
+            clip-path: ellipse(100% 100% at 100% 50%);
+        }
+        /* --- Section 4: SmartWriter Portal --- */
+        .section-4 {
+            height: 450px;
+            background-color: #fff;
+            overflow: hidden;
+        }
+        .section-4 .no-stack {
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+        .section-4 .image-container-reverse {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .section-4 .full-width-image {
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+            transform: scaleX(-1);
+        }
+        .section-4 .half-circle-left {
+            clip-path: ellipse(100% 100% at 100% 50%);
+        }
+        .footer-wrapper {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }      
+        .section-footer {
+            background-color: #960001;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+        .section-hero {
+            width: 100%;
+            height: 320px;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .section-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .section-hero h1, .section-hero p {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+        }
+        @media (max-width: 1280px) {
+            .fixed-width-container, .header-wrapper, .footer-wrapper {
+                width: 100%;
+                padding: 0 1rem;
+            }
+            .section-wrapper {
+                margin: 0 1rem 2rem;
+                width: calc(100% - 2rem);
+            }
+        }
+        @media (max-width: 768px) {
+            /* general container */
+            .section-1 .image-container, .section-3 .image-container, .section-4 .image-container-reverse {
+                width: 50% !important;
+                height: 300px;
+                margin: 0 !important;
+            }
+            .section-hero {
+                height: 250px;
+            }
+            .section-hero h1 {
+                font-size: 25px !important;
+            }
+            .section-hero p {
+                font-size: 12px !important;
+            }
+            /* Image containers */
+            .image-container {
+                min-height: 150px;
+                min-width: 150px;
+            }
+            .image-container-reverse {
+                min-height: 150px;
+                min-width: 150px;
+            }
+            .half-circle-right, .half-circle-left {
+                clip-path: ellipse(200% 100% at 100% 50%);
+            }
+            .half-circle-left {
+                clip-path: ellipse(200% 100% at 0% 50%);
+            }
+            /* section 1: reseller */
+            .section-1 {
+                height: auto !important;
+            }
+            .section-1 h2 {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            .section-1 p {
+                margin-bottom: 0.5rem;
+            }
+            /* section 2: join program */
+            .section-2 {
+                min-height: auto !important;
+            }
+            .section-2 h2 {
+                font-size: 25px !important;
+                margin-bottom: 0.5rem;
+            }
+            .section-2 p {
+                font-size: 12px !important;
+            }
+            .section-2 .grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            /* section 3: planner */
+            .section-3 {
+                height: auto !important;
+            }
+            .section-3 h2 {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            .section-3 p {
+                margin-bottom: 0.5rem;
+            }
+            /* section 4: smartwriter portal */
+            .section-4 {
+                flex-direction: column !important;
+                height: auto !important;
+                margin-left: 1rem !important;
+            }
+            .section-4 h2 {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            .section-4 p {
+                margin-bottom: 0.5rem;
+            }
+            /* Font size adjustments for mobile */
+            .text-3xl, .text-4xl, .text-5xl {
+                font-size: 25px !important;
+            }
+            .text-lg, .text-xl, .text-2xl {
+                font-size: 12px !important;
+            }
+            .text-base {
+                font-size: 11px !important;
+            }
+            .text-sm {
+                font-size: 10px !important;
+            }
+            /* Section wrapper mobile adjustments */
+            .section-wrapper {
+                border-radius: 8px;
+                margin: 0 auto 2rem;
+            }
+        }
+        @media (min-width: 769px) {
+            .section-1 .image-container, .section-3 .image-container {
+                order: 2; /* Keep images on the right */
+            }
+            .section-4 .image-container-reverse {
+                order: 1; /* Keep image on the left */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="w-full bg-white shadow-sm fixed top-0 z-50">
+        <div class="header-wrapper mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="https://csps.vercel.app/picture/logo.png" alt="SmartWills" class="h-8 w-30">
+            </div>
+
+            <!-- Desktop Navigation --->
+            <nav class="hidden lg:block absolute left-1/2 transform -translate-x-1/2">
+                <ul class="flex items-center space-x-8 text-gray-800 font-medium">
+                    <li><a href="#" class="hover:text-[#960001] transition-colors">Home</a></li>
+                    <li><a href="#" class="hover:text-[#960001] transition-colors">Services & Plans</a></li>
+                    <li><a href="#" class="hover:text-[#960001] transition-colors">About Us</a></li>
+                    <li><a href="#" class="hover:text-[#960001] transition-colors">Resources</a></li>
+                    <li><a href="#" class="font-bold text-[#960001]">Partnership</a></li>
+                    <li><a href="#" class="hover:text-[#960001] transition-colors">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center space-x-1">
+                <!-- Shopping Bag icon -->
+                <button class="p-2 rounded hover:bg-gray-100">
+                    <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                    </svg>
+                </button>
+
+                <!-- Language Dropdown -->
+                <div class="relative">
+                    <button id="languageButton" class="flex items-center space-x-1 p-2 rounded-full hover:bg-gray-100 transition-colors duration-300">
+                        <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
+                            <img src="https://img.freepik.com/premium-vector/malaysia-circle-flag-icon-digital-vector-illustration_1143296-1349.jpg?semt=ais_hybrid&w=740&q=80" alt="English" class="h-4 w-4">
+                        </div>
+                        <span>EN</span>
+                        <svg class="w-4 h-4 transition-transform duration-300" id="languageIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Language Dropdown Menu -->
+                    <div id="languageDropdown" class="language-dropdown absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                        <div class="py-2">
+                            <button class="flex items-center space-x-3 w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors duration-300">
+                                <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
+                                    <img src="https://img.freepik.com/premium-vector/malaysia-circle-flag-icon-digital-vector-illustration_1143296-1349.jpg?semt=ais_hybrid&w=740&q=80" alt="English" class="h-4 w-4">
+                                </div>
+                                <span>English</span>
+                            </button>
+                            <button class="flex items-center space-x-3 w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors duration-300">
+                                <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
+                                    <img src="https://img.freepik.com/premium-vector/malaysia-circle-flag-icon-digital-vector-illustration_1143296-1349.jpg?semt=ais_hybrid&w=740&q=80" alt="Malay" class="h-4 w-4">
+                                </div>
+                                <span>Malay</span>
+                            </button>
+                            <button class="flex items-center space-x-3 w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors duration-300">
+                                <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
+                                    <img src="https://img.freepik.com/premium-vector/china-3d-rounded-flag-button_97173-158.jpg?semt=ais_hybrid&w=740&q=80" alt="Chinese" class="h-4 w-4">
+                                </div>
+                                <span>Chinese</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Login Button -->
+                <button class="bg-custom-red text-white px-3 py-2 rounded-lg hover:bg-red-700 transition-colors font-medium">
+                    Login
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuButton" class="lg:hidden p-2 rounded-md text-gray-600 hover:text-[#960001] hover:bg-gray-100">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu" class="mobile-menu absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-200 lg:hidden">
+            <div class="py-4 px-6">
+                <ul class="space-y-4 text-gray-800 text-lg font-medium">
+                    <li><a href="#" class="text-center block py-2 hover:text-[#960001] transition-colors duration-300">Home</a></li>
+                    <li><a href="#" class="text-center block py-2 hover:text-[#960001] transition-colors duration-300">Services & Plans</a></li>
+                    <li><a href="#" class="text-center block py-2 hover:text-[#960001] transition-colors duration-300">About Us</a></li>
+                    <li><a href="#" class="text-center block py-2 hover:text-[#960001] transition-colors duration-300">Resources</a></li>
+                    <li><a href="#" class="text-center block py-2 font-bold text-[#960001]">Partnership</a></li>
+                    <li><a href="#" class="text-center block py-2 hover:text-[#960001] transition-colors duration-300">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="h-[100px]"></div>
+
+    <!-- Hero Section --->
+    <div class="section-wrapper">
+        <section class="section-hero section-padding relative bg-cover bg-center flex items-center justify-center text-center"
+            style="background-image: url('https://images.pexels.com/photos/4963433/pexels-photo-4963433.jpeg?auto=compress&cs=tinysrgb&w=1600'); height: 320px;">
+            <div class="fixed-width-container text-white">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold">Partnership with SmartWills</h1>
+                <p class="text-lg md:text-xl lg:text-2xl mt-4 max-w-3xl mx-auto">
+                    Consider partnering with SmartWills and discover a new avenue to increase your income.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Section 1: Reseller Program --->
+    <div class="section-wrapper">
+        <section class="section-1 section-padding bg-white flex flex-col items-center justify-center">
+            <div class="no-stack h-full w-full">
+                <!-- Text Container -->
+                <div class="w-full md:w-1/2 h-full flex items-center fixed-width-container">
+                    <div class="z-10">
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-black">Reseller Business Program</h2>
+                        <p class="text-black mb-8 leading-relaxed text-base md:text-lg lg:text-xl max-w-2xl">
+                            Leverage our established platform through our reseller program, expanding your portfolio and offering enhanced services to your clientele.
+                        </p>
+                        <a href="#" class="bg-custom-red text-center text-white px-6 py-3 rounded-lg hover:bg-[#7a0001] transition-all duration-300 text-base md:text-lg btn-transition inline-block">
+                            Contact Us Now
+                        </a>
+                    </div>
+                </div>
+                <!-- Image Container -->
+                <div class="w-1/2 h-full image-container">
+                    <div class="w-full h-full bg-cover bg-center full-width-image half-circle-right" style="background-image: url('https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1600'); margin: 0; padding: 0;">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Section 2: Join Program --->
+    <div class="section-wrapper">
+        <section class="section-2 section-padding bg-gradient-to-r from-[#960001] to-[#7a0001] text-white">
+            <div class="fixed-width-container h-full flex flex-col justify-center text-center">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6">Join Our Reseller Program</h2>
+                <p class="text-white mb-8 leading-relaxed text-sm md:text-base lg:text-base max-w-4xl mx-auto">
+                    While we welcome individuals from all professional backgrounds to our reseller program, we especially value those with relevant business relationships and customer experience. If you are in one of the following professions, we would be particularly interested in having you join our team of SmartWriters.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Insurance Agents</h3>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Estate Planners</h3>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Real Estate Agents</h3>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
+                            <i class="fas fa-monument"></i>
+                        </div>
+                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Memorial Park Agents</h3>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Remisiers</h3>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Investment Consultants</h3>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Financial Planners</h3>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Will & Trust Consultants</h3>
+                    </div>
+                </div>
+                <div class="mt-14">
+                    <a href="#" class="bg-yellow-400 text-center text-custom-red font-semibold px-6 py-3 rounded-lg hover:bg-yellow-500 transition-all duration-300 text-base md:text-lg btn-transition inline-block">
+                        Contact Us Now
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Section 3: Certified Smart Planner --->
+    <div class="section-wrapper">
+        <section class="section-3 section-padding bg-white flex flex-col items-center justify-center">
+            <div class="no-stack h-full w-full">
+                <!-- Text Container -->
+                <div class="w-full md:w-1/2 h-full flex items-center fixed-width-container">
+                    <div class="z-10">
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-black">Certified Smart Planner</h2>
+                        <p class="text-black mb-8 leading-relaxed text-base md:text-lg lg:text-xl max-w-2xl">
+                            SmartPlanner is a certification program by SmartWills that trains advisors in modern estate planning using wills, trusts, and digital tools.
+                        </p>
+                        <a href="#" class="bg-custom-red text-center text-white px-6 py-3 rounded-lg hover:bg-[#7a0001] transition-all duration-300 text-base md:text-lg btn-transition inline-block">
+                            Login
+                        </a>
+                    </div>
+                </div>
+                <!-- Image Container -->
+                <div class="w-1/2 h-full image-container">
+                    <div class="w-full h-full bg-cover bg-center full-width-image half-circle-right" style="background-image: url('https://www.makemyassignments.com/blog/wp-content/uploads/2022/03/group-discussion-istock-603992138-935358-1609832067.jpg'); margin: 0; padding: 0;">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Section 4: SmartWriter Portal --->
+    <div class="section-wrapper">
+        <section class="section-4 section-padding bg-white flex flex-col items-center justify-center">
+            <div class="no-stack h-full w-full">
+                <!-- Text Container -->
+                <div class="w-full md:w-1/2 h-full flex items-center fixed-width-container">
+                    <div class="z-10 text-right w-full">
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-black">SmartWriter Portal</h2>
+                        <p class="text-black mb-8 leading-relaxed text-base md:text-lg lg:text-xl max-w-2xl ml-auto">
+                            Our registered reseller (SmartWriter) can log in here to create a Will for your client, anytime and anywhere.
+                        </p>
+                        <div class="text-right">
+                            <a href="#" class="inline-block text-center bg-custom-red text-white px-6 py-3 rounded-lg hover:bg-[#7a0001] transition-all duration-300 text-base md:text-lg btn-transition">
+                                Login
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image Container -->
+                <div class="w-1/2 h-full image-container-reverse">
+                    <div class="w-full h-full bg-cover bg-center full-width-image half-circle-left" style="background-image: url('https://c0.wallpaperflare.com/preview/583/653/138/business-laptop-office-computer.jpg'); margin: 0; padding: 0;">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer --->
+    <footer class="section-footer section-padding bg-gray-900 text-gray-300">
+        <div class="footer-wrapper h-full flex items-center justify-center text-center">
+            <p class="text-base md:text-lg">&copy; 2025 SmartWills. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('open');
+            
+            // Change icon based on menu state
+            const icon = mobileMenuButton.querySelector('svg');
+            if (mobileMenu.classList.contains('open')) {
+                // Change to X icon
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+            } else {
+                // Change back to hamburger icon
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+            }
+        });
+
+        // Language Dropdown Toggle
+        const languageButton = document.getElementById('languageButton');
+        const languageDropdown = document.getElementById('languageDropdown');
+        const languageIcon = document.getElementById('languageIcon');
+
+        languageButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            languageDropdown.classList.toggle('open');
+            languageIcon.style.transform = languageDropdown.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0)';
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideMenu = mobileMenu.contains(event.target);
+            const isClickOnButton = mobileMenuButton.contains(event.target);
+            
+            if (!isClickInsideMenu && !isClickOnButton && mobileMenu.classList.contains('open')) {
+                mobileMenu.classList.remove('open');
+                // Reset icon to hamburger
+                const icon = mobileMenuButton.querySelector('svg');
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+            }
+            
+            // Close language dropdown when clicking outside
+            const isClickInsideLanguage = languageDropdown.contains(event.target);
+            const isClickOnLanguageButton = languageButton.contains(event.target);
+            
+            if (!isClickInsideLanguage && !isClickOnLanguageButton && languageDropdown.classList.contains('open')) {
+                languageDropdown.classList.remove('open');
+                languageIcon.style.transform = 'rotate(0)';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+                // Reset icon to hamburger
+                const icon = mobileMenuButton.querySelector('svg');
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+            });
+        });
+
+        // Close language dropdown when selecting a language
+        const languageOptions = languageDropdown.querySelectorAll('button');
+        languageOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                languageDropdown.classList.remove('open');
+                languageIcon.style.transform = 'rotate(0)';
+            });
+        });
+    </script>
+</body>
+</html>

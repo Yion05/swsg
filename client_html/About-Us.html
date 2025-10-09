@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SmartWills | About Us</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    /* Section padding styles */
+    .section-padding {
+      padding: 2rem 1rem;
+    }
+    @media (min-width: 768px) {
+      .section-padding {
+        padding: 3rem 2rem;
+      }
+    }
+    
+    /* Updated container class to use max-w-7xl */
+    .max-w-7xl {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    .mobile-menu {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      max-height: 0;
+      overflow: hidden;
+    }
+    .mobile-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      max-height: 80vh;
+      overflow-y: auto;
+    } 
+    .language-dropdown {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+    }
+    .language-dropdown.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .header-container {
+      max-width: 1280px;
+      height: 80px;
+      margin: 0 auto;
+    }
+    .half-circle {
+      width: 100%;
+      height: 40px;
+      border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    }
+    .section-container {
+      position: relative;
+    }
+    .section-footer {
+      height: 100px;
+    }
+    .bg-custom-red {
+      background-color: #960001;
+    }
+    .bg-custom-gray-light {
+      background-color: #f4f4f4;
+    }
+    .bg-custom-gray-dark {
+      background-color: #d9d9d9;
+    }
+    .text-custom-red {
+      color: #960001;
+    }
+    .bg-custom-red-light {
+      background-color: rgba(150, 0, 1, 0.1);
+    }
+    .border-custom-red {
+      border-color: #960001;
+    }
+    .font-semibold {
+      font-weight: 600;
+    }
+    
+    .section-wrapper {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto 2rem;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    @media (max-width: 1280px) {
+      .max-w-7xl {
+        padding: 0 1rem;
+      }
+      .section-wrapper {
+        margin: 0 1rem 2rem;
+        width: calc(100% - 2rem);
+      }
+    }
+
+    /* Mobile-specific styles */
+    @media (max-width: 768px) {
+      .section-wrapper {
+          margin: 0 1rem 2rem;
+          width: calc(100% - 2rem);
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+      /* Section 1: What is a Will */
+      .section-1 {
+        height: auto !important;
+        min-height: 50vh;
+        padding: 4rem 0;
+      }
+      
+      .section-1 h2 {
+        font-size: 25px !important;
+      }
+      
+      .section-1 p {
+        font-size: 12px !important;
+        margin-top: 0;
+      }
+      
+      /* Section 2: Who We Are */
+      .section-2 {
+        height: auto !important;
+        min-height: 80vh;
+        padding: 2rem 0 4rem;
+      }
+      
+      .section-2 .top-section {
+        height: auto !important;
+        padding: 4rem 0 2rem;
+      }
+      
+      .section-2 h2 {
+        font-size: 25px !important;
+        margin-top: 0 !important;
+      }
+      
+      .section-2 h3 {
+        font-size: 12px !important;
+        margin-top: 0;
+      }
+      
+      .section-2 .half-circle {
+        margin-top: -3rem;
+      }
+      
+      .section-2 .content-container {
+        margin-top: 12rem !important;
+      }
+      
+      .section-2 p {
+        font-size: 12px !important;
+        margin: 1rem 0 !important;
+        padding: 0 !important;
+      }
+      
+      /* Section 3: Our Vision */
+      .section-3 {
+        height: auto !important;
+        min-height: 30vh;
+        padding: 3rem 0;
+      }
+      
+      .section-3 h2 {
+        font-size: 25px !important;
+        margin-bottom: 0.5rem !important;
+      }
+      
+      .section-3 p {
+        font-size: 12px !important;
+        line-height: 1.5;
+      }
+      
+      /* Section 4: Our Value */
+      .section-4 {
+        height: auto !important;
+        min-height: 80vh;
+        padding: 2rem 0 4rem;
+      }
+      
+      .section-4 h2 {
+        font-size: 25px !important;
+        margin-top: -4rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      .section-4 h3 {
+        font-size: 12px !important;
+        margin-bottom: 0 !important;
+      }
+      
+      .section-4 p {
+        font-size: 12px !important;
+        margin-bottom: 2rem !important;
+      }
+      
+      .section-4 .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+      }
+      
+      .section-4 .card {
+        padding: 1.5rem !important;
+      }
+      
+      .section-4 .card .icon {
+        width: 80px !important;
+        height: 80px !important;
+        margin-bottom: 1rem;
+      }
+      
+      .section-4 .card h3 {
+        font-size: 15px !important;
+        margin-bottom: 0.5rem !important;
+      }
+      
+      .section-4 .card p {
+        font-size: 12px !important;
+        margin-bottom: 0 !important;
+      }
+      
+      /* Section 5: Meet Our Team */
+      .section-5 {
+        height: auto !important;
+        min-height: 80vh;
+        padding: 2rem 0 4rem;
+      }
+      
+      .section-5 h2 {
+        font-size: 25px !important;
+        margin-top: -2rem !important;
+        margin-bottom: 0 !important;
+      }
+      
+      .section-5 .subtitle {
+        font-size: 12px !important;
+        margin-bottom: 0 !important;
+      }
+      
+      .section-5 .description {
+        font-size: 12px !important;
+        margin-bottom: 2rem !important;
+        line-height: 1.2rem;
+      }
+      
+      .section-5 .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+      }
+      
+      .section-5 .team-card {
+        height: 180px !important;
+        padding: 1.5rem !important;
+        margin-bottom: 0 !important;
+      }
+      
+      .section-5 .team-card .info {
+        bottom: 1.5rem !important;
+      }
+      
+      .section-5 .team-card h3 {
+        font-size: 15px !important;
+        margin-bottom: 0.5rem !important;
+      }
+      
+      .section-5 .team-card p {
+        font-size: 12px !important;
+      }
+
+      .section-footer {
+        height: 100px;
+      } 
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header - UPDATED TO USE max-w-7xl -->
+  <header class="w-full bg-white shadow-sm fixed top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="https://csps.vercel.app/picture/logo.png" alt="SmartWills" class="h-8 w-30">
+      </div>
+
+      <!-- Desktop Navigation --->
+      <nav class="hidden lg:block absolute left-1/2 transform -translate-x-1/2">
+        <ul class="flex items-center space-x-8 text-gray-800 font-medium">
+          <li><a href="#" class="hover:text-[#960001] transition-colors">Home</a></li>
+          <li><a href="#" class="hover:text-[#960001] transition-colors">Services & Plans</a></li>
+          <li><a href="#" class="font-bold text-[#960001]">About Us</a></li>
+          <li><a href="#" class="hover:text-[#960001] transition-colors">Resources</a></li>
+          <li><a href="#" class="hover:text-[#960001] transition-colors">Partnership</a></li>
+          <li><a href="#" class="hover:text-[#960001] transition-colors">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Actions -->
+      <div class="flex items-center space-x-1">
+        <!-- Shopping Bag icon -->
+        <button class="p-2 rounded hover:bg-gray-100">
+          <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+        </button>
+
+        <!-- Language Dropdown -->
+        <div class="relative">
+          <button id="languageButton" class="flex items-center space-x-1 p-2 rounded-full hover:bg-gray-100 transition-colors duration-300">
+            <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
+              <img src="https://img.freepik.com/premium-vector/malaysia-circle-flag-icon-digital-vector-illustration_1143296-1349.jpg?semt=ais_hybrid&w=740&q=80" alt="English" class="h-4 w-4">
+            </div>
+            <span>EN</span>
+            <svg class="w-4 h-4 transition-transform duration-300" id="languageIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          
+          <!-- Language Dropdown Menu -->
+          <div id="languageDropdown" class="language-dropdown absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+            <div class="py-2">
+              <button class="flex items-center space-x-3 w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors duration-300">
+                <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
+                  <img src="https://img.freepik.com/premium-vector/malaysia-circle-flag-icon-digital-vector-illustration_1143296-1349.jpg?semt=ais_hybrid&w=740&q=80" alt="English" class="h-4 w-4">
+                </div>
+                <span>English</span>
+              </button>
+              <button class="flex items-center space-x-3 w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors duration-300">
+                <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
+                  <img src="https://img.freepik.com/premium-vector/malaysia-circle-flag-icon-digital-vector-illustration_1143296-1349.jpg?semt=ais_hybrid&w=740&q=80" alt="Malay" class="h-4 w-4">
+                </div>
+                <span>Malay</span>
+              </button>
+              <button class="flex items-center space-x-3 w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors duration-300">
+                <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
+                  <img src="https://img.freepik.com/premium-vector/china-3d-rounded-flag-button_97173-158.jpg?semt=ais_hybrid&w=740&q=80" alt="Chinese" class="h-4 w-4">
+                </div>
+                <span>Chinese</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Login Button -->
+        <button class="bg-custom-red text-white px-3 py-2 rounded-lg hover:bg-red-700 transition-colors font-medium">
+          Login
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuButton" class="lg:hidden p-2 rounded-md text-gray-600 hover:text-[#960001] hover:bg-gray-100">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="mobile-menu absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-200 lg:hidden">
+      <div class="py-4 px-6">
+        <ul class="space-y-4 text-gray-800 text-lg font-medium">
+          <li><a href="#" class="text-center block py-2 hover:text-[#960001] transition-colors duration-300">Home</a></li>
+          <li><a href="#" class="text-center block py-2 hover:text-[#960001] transition-colors duration-300">Services & Plans</a></li>
+          <li><a href="#" class="text-center block py-2 font-bold text-[#960001]">About Us</a></li>
+          <li><a href="#" class="text-center block py-2 hover:text-[#960001] transition-colors duration-300">Resources</a></li>
+          <li><a href="#" class="text-center block py-2 hover:text-[#960001] transition-colors duration-300">Partnership</a></li>
+          <li><a href="#" class="text-center block py-2 hover:text-[#960001] transition-colors duration-300">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="h-[100px]"></div>
+
+  <!-- Section 1: What is a Will - UPDATED TO USE max-w-7xl -->
+  <div class="section-wrapper">
+    <section class="section-1 section-padding relative bg-center bg-no-repeat flex items-center justify-center text-center"
+      style="background-image: url('https://www.designersguild.com/image-nonwebp/156/59523'); background-size: cover; background-position: center; height: 420px;">
+      <div class="max-w-7xl text-black">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold">What is a Will?</h2>
+        <p class="text-lg md:text-xl lg:text-2xl mt-4 max-w-8xl mx-auto">
+          A Will is a legal document that allows you, the testator or Will maker, to designate certain individuals or charities as beneficiaries to receive your assets and possessions upon your passing.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Section 2: Who We Are - UPDATED TO USE max-w-7xl -->
+  <div class="section-wrapper">
+    <section class="bg-white section-2 section-padding section-container flex flex-col items-center justify-center text-center bg-custom-gray-light" style="height: 685px;">
+      <!-- Top Half Rounded Background with Title Inside -->
+      <div class="top-section absolute top-0 left-0 w-full h-1/3 bg-custom-gray-dark flex flex-col items-center justify-center pb-8">
+        <h2 class="mt-16 text-4xl md:text-5xl lg:text-6xl font-semibold">Who We Are?</h2>
+        <h3 class="text-lg md:text-xl lg:text-2xl mt-4 max-w-8xl px-4">Know SmartWills - Your Smartest & Fastest Online Will Writer</h3>
+      </div>
+      <div class="half-circle bg-custom-gray-dark absolute top-1/3 left-0 z-0" style="top: 33.33%;"></div>
+      <div class="max-w-7xl content-container relative z-10 mt-48">
+        <div class="text-medium md:text-base lg:text-lg text-black text-body leading-relaxed text-center">
+          <p class="mb-6">
+            We are a Wealth FinTech company dedicated to meeting the modern demand for easy, fast, and trusted digital financial services.
+          </p>
+          <p class="mb-6">
+            SmartWills was born from a collaboration between financial advisors, planners, legal experts, and technology professionals, with a shared mission: to make Will preparation simple, affordable, and accessible to everyone—regardless of economic background.
+          </p>
+          <p class="mb-6">
+            In late 2016, we began an ambitious initiative to build a user-friendly Will-making platform, designed for both web and mobile use. After nearly three years of research, planning, and development, we proudly launched our online Will-making service in Malaysia in early 2019.
+          </p>
+          <p>
+            As demand grew, we expanded our presence to Singapore, establishing a branch office in mid-2023.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Section 3: Our Vision - UPDATED TO USE max-w-7xl -->
+  <div class="section-wrapper">
+    <section class="section-3 section-padding bg-custom-red text-white flex flex-col items-center justify-center text-center" style="height: 280px;">
+      <div class="max-w-7xl">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6">Our Vision</h2>
+        <p class="text-lg md:text-xl lg:text-2xl">
+          We aim to be ASEAN's most trusted and formidable Wealth FinTech group.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Section 4: Our Value - UPDATED TO USE max-w-7xl -->
+  <div class="section-wrapper">
+    <section class="mt-10 section-4 section-padding bg-white flex flex-col items-center justify-center text-center" style="height: 465px;">
+      <div class="max-w-7xl">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-2">Our Value</h2>
+        <h3 class="text-black text-lg md:text-xl lg:text-2xl">
+          Simple, Secure and Affordable Digital Estate Planning
+        </h3>
+        <p class="text-black mb-2 text-lg md:text-xl lg:text-2xl">
+          Making Will-writing and Legacy Management <span class="font-bold text-custom-red">FASTER, SMARTER AND MORE ACCESSIBLE.</span>
+        </p>
+        <div class="grid md:grid-cols-3 gap-8 text-medium md:text-base lg:text-lg">
+          <div class="card bg-custom-gray-light shadow-lg rounded-2xl p-2 md:p-4 transition-transform duration-300 hover:scale-105">
+            <div class="icon w-24 h-24 md:w-32 md:h-32 bg-custom-gray-dark rounded-full mx-auto mb-2 flex items-center justify-center"></div>
+            <h3 class="font-bold text-custom-red mb-1 text-body">CUSTOMER-CENTRIC</h3>
+            <p class="text-black text-body-sm">Designing and offering a platform with the end users in mind</p>
+          </div>
+          <div class="card bg-custom-gray-light shadow-lg rounded-2xl p-2 md:p-4 transition-transform duration-300 hover:scale-105">
+            <div class="icon w-24 h-24 md:w-32 md:h-32 bg-custom-gray-dark rounded-full mx-auto mb-2 flex items-center justify-center"></div>
+            <h3 class="font-bold text-custom-red mb-1 text-body">SHAREHOLDER-FOCUSED</h3>
+            <p class="text-black text-body-sm">SmartWills made what seemed like a daunting task both simple and respectful. I'm relieved to have my affairs in order for my loved ones.</p>
+          </div>
+          <div class="card bg-custom-gray-light shadow-lg rounded-2xl p-2 md:p-4 transition-transform duration-300 hover:scale-105">
+            <div class="icon w-24 h-24 md:w-32 md:h-32 bg-custom-gray-dark rounded-full mx-auto mb-2 flex items-center justify-center"></div>
+            <h3 class="font-bold text-custom-red text-body">SUSTAINABLE</h3>
+            <p class="text-black text-body-sm">Prioritizing the environment, society and good governance in our business operations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Section 5: Meet Our Team - UPDATED TO USE max-w-7xl -->
+  <div class="section-wrapper">
+    <section class="section-5 section-padding mt-4 bg-white flex flex-col items-center justify-center text-center" style="height: 495px;">
+      <div class="max-w-7xl">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">Meet Our Team</h2>
+        <p class="subtitle font-bold text-custom-red mb-2 text-lg md:text-xl">Professional Minds Behind Every Smart Decision</p>
+        <p class="description text-black mb-12 text-lg md:text-xl">Our professional team combines legal expertise and smart technology to protect your legacy with confidence.</p>
+        <div class="grid md:grid-cols-3 gap-8 text-medium md:text-base lg:text-lg">
+          <div class="team-card bg-custom-gray-light shadow-lg rounded-2xl mb-10 p-6 md:p-8 transition-transform duration-300 hover:scale-105 h-48 flex flex-col justify-end relative">
+            <div class="info absolute bottom-6 left-0 right-0">
+              <h3 class="text-custom-red font-bold text-body mb-2">DYLAN NG</h3>
+              <p class="text-black text-body-sm">Founder & Group CEO</p>
+            </div>
+          </div>
+          <div class="team-card bg-custom-gray-light shadow-lg rounded-2xl mb-10 p-6 md:p-8 transition-transform duration-300 hover:scale-105 h-48 flex flex-col justify-end relative">
+            <div class="info absolute bottom-6 left-0 right-0">
+              <h3 class="text-custom-red font-bold text-body mb-2">ZELOS NG</h3>
+              <p class="text-black text-body-sm">Co-Founder & Group CTO</p>
+            </div>
+          </div>
+          <div class="team-card bg-custom-gray-light shadow-lg rounded-2xl mb-10 p-6 md:p-8 transition-transform duration-300 hover:scale-105 h-48 flex flex-col justify-end relative">
+            <div class="info absolute bottom-6 left-0 right-0">
+              <h3 class="text-custom-red font-bold text-body mb-2">FIONA LEE</h3>
+              <p class="text-black text-body-sm">Group VP Finance</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer - UPDATED TO USE max-w-7xl -->
+  <footer class="section-container section-footer bg-gray-900 text-gray-300">
+    <div class="max-w-7xl h-full flex items-center justify-center text-center">
+      <p class="text-base md:text-lg">&copy; 2025 SmartWills. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuButton.addEventListener('click', function(e) {
+      e.stopPropagation();
+      mobileMenu.classList.toggle('open');
+      
+      // Change icon based on menu state
+      const icon = mobileMenuButton.querySelector('svg');
+      if (mobileMenu.classList.contains('open')) {
+        // Change to X icon
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+      } else {
+        // Change back to hamburger icon
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+      }
+    });
+
+    // Language Dropdown Toggle
+    const languageButton = document.getElementById('languageButton');
+    const languageDropdown = document.getElementById('languageDropdown');
+    const languageIcon = document.getElementById('languageIcon');
+
+    languageButton.addEventListener('click', function(e) {
+      e.stopPropagation();
+      languageDropdown.classList.toggle('open');
+      languageIcon.style.transform = languageDropdown.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0)';
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const isClickInsideMenu = mobileMenu.contains(event.target);
+      const isClickOnButton = mobileMenuButton.contains(event.target);
+      
+      if (!isClickInsideMenu && !isClickOnButton && mobileMenu.classList.contains('open')) {
+        mobileMenu.classList.remove('open');
+        // Reset icon to hamburger
+        const icon = mobileMenuButton.querySelector('svg');
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+      }
+      
+      // Close language dropdown when clicking outside
+      const isClickInsideLanguage = languageDropdown.contains(event.target);
+      const isClickOnLanguageButton = languageButton.contains(event.target);
+      
+      if (!isClickInsideLanguage && !isClickOnLanguageButton && languageDropdown.classList.contains('open')) {
+        languageDropdown.classList.remove('open');
+        languageIcon.style.transform = 'rotate(0)';
+      }
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.remove('open');
+        // Reset icon to hamburger
+        const icon = mobileMenuButton.querySelector('svg');
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+      });
+    });
+
+    // Close language dropdown when selecting a language
+    const languageOptions = languageDropdown.querySelectorAll('button');
+    languageOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        languageDropdown.classList.remove('open');
+        languageIcon.style.transform = 'rotate(0)';
+      });
+    });
+  </script>
+  
+</body>
+</html>
