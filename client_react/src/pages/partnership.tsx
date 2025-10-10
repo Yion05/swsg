@@ -1,9 +1,30 @@
-
+import { Hero, ResellerProgram } from "../components/sections/partnershipHero";
+import { CertifiedPlanner, JoinProgram, SmartWriterPortal } from "../components/sections/partnershipJoin";
 
 const Partnership = () => {
   return (
-    <div>Partnership</div>
-  )
-}
+    <section className="px-4 sm:px-16 lg:px-36 flex flex-col gap-8 mt-36">
+      <div className="rounded-lg shadow-lg overflow-hidden">
+        <Hero />
+      </div>
 
-export default Partnership
+      <div className="rounded-lg shadow-lg overflow-hidden">
+        <ResellerProgram />
+      </div>
+
+      <div className="rounded-lg shadow-lg overflow-hidden">
+        <JoinProgram />
+      </div>
+
+      <div className="rounded-lg shadow-lg overflow-hidden">
+        <CertifiedPlanner />
+      </div>
+
+      <div className="rounded-lg shadow-lg overflow-hidden">
+        <SmartWriterPortal />
+      </div>
+    </section>
+  );
+};
+
+export default Partnership;

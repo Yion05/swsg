@@ -18,5 +18,15 @@ export interface nationalityData_schema {
       currencyText: string,
 }
 
+export interface QuestionItem {
+  question: string;
+  answer: string;
+};
+
+export interface ResourceCategory {
+  questionPlan: string;
+  questionSVG: string;
+  questions: QuestionItem[];
+};
 
 export type slidePage = 0 | 1 | 2 | 3 | 4 | 5 | 6;

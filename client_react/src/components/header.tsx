@@ -1,15 +1,37 @@
 import { Link, useLocation } from "react-router";
-import * as React from "react";
-import { FaAlignJustify } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import { BiShoppingBag } from "react-icons/bi";
 import LanguageSwitcher from "./languageSwitch";
+import { useEffect, useRef, useState } from "react";
 
 const Header = () => {
   const location = useLocation();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] =
-    React.useState<boolean>(false);
   const { t } = useTranslation("header");
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const languageDropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node)
+      ) {
+        setIsMobileMenuOpen(false);
+      }
+      if (
+        languageDropdownRef.current &&
+        !languageDropdownRef.current.contains(event.target as Node)
+      ) {
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const headerData = [
     {
@@ -38,92 +60,113 @@ const Header = () => {
     },
   ];
 
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
-
   return (
-    <header className="sticky z-50 top-0 bg-white flex justify-around items-center py-6">
-      <div className={isMobileMenuOpen ? "hidden" : "block"}>
-        <span className="flex items-center gap-2">
-          <img
-            src="/assets/logoMain1x3.png"
-            alt="SmartWillLogo"
-            className="h-13 w-42"
-            about="Smart Will logo"
-          />
-        </span>
-      </div>
-      <div className="hidden sm:block">
-        <section className="flex items-center text-lg gap-2 sm:gap-4">
-          {headerData.map((data, index) => (
-            <Link
-              to={data.link}
-              key={index}
-              className={`
-                px-4
-                transform
-                transition
-                duration-500
-                ease-in-out
-                hover:scale-105
-                hover:text-black
-                ${
-                  location.pathname === data.link
-                    ? "font-semibold"
-                    : ""
-                }
-              `}
-            >
-              {data.title}
-            </Link>
-          ))}
-        </section>
-      </div>
-
-      <div className="flex items-center gap-2">
-        <BiShoppingBag className="text-2xl"></BiShoppingBag>
-        <LanguageSwitcher></LanguageSwitcher>
-        <button className="text-base p-2 gap-2 rounded-sm bg-button text-white font-semibold">{t("login")}</button>
-      </div>
-
-      <div className={`sm:hidden ${isMobileMenuOpen ? "hidden" : "block"}`}>
-        <FaAlignJustify
-          className="text-xl cursor-pointer"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+    <header
+      ref={mobileMenuRef}
+      className="w-full px-4 sm:px-16 lg:px-36  bg-white shadow-sm fixed top-0 z-50 py-2"
+    >
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+        <img
+          src="/assets/logoMain1x3.png"
+          alt="SmartWills"
+          className="h-12 w-auto"
         />
+
+        <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2">
+          <ul className="flex items-center space-x-8 text-[#404040]">
+            {headerData.map((data, index) => (
+              <li key={index}>
+                <Link
+                  to={data.link}
+                  className={`transition-colors text-base ${
+                    location.pathname === data.link ? "font-semibold" : ""
+                  }`}
+                >
+                  {data.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="flex items-center space-x-1">
+          <button className="p-2 rounded">
+            <svg
+              className="w-6 h-6 text-[#404040]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+              />
+            </svg>
+          </button>
+
+          <LanguageSwitcher></LanguageSwitcher>
+
+          <button className="bg-[#960001] text-white px-3 py-2 rounded-lg hover:bg-red-700 transition-colors font-medium">
+            Login
+          </button>
+
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden p-2 rounded-md text-gray-600 hover:text-[#960001] hover:bg-gray-100"
+          >
+            {isMobileMenuOpen ? (
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            ) : (
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
 
-      {/* {isMobileMenuOpen && (
-        <div className="w-full p-2">
-          <div className="w-full flex justify-end">
-            <FaAlignJustify
-              className="text-xl cursor-pointer rotate-90 transform transition duration-300"
-              onClick={closeMobileMenu}
-            />
-          </div>
-          <section className="flex flex-col text-2xl gap-2 items-center">
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-white shadow-lg border-t">
+          <ul className="py-4 px-6 space-y-4 text-gray-800 text-lg font-medium">
             {headerData.map((data, index) => (
-              <Link
-                to={data.link}
-                key={index}
-                className={`
-                  text-center
-                  py-4
-                  ${
-                    location.pathname === data.link
-                      ? "text-black"
-                      : "text-gray-700"
-                  }
-                `}
-                onClick={closeMobileMenu}
-              >
-                {data.title}
-              </Link>
+              <li key={index}>
+                <Link
+                  to={data.link}
+                  className={`text-center block py-2 transition-colors duration-300 ${
+                    location.pathname === data.title ? "font-semib-old" : ""
+                  }`}
+                >
+                  {data.title}
+                </Link>
+              </li>
             ))}
-          </section>
+          </ul>
         </div>
-      )} */}
+      )}
     </header>
   );
 };

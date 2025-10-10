@@ -3,6 +3,7 @@ import SmartWillPlan from "../components/sections/smartWillPlan";
 import { productServices } from "../data/componentData";
 import { Link } from "react-router";
 import { BiShoppingBag } from "react-icons/bi";
+// import HeroServicePlan from "../components/sections/heroServicePlan";
 
 const Service = () => {
   const { t } = useTranslation("service");
@@ -78,6 +79,9 @@ const Service = () => {
           </Link>
         </span>
       </div>
+
+      {/* this part is removed */}
+      {/* <HeroServicePlan></HeroServicePlan> */}
     </section>
   );
 };
