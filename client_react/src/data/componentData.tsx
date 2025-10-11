@@ -1,4 +1,4 @@
-import type { ResourceCategory } from "../types/types";
+import type { hero4Slide_schema, ResourceCategory } from "../types/types";
 
 export const basicFeatures = [
   "Lumpsum Distribution",
@@ -206,5 +206,50 @@ export const resourceQuestionData: ResourceCategory[] = [
           "No. A legally binding Will does not require stamping at the Inland Revenue Authority of Singapore (IRAS) office.",
       },
     ],
+  },
+];
+
+export const hero4SlideData: hero4Slide_schema[] = [
+  {
+    titleSegment: "slide1_",
+    paragraph: "slide1_paragraph1",
+    image: "/assets/test",
+    alignment: "start",
+  },
+  {
+    titleSegment: "slide2_",
+    paragraph: "slide2_paragraph1",
+    image: "/assets/test",
+    alignment: "start",
+  },
+  {
+    titleSegment: "slide3_",
+    paragraph: "slide3_paragraph1",
+    image: "/assets/test",
+    alignment: "end",
+  },
+  {
+    titleSegment: "slide4_",
+    paragraph: "slide4_paragraph1",
+    image: "/assets/test",
+    alignment: "start",
+  },
+  {
+    titleSegment: "slide5_",
+    paragraph: "slide5_paragraph1",
+    image: "/assets/test",
+    alignment: "end",
+  },
+  {
+    titleSegment: "slide6_",
+    paragraph: "slide6_paragraph1",
+    image: "/assets/test",
+    alignment: "start",
+  },
+  {
+    titleSegment: "slide7_",
+    paragraph: "slide7_paragraph1",
+    image: "/assets/test",
+    alignment: "end",
   },
 ];

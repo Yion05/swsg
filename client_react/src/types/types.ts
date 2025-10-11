@@ -1,5 +1,12 @@
 
 
+export interface hero4Slide_schema {
+  titleSegment: string,
+  paragraph: string,
+  image: string,
+  alignment: "start" | "end",
+}
+
 export interface clientReview_schema {
     client_picture: string,
     client_headline: string,

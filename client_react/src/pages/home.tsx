@@ -3,8 +3,6 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 import { RiArrowRightLine } from "react-icons/ri";
 import HomeHero from "../components/sections/homeHero";
-import { IoMdArrowDropleft } from "react-icons/io";
-import { IoMdArrowDropright } from "react-icons/io";
 import TestimonyHero from "../components/sections/testimony";
 import AccoladesHero from "../components/sections/accolades";
 import { Hero4Slide } from "../components/sections/homeSlide";
@@ -65,7 +63,9 @@ const Home = () => {
 
       <HomeHero />
 
-      <Hero4Slide></Hero4Slide>
+      <div className="shadow-lg w-full overflow-hidden rounded-2xl">
+        <Hero4Slide></Hero4Slide>
+      </div>
       <div className="px-4 bg-hero-gray w-full rounded-xl text-white flex flex-col items-center text-center gap-2 py-16">
         <p className="text-base bg-button-secondary/70 px-3 py-1 rounded-xl text-black">
           {t("hero5_p1")}

@@ -29,7 +29,7 @@ const LanguageSwitcher = () => {
     const getLanguageMap = (code: string) => {
     switch (code) {
       case "en":
-        return "/assets/MYFlag1x1.png";
+        return "/assets/MYFlag1x1.webp";
       case "cn":
         return "";
       default:
