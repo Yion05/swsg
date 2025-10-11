@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { resourceQuestionData } from "../../data/componentData";
-import { IoIosArrowDown } from "react-icons/io";
 import { useTranslation } from "react-i18next";
 
-const QnAPage = () => {
+export const QnAPage = () => {
   const [activeCategory, setActiveCategory] = useState(
     resourceQuestionData[0].questionPlan
   );
@@ -121,4 +120,43 @@ const QnAPage = () => {
   );
 };
 
-export default QnAPage;
+export const ContactForm = () => {
+  return (
+    <section className="w-full py-20 bg-white">
+      {/* <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-1">
+            More Questions?
+          </h2>
+          <p className="text-lg text-gray-700">
+            Contact Us for More Information
+          </p>
+        </div>
+
+        <form className="flex flex-col gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input
+              type="text"
+              placeholder="Your Name"
+              aria-label="Your Name"
+              className="p-4 rounded-xl bg-gray-200 text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 transition duration-150"
+            />
+            <input
+              type="email"
+              placeholder="Email Address"
+              aria-label="Email Address"
+              className="p-4 rounded-xl bg-gray-200 text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 transition duration-150"
+            />
+          </div>
+
+          <textarea
+            placeholder="Your Message..."
+            aria-label="Your Message"
+            rows={6}
+            className="p-4 rounded-xl bg-gray-200 text-gray-700 placeholder-gray-500 resize-none focus:outline-none focus:ring-2 focus:ring-gray-400 transition duration-150"
+          ></textarea>
+        </form>
+      </div> */}
+    </section>
+  );
+};

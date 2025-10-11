@@ -5,7 +5,7 @@ export const Hero = () => {
   const { t } = useTranslation("partnership");
   return (
     <section
-      className="relative bg-cover bg-center h-120 flex items-center justify-center text-center bg-[url(/assets/partnershipHandshake.webp)]"
+      className="relative bg-cover bg-center h-120 flex items-center justify-center text-center bg-[url(/assets/partnership/partnershipHandshake.webp)]"
     >
       <div className="absolute inset-0 bg-opacity-40"></div>
 
@@ -28,7 +28,7 @@ export const ResellerProgram = () => {
 
   return (
     <section className=" flex flex-col items-center">
-      <div className="w-full p-8 md:pl-16 flex flex-col h-full bg-cover bg-center bg-[url(/assets/partnershipDiscuss.webp)] py-36">
+      <div className="w-full p-8 md:pl-16 flex flex-col h-full bg-cover bg-center bg-[url(/assets/partnership/partnershipDiscuss.webp)] py-36">
         <h2 className="max-w-xl text-3xl md:text-4xl lg:text-5xl font-semibold mb-2 text-black">
           Reseller Business Program
         </h2>
