@@ -8,32 +8,32 @@ const AccoladesHero = () => {
   // data to for the MyAccolades, you can modify the accolades here
   const staticData: accolades_schema[] = [
     {
-      accolades_logo: "/assets/accolades/ISO.png",
+      accolades_logo: "/assets/accolades/ISO.webp",
       accolades_title: "acco_1_title",
       accolades_des: "acco_1_des",
     },
     {
-      accolades_logo: "/assets/accolades/ISO.png",
+      accolades_logo: "/assets/accolades/ISO.webp",
       accolades_title: "acco_2_title",
       accolades_des: "acco_2_des",
     },
     {
-      accolades_logo: "/assets/accolades/ISO.png",
+      accolades_logo: "/assets/accolades/ISO.webp",
       accolades_title: "acco_3_title",
       accolades_des: "acco_3_des",
     },
     {
-      accolades_logo: "/assets/accolades/ISO.png",
+      accolades_logo: "/assets/accolades/ISO.webp",
       accolades_title: "acco_4_title",
       accolades_des: "acco_4_des",
     },
     {
-      accolades_logo: "/assets/accolades/ISO.png",
+      accolades_logo: "/assets/accolades/ISO.webp",
       accolades_title: "acco_5_title",
       accolades_des: "acco_5_des",
     },
     {
-      accolades_logo: "/assets/accolades/ISO.png",
+      accolades_logo: "/assets/accolades/ISO.webp",
       accolades_title: "acco_6_title",
       accolades_des: "acco_6_des",
     },

@@ -24,7 +24,7 @@ const TestimonyHero = () => {
   ];
 
   return (
-    <div className="shadow-lg rounded-2xl max-w-full flex flex-col items-center py-10">
+    <div className="flex flex-col items-center py-10">
       <h1 className="text-4xl font-bold mb-2">{t("ourReview")}</h1>
       <h3 className="text-lg mb-10">{t("clientReview")}</h3>
 

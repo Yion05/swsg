@@ -48,13 +48,13 @@ const HeroServicePlan = () => {
         <div className="text-center mb-16">
           {" "}
           <p className="text-sm font-medium text-gray-600 mb-2">
-            Personalized wills and trusts for you
+            {t("Personalized wills and trusts for you")}
           </p>
           <h2 className="text-5xl font-bold mb-4">
             Plan for <span className="text-red-700">YOU</span>
           </h2>
           <p className="text-lg text-gray-700">
-            Tailored Estate Planning for Every Life Stage
+            {t('Tailored Estate Planning for Every Life Stage')}
           </p>
         </div>
 

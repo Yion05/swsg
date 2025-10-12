@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import WaveSeparator from "../ui/waveSVG";
 
-const HomeHero = () => {
+export const HomeHero = () => {
   const { t } = useTranslation("home");
 
   return (
-    <div className="w-full rounded-lg bg-main relative overflow-hidden">
+    <div className="w-full bg-main relative">
       <h1 className="text-white font-semibold text-4xl sm:text-5xl text-center pt-16 pb-12">
         {t("hero2_h1")}
       </h1>
@@ -62,7 +62,9 @@ const HomeHero = () => {
                 alt="Print icon"
               />
             </span>
-            <h2 className="font-semibold text-2xl mt-4 mb-2">{t("printKEEP_1")}</h2>
+            <h2 className="font-semibold text-2xl mt-4 mb-2">
+              {t("printKEEP_1")}
+            </h2>
             <p>{t("printKEEP_2")}</p>
           </div>
         </div>
@@ -75,4 +77,17 @@ const HomeHero = () => {
   );
 };
 
-export default HomeHero;
+export const ProtectWhat = () => {
+  const { t } = useTranslation("home");
+
+  return (
+    <div className="px-4 bg-hero-gray text-white flex flex-col items-center text-center gap-2 py-16">
+      <p className="text-base bg-button-secondary/70 px-3 py-1 rounded-xl text-black">
+        {t("hero5_p1")}
+      </p>
+      <h1 className="text-5xl font-semibold">{t("hero5_h1")}</h1>
+      <p className="text-xl font-normal text-main">{t("hero5_p2")}</p>
+      <p className="text-base text-wrap md:w-3xl">{t("hero5_p3")}</p>
+    </div>
+  );
+};

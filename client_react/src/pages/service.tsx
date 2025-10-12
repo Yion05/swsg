@@ -8,7 +8,7 @@ import { BiShoppingBag } from "react-icons/bi";
 const Service = () => {
   const { t } = useTranslation("service");
   return (
-    <section className="px-4 sm:px-16 lg:px-36 flex flex-col gap-8">
+    <section className="px-4 sm:px-16 lg:px-36 flex flex-col gap-8 mt-24">
       <div className="bg-[url(/assets/serviceBG.webp)] h-[50vh] rounded-xl bg-cover bg-center flex flex-col items-center justify-center gap-4 mt-8">
         <h3 className="text-base bg-button-secondary/75 rounded-xl px-2 py-1 w-fit mb-4">
           {t("sect1_page_quote")}
