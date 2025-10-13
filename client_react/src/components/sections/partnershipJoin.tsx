@@ -36,13 +36,13 @@ export const JoinProgram = () => {
             "While we welcome individuals from all professional backgrounds to our reseller program, we especially value those with relevant business relationships and customer experience. If you are in one of the following professions, we would be particularly interested in having you join our team of SmartWriters."
           )}
         </p>
-        <div className="max-w-4xl grid grid-cols-2 sm:grid-cols-4 gap-8 md:gap-12">
+        <div className="max-w-4xl grid grid-cols-2 sm:grid-cols-4 gap-8 md:gap-x-20">
           {professions.map((prof, index) => (
             <div key={prof.name} className="flex flex-col items-center">
               <div className="bg-white text-[#960001] rounded-full h-20 w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-4 text-2xl lg:text-3xl transition-transform duration-300 hover:scale-110">
                 <img src={`/assets/partnership/${index}.svg`} alt={prof.name} />
               </div>
-              <h3 className="text-sm md:text-base lg:text-xl font-bold text-center">
+              <h3 className="text-sm md:text-base lg:text-xl font-bold text-center max-w-38">
                 {prof.name}
               </h3>
             </div>

@@ -11,7 +11,7 @@ import {
 const Home = () => {
   return (
     <section className="flex flex-col items-center justify-center gap-12 w-full px-4 sm:px-16 lg:px-36">
-      <div className="shadow-lg w-full overflow-hidden rounded-lg">
+      <div className="shadow-lg w-full overflow-hidden rounded-lg mt-36">
         <HeroOneComponent></HeroOneComponent>
       </div>
 
