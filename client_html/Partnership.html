@@ -277,13 +277,6 @@
             .section-2 {
                 min-height: auto !important;
             }
-            .section-2 h2 {
-                font-size: 25px !important;
-                margin-bottom: 0.5rem;
-            }
-            .section-2 p {
-                font-size: 12px !important;
-            }
             .section-2 .grid {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
@@ -300,9 +293,8 @@
             }
             /* section 4: smartwriter portal */
             .section-4 {
-                flex-direction: column !important;
                 height: auto !important;
-                margin-left: 0.5rem;
+                margin-left: 1rem;
             }
             .section-4 h2 {
                 margin-top: 0;
@@ -313,7 +305,7 @@
             }
             /* Font size adjustments for mobile */
             .text-3xl, .text-4xl, .text-5xl {
-                font-size: 25px !important;
+                font-size: 20px !important;
             }
             .text-lg, .text-xl, .text-2xl {
                 font-size: 12px !important;
@@ -328,6 +320,7 @@
             .section-wrapper {
                 border-radius: 8px;
                 margin: 0 auto 2rem;
+                background-color: #fff;
             }
         }
         @media (min-width: 769px) {
@@ -340,7 +333,7 @@
         }
     </style>
 </head>
-<body>
+<body class="bg-custom-gray-light">
     <!-- Header -->
     <header class="w-full bg-white shadow-sm fixed top-0 z-50">
         <div class="header-wrapper mx-auto flex items-center justify-between">
@@ -480,8 +473,8 @@
     <div class="section-wrapper">
         <section class="section-2 section-padding bg-gradient-to-r from-[#960001] to-[#7a0001] text-white">
             <div class="fixed-width-container h-full flex flex-col justify-center text-center">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6">Join Our Reseller Program</h2>
-                <p class="text-white mb-8 leading-relaxed text-sm md:text-base lg:text-base max-w-4xl mx-auto">
+                <h2 class="mt-2 text-3xl md:text-4xl lg:text-5xl font-semibold mb-6">Join Our Reseller Program</h2>
+                <p class="text-white mb-8 leading-relaxed text-sm md:text-base lg:text-base max-w-6xl mx-auto">
                     While we welcome individuals from all professional backgrounds to our reseller program, we especially value those with relevant business relationships and customer experience. If you are in one of the following professions, we would be particularly interested in having you join our team of SmartWriters.
                 </p>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
