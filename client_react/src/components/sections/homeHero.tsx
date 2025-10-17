@@ -1,11 +1,12 @@
 import { useTranslation } from "react-i18next";
 import WaveSeparator from "../ui/waveSVG";
+import { contactItems } from "../../data/componentData";
 
 export const HomeHero = () => {
   const { t } = useTranslation("home");
 
   return (
-    <div className="w-full bg-main relative">
+    <section className="w-full bg-main relative">
       <h1 className="text-white font-semibold text-4xl sm:text-5xl text-center pt-16 pb-12">
         {t("hero2_h1")}
       </h1>
@@ -73,7 +74,7 @@ export const HomeHero = () => {
       <div className=" absolute bottom-0 w-full lg:h2/4 z-10">
         <WaveSeparator />
       </div>
-    </div>
+    </section>
   );
 };
 
@@ -81,13 +82,41 @@ export const ProtectWhat = () => {
   const { t } = useTranslation("home");
 
   return (
-    <div className="px-4 bg-hero-gray text-white flex flex-col items-center text-center gap-2 py-16">
+    <section className="px-4 bg-hero-gray text-white flex flex-col items-center text-center gap-2 py-16">
       <p className="text-base bg-button-secondary/70 px-3 py-1 rounded-xl text-black">
         {t("hero5_p1")}
       </p>
       <h1 className="text-5xl font-semibold">{t("hero5_h1")}</h1>
       <p className="text-xl font-normal text-main">{t("hero5_p2")}</p>
       <p className="text-base text-wrap md:w-3xl">{t("hero5_p3")}</p>
-    </div>
+    </section>
+  );
+};
+
+export const InfoHero = () => {
+  return (
+    <section className="w-full bg-hero-gray py-12 rounded-xl">
+      {" "}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 justify-items-center text-center">
+          {contactItems.map((item, index) => (
+            <div key={index} className="flex flex-col items-center">
+              <div className="bg-button p-4 rounded-full mb-4">
+                <img src={item.icon} alt={item.title} className="w-6 h-6"/>
+              </div>
+
+              <p className="text-white text-lg font-normal mb-1">
+                {item.title}
+              </p>
+              {item.subtitle && (
+                <p className="text-white text-lg font-normal text-nowrap">
+                  {item.subtitle}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };

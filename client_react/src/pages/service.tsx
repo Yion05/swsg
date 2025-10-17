@@ -19,7 +19,7 @@ const Service = () => {
         <p className="text-lg text-white mb-20">{t("sect1_exp_p")}</p>
       </div>
       <div className=" bg-button relative overflow-hidden text-center py-12 rounded-xl">
-        <h1 className="text-white font-semibold text-4xl sm:text-5xl text-center">
+        <h1 className="text-white font-semibold text-4xl md:text-5xl text-center">
           {t("hero2_h1")}
         </h1>
         <p className="text-lg  text-center text-white mt-4">

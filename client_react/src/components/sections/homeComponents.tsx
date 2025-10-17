@@ -8,7 +8,7 @@ export const HeroOneComponentFirst = () => {
   const { t } = useTranslation("home");
 
   return (
-    <section className="px-6 py-12 flex bg-cover bg-center bg-[url(/assets/HomeBGOne.webp)]">
+    <section className="rounded-lg px-6 py-12 flex bg-cover bg-center bg-[url(/assets/HomeBGOne.webp)]">
       <div className="max-w-7xl w-full flex flex-col gap-4 pb-40 pt-8 px-4 sm:px-8 lg:px-12 text-left">
         <h3 className="text-base bg-button-secondary/30 rounded-xl px-2 py-1 w-fit">
           {t("page_quote")}
@@ -41,7 +41,7 @@ export const HeroOneComponentSecond = () => {
   const { t } = useTranslation("home");
 
   return (
-    <section className="py-12 px-6 flex justify-center bg-[url(/assets/HomeBGTwo.webp)] bg-cover bg-center">
+    <section className="rounded-lg py-12 px-6 flex justify-center bg-[url(/assets/HomeBGTwo.webp)] bg-cover bg-center">
       <div className="text-white max-w-7xl w-full flex flex-col items-center gap-4 pb-40 pt-8 px-4 sm:px-8 lg:px-12 text-center">
         <h3 className="text-base text-black bg-button-secondary/30 rounded-xl px-2 py-1 w-fit">
           {t("page_quote_2")}
@@ -67,7 +67,7 @@ export const HeroOneComponentSecond = () => {
 };
 
 export const HeroOneComponent = () => {
-  const [currentPage, setCurrentPage] = React.useState<number>(1);
+  const [currentPage, setCurrentPage] = React.useState<number>(2);
 
   React.useEffect(() => {
     const totalPages = 2;
@@ -112,7 +112,7 @@ export const HeroTwoComponent = () => {
     setSelectedPlan(event.target.value as "Malaysian" | "Singaporean");
   };
   return (
-    <div className="p-6 max-w-7xl flex flex-wrap items-center justify-center gap-8 mx-auto">
+    <div className="bg-white shadow-2xl rounded-lg py-4 px-6 max-w-7xl flex flex-wrap items-center justify-center gap-8 mx-auto">
       <div className="relative">
         <select
           className="appearance-none text-lg px-8 pr-12 py-2.5 border-2 rounded-xl border-button-secondary bg-transparent cursor-pointer focus:outline-none focus:ring-2 focus:ring-button-secondary/50 transition-shadow"

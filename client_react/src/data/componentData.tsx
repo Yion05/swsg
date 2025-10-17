@@ -253,3 +253,27 @@ export const hero4SlideData: hero4Slide_schema[] = [
     alignment: "end",
   },
 ];
+
+export const contactItems = [
+  {
+    icon: '/assets/contact_logo/Hotline.svg',
+    title: "Hotline: +65 8912 9929",
+    subtitle: "Customer Service: +65 8813 9929",
+  },
+  {
+    icon: '/assets/contact_logo/Whatsapp.svg',
+    title: "Sales: +65 8915 9929",
+    subtitle: "(WhatsApp Chat Only)",
+  },
+  {
+    icon: '/assets/contact_logo/Email.svg',
+    title: "Email:",
+    subtitle: "enquiry@smartwills.com.sg",
+  },
+  {
+    icon: '/assets/contact_logo/Location.svg',
+    title: "1, North Bridge Road, #06-16",
+    subtitle: "High Street Centre, Singapore 179094",
+  },
+];
+

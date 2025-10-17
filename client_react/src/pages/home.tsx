@@ -1,5 +1,5 @@
 import "../config/i18n";
-import { HomeHero, ProtectWhat } from "../components/sections/homeHero";
+import { HomeHero, InfoHero, ProtectWhat } from "../components/sections/homeHero";
 import TestimonyHero from "../components/sections/testimony";
 import AccoladesHero from "../components/sections/accolades";
 import { Hero4Slide } from "../components/sections/homeSlide";
@@ -11,12 +11,14 @@ import {
 const Home = () => {
   return (
     <section className="flex flex-col items-center justify-center gap-12 w-full px-4 sm:px-16 lg:px-36">
-      <div className="shadow-lg w-full overflow-hidden rounded-lg mt-36">
-        <HeroOneComponent></HeroOneComponent>
-      </div>
+      <div className="relative w-full rounded-lg mt-36">
+        <span className="relative z-10 w-full">
+          <HeroOneComponent />
+        </span>
 
-      <div className="shadow-lg overflow-hidden rounded-lg">
-        <HeroTwoComponent></HeroTwoComponent>
+        <span className="relative z-20 mt-[-8rem] md:mt-[-2rem]">
+          <HeroTwoComponent />
+        </span>
       </div>
 
       <div className="shadow-lg w-full overflow-hidden rounded-lg">
@@ -41,6 +43,10 @@ const Home = () => {
 
       <div className="shadow-lg w-full overflow-hidden rounded-lg">
         <AccoladesHero></AccoladesHero>
+      </div>
+
+      <div className="shadow-lg w-full overflow-hidden rounded-lg">
+        <InfoHero></InfoHero>
       </div>
     </section>
   );
