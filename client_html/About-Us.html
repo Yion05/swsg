@@ -53,10 +53,14 @@
       height: 80px;
       margin: 0 auto;
     }
-    .half-circle {
-      width: 100%;
-      height: 40px;
-      border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    .curved-top-section {
+      height: 50%;
+      min-height: 400px;
+      clip-path: ellipse(100% 100% at 50% 0%);
+    }
+    .curved-mask {
+      mask: radial-gradient(calc(var(--c)*1%) 100% at 50% calc(-100%*cos(asin(50/var(--c)))),#0000 calc(100% - 1px),#000);
+      clip-path: ellipse(calc(var(--c)*1%) 100% at top);
     }
     .section-container {
       position: relative;
@@ -93,6 +97,82 @@
         overflow: hidden;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
+    .flip-card {
+      perspective: 1000px;
+      height: 200px;
+      min-height: 200px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.8s ease;
+      width: 100%;
+      position: relative;
+    }
+    .flip-card.flipped {
+      height: 500px;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+    .flip-card-front {
+      background-color: white;
+      color: #333;
+      justify-content: center;
+      align-items: center;
+    }
+    .flip-card-back {
+      background-color: #f4f4f4;
+      color: #333;
+      transform: rotateY(180deg);
+      overflow-y: auto;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+      overflow: auto;
+      height: auto;
+    }
+    .section-6, .section-7 {
+      min-height: 315px;
+      transition: min-height 0.8s ease;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .section-6.flipped, .section-7.flipped {
+      min-height: 620px;
+    }
+    .flip-card-back h3 {
+      margin-top: 0;
+      width: 100%;
+      text-align: center;
+    }
+    .flip-card-back p {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    .section-6 .grid, .section-7 .grid {
+      align-items: stretch; 
+    }
+    
     @media (max-width: 1280px) {
       .max-w-7xl {
         padding: 0 1rem;
@@ -131,7 +211,7 @@
       .section-2 {
         height: auto !important;
         min-height: 80vh;
-        padding: 2rem 0 4rem;
+        padding: 0 0 4rem;
       }
       .section-2 .top-section {
         height: auto !important;
@@ -145,11 +225,8 @@
         font-size: 12px !important;
         margin-top: 0;
       }
-      .section-2 .half-circle {
-        margin-top: -3.8rem;
-      }
       .section-2 .content-container {
-        margin-top: 12rem !important;
+        margin-top: 2rem !important;
       }
       .section-2 p {
         font-size: 12px !important;
@@ -178,7 +255,6 @@
       }     
       .section-4 h2 {
         font-size: 25px !important;
-        margin-top: -4rem !important;
         margin-bottom: 0.5rem !important;
       }
       .section-4 h3 {
@@ -217,7 +293,6 @@
       }
       .section-5 h2 {
         font-size: 25px !important;
-        margin-top: -2rem !important;
         margin-bottom: 0 !important;
       }
       .section-5 .subtitle {
@@ -226,20 +301,22 @@
       }
       .section-5 .description {
         font-size: 12px !important;
-        margin-bottom: 2rem !important;
+        margin-bottom: 1rem !important;
         line-height: 1.2rem;
       }
       .section-5 .grid {
         grid-template-columns: 1fr !important;
         gap: 1.5rem;
+        margin-bottom: 1.5rem;
       }
       .section-5 .team-card {
         height: 300px !important;
         padding: 1.5rem !important;
-        margin-bottom: 0 !important;
+        margin-bottom: 1rem !important;
       }
       .section-5 .team-card .info {
         bottom: 1.5rem !important;
+        margin-top: 1.5rem;
       }
       .section-5 .team-card h3 {
         font-size: 15px !important;
@@ -248,19 +325,69 @@
       .section-5 .team-card p {
         font-size: 12px !important;
       }
-      .section-footer {
-        height: 100px;
-      } 
+      /* Section 6 & 7: Platform & Security, Business Partners */
+      .section-6, .section-7 {
+        min-height: 500px !important;
+        padding: 2rem 0 !important;
+        transition: min-height 0.8s ease !important;
+      }
+      .section-6 h2, .section-7 h2{
+        font-size: 25px !important;
+      }
+      .section-6 h3, .section-7 h3{
+        font-size: 15px !important;
+      }
+      .section-6 p, .section-7 p{
+        font-size: 12px !important;
+      }
+      .section-6.flipped, .section-7.flipped {
+        min-height: auto !important;
+        padding: 2rem 0 !important;
+      }
+      .flip-card {
+        height: 180px !important;
+        min-height: auto !important;
+        transition: all 0.8s ease !important;
+        margin-top: 1rem;
+      }
+      .flip-card.flipped {
+        height: auto !important; 
+        min-height: auto !important; 
+      }
+      .flip-card-back {
+        padding: 1.5rem !important;
+        justify-content: flex-start;
+        text-align: center;
+        overflow: auto !important; 
+        position: relative;
+        height: 100%; 
+      }
+      .section-6 .flip-card-back h3,
+      .section-7 .flip-card-back h3 {
+        font-size: 15px !important;
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+      }
+      
+      .flip-card-back p {
+        font-size: 12px !important;
+        text-align: center !important;
+      }
+      
+      .section-6 .grid, .section-7 .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+      }
     }
   </style>
 </head>
 
-<body>
+<body class="bg-custom-gray-light">
   <!-- Header --->
   <header class="w-full bg-white shadow-sm fixed top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
       <!-- Logo -->
-      <div class="flex items-center">
+      <div class="logo flex items-center">
         <img src="https://csps.vercel.app/picture/logo.png" alt="SmartWills" class="h-8 w-30">
       </div>
 
@@ -356,8 +483,8 @@
   <!-- Section 1: What is a Will --->
   <div class="section-wrapper">
     <section class="section-1 section-padding relative bg-center bg-no-repeat flex items-center justify-center text-center"
-      style="background-image: url('https://www.designersguild.com/image-nonwebp/156/59523'); background-size: cover; background-position: center; height: 420px;">
-      <div class="max-w-7xl text-black">
+      style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('https://liarsliarsliars.com/wp-content/uploads/2022/07/Professional-Writing-Skills.jpg'); background-size: cover; background-position: center; height: 420px;">
+      <div class="max-w-7xl text-white">
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold">What is a Will?</h2>
         <p class="text-base md:text-lg lg:text-xl mt-4 max-w-8xl mx-auto">
           A Will is a legal document that allows you, the testator or Will maker, to designate certain individuals or charities as beneficiaries to receive your assets and possessions upon your passing.
@@ -366,16 +493,19 @@
     </section>
   </div>
 
-  <!-- Section 2: Who We Are --->
+  <!-- Section 2: Who We Are -->
   <div class="section-wrapper">
-    <section class="bg-white section-2 section-padding section-container flex flex-col items-center justify-center text-center bg-custom-gray-light" style="height: 685px;">
-      <!-- Top Half Rounded Background with Title Inside -->
-      <div class="top-section absolute top-0 left-0 w-full h-1/3 bg-custom-gray-light flex flex-col items-center justify-center pb-8">
-        <h2 class="mt-16 text-3xl md:text-4xl lg:text-5xl font-semibold">Who We Are?</h2>
-        <h3 class="text-base md:text-lg lg:text-xl mt-4 max-w-8xl px-4">Know SmartWills - Your Smartest & Fastest Online Will Writer</h3>
+    <section class="section-2 bg-white section-padding section-container flex flex-col items-center justify-center text-center" style="min-height: 685px;">
+      <!-- Top Curved Background with Title -->
+      <div class="curved-top-section w-full h-1/3 bg-cover bg-center flex flex-col items-center justify-center pb-8" 
+          style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('https://media.istockphoto.com/id/1346944001/photo/close-up-of-co-workers-stacking-their-hands-together.jpg?s=612x612&w=0&k=20&c=lidJcFUSR3rkMt4B0yoNwH55lz3sth9o2280keqBXGE=');">
+        <div class="flex flex-col items-center justify-center curved-mask">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">Who We Are?</h2>
+          <h3 class="text-base md:text-lg lg:text-xl mt-4 max-w-7xl px-4 text-white">Know SmartWills - Your Smartest & Fastest Online Will Writer</h3>
+        </div>
       </div>
-      <div class="half-circle bg-custom-gray-light absolute top-1/3 left-0 z-0" style="top: 33.33%;"></div>
-      <div class="max-w-7xl content-container relative z-10 mt-48">
+      
+      <div class="max-w-7xl content-container relative z-10 mt-8">
         <div class="text-medium md:text-base lg:text-lg text-black text-body leading-relaxed text-center">
           <p class="mb-6">
             We are a Wealth FinTech company dedicated to meeting the modern demand for easy, fast, and trusted digital financial services.
@@ -383,7 +513,7 @@
           <p class="mb-6">
             SmartWills was born from a collaboration between financial advisors, planners, legal experts, and technology professionals, with a shared mission: to make Will preparation simple, affordable, and accessible to everyone—regardless of economic background.
           </p>
-          <p class="mb-6">
+          <p class="mb-6 max-w-7xl">
             In late 2016, we began an ambitious initiative to build a user-friendly Will-making platform, designed for both web and mobile use. After nearly three years of research, planning, and development, we proudly launched our online Will-making service in Malaysia in early 2019.
           </p>
           <p>
@@ -399,7 +529,7 @@
     <section class="section-3 section-padding bg-custom-red text-white flex flex-col items-center justify-center text-center" style="height: 280px;">
       <div class="max-w-7xl">
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6">Our Vision</h2>
-        <p class="text-base md:text-lg lg:text-xl">
+        <p class="text-base md:text-lg lg:text-xl max-w-lg">
           We aim to be ASEAN's most trusted and formidable Wealth FinTech group.
         </p>
       </div>
@@ -440,7 +570,7 @@
 
   <!-- Section 5: Meet Our Team --->
   <div class="section-wrapper">
-    <section class="mt-8 section-5 section-padding mt-4 bg-white flex flex-col items-center justify-center text-center" style="height: 495px;">
+    <section class="section-5 section-padding bg-white flex flex-col items-center justify-center text-center" style="height: 740px;">
       <div class="max-w-7xl">
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">Meet Our Team</h2>
         <p class="subtitle font-bold text-custom-red mb-2 text-base md:text-lg lg:text-xl">Professional Minds Behind Every Smart Decision</p>
@@ -462,6 +592,136 @@
             <div class="info absolute bottom-6 left-0 right-0">
               <h3 class="text-custom-red font-bold text-body mb-2 text-base md:text-lg lg:text-xl">FIONA LEE</h3>
               <p class="text-black text-body-sm">Group VP Finance</p>
+            </div>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-4 gap-6 text-medium md:text-base lg:text-lg">
+          <div class="team-card h-[220px] bg-custom-gray-light shadow-lg rounded-2xl p-4 transition-transform duration-300 hover:scale-105 flex flex-col justify-end relative">
+            <div class="info absolute bottom-4 left-0 right-0">
+              <h3 class="text-custom-red font-bold text-body mb-2 text-base md:text-lg lg:text-xl">XXX XXX</h3>
+              <p class="text-black text-body-sm">Hi Friend</p>
+            </div>
+          </div>
+          <div class="team-card h-[220px] bg-custom-gray-light shadow-lg rounded-2xl p-4 transition-transform duration-300 hover:scale-105 flex flex-col justify-end relative">
+            <div class="info absolute bottom-4 left-0 right-0">
+              <h3 class="text-custom-red font-bold text-body mb-2 text-base md:text-lg lg:text-xl">XXX XXX</h3>
+              <p class="text-black text-body-sm">Hi Friend</p>
+            </div>
+          </div>
+          <div class="team-card h-[220px] bg-custom-gray-light shadow-lg rounded-2xl p-4 transition-transform duration-300 hover:scale-105 flex flex-col justify-end relative">
+            <div class="info absolute bottom-4 left-0 right-0">
+              <h3 class="text-custom-red font-bold text-body mb-2 text-base md:text-lg lg:text-xl">XXX XXX</h3>
+              <p class="text-black text-body-sm">Hi Friend</p>
+            </div>
+          </div>
+          <div class="team-card h-[220px] bg-custom-gray-light shadow-lg rounded-2xl p-4 transition-transform duration-300 hover:scale-105 flex flex-col justify-end relative">
+            <div class="info absolute bottom-4 left-0 right-0">
+              <h3 class="text-custom-red font-bold text-body mb-2 text-base md:text-lg lg:text-xl">XXX XXX</h3>
+              <p class="text-black text-body-sm">Hi Friend</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Section 6: Our Platform & Security --->
+  <div class="section-wrapper">
+    <section class="section-6 section-padding bg-white flex flex-col items-center justify-center text-center">
+      <div class="max-w-7xl w-full">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">Our Platform & Security</h2>
+        <p class="subtitle mb-6 text-base md:text-lg lg:text-xl">Built on Law. Secured by Technology.</p>
+        <div class="grid md:grid-cols-2 gap-8 text-medium md:text-base lg:text-lg">
+          <!-- AWS Flip Card -->
+          <div class="flip-card" id="aws-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front flex flex-col justify-center items-center text">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" class="h-24 mb-4">
+                <h3 class="font-bold text-xl mt-4">AMAZON WEB SERVICES (AWS)</h3>
+              </div>
+              <div class="flip-card-back">
+                <h3 class="font-bold text-custom-red text-xl mb-4">AMAZON WEB SERVICES (AWS)</h3>
+                <p class="text-black text-sm mb-4 max-w-7xl">
+                  At SmartWills, your security extends beyond just safeguards your data - it also covers your payments.
+                </p>
+                <p class="text-black text-sm mb-4 max-w-7xl">
+                  All information is hosted on Amazon Web Services (AWS) in Singapore, a globally recognized and secure cloud platform. AWS provides physical safeguards such as 24/7 surveillance and restricted access, as well as digital safeguards including encryption of data, both in storage and in transit, continuous monitoring, and regular security updates. AWS also complies with international standards such as ISO 27001, SOC 1/2/3, and GDPR.
+                </p>
+                <p class="text-black text-sm mb-4 max-w-7xl">
+                  For payments, we use HitPay, a leading payment gateway that is PCI- DSS Compliant, ensuring that your payment details are processed securely in line with global financial security standards. With encryption and fraud-prevention systems in place, HitPay ensures every transaction is handled safely and reliably.
+                </p>
+                <p class="text-black text-sm max-w-7xl">
+                  By combining AWS for hosting and HitPay for payments, SmartWills provides a secure, end-to-end environment where both your data and your financial transactions are always protected.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- HitPay Flip Card -->
+          <div class="flip-card" id="hitpay-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front flex flex-col justify-center items-center">
+                <img src="https://ascentialcdn.filespin.io/api/v1/conversion/6929b070b46d4bf3a0d3263622a21a00" alt="HitPay" class="h-20 mb-6">
+                <h3 class="font-bold text-xl mt-4">HITPAY (PCI-DSS COMPLIANT)</h3>
+              </div>
+              <div class="flip-card-back justify-top">
+                <h3 class="font-bold text-custom-red text-xl mb-4">HITPAY (PCI-DSS COMPLIANT)</h3>
+                <p class="text-black text-sm mb-4 max-w-8xl">
+                  Access to our servers is limited to authorized devices and IP addresses, with Multi-Factor Authentication (MFA) and secure digital key authentication in place. Data transmitted between you and our platform is always encrypted using HTTPS/TLS. Our environment is continuously monitored by Amazon GuardDuty for any suspicious or malicious activity, and we apply regular updates and security patches to maintain system integrity. 
+                <p class="text-black text-sm max-w-8xl">
+                  Database access is restricted internally, with administration limited to approved IP addresses. Passwords are protected using salted, one-way hashing algorithms, ensuring they cannot be reversed or exposed in the event of a breach. This is further reinforced by encrypted AWS storage volumes for data at rest.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Section 7: Our Business Partners --->
+  <div class="section-wrapper">
+    <section class="section-7 section-padding bg-white flex flex-col items-center justify-center text-center">
+      <div class="max-w-7xl w-full">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">Our Business Partners</h2>
+        <p class="subtitle mb-6 text-base md:text-lg lg:text-xl">Strong Partnerships. Smarter Protection.</p>
+        <div class="grid md:grid-cols-2 gap-8 text-medium md:text-base lg:text-lg">
+          <!-- EMRE LEGAL LLC Flip Card -->
+          <div class="flip-card" id="emre-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front flex flex-col justify-center items-center">
+                <img src="https://emre-legal.com/wp-content/uploads/2023/12/Emre-Legal-Logo-Home1-PhotoRoom.png-PhotoRoom-768x436.png" alt="EMRE LEGAL LLC" class="h-32">
+                <h3 class="font-bold text-xl mt-4">EMRE LEGAL LLC</h3>
+              </div>
+              <div class="flip-card-back">
+                <h3 class="font-bold text-custom-red text-xl mb-4">EMRE LEGAL LLC</h3>
+                <p class="text-black text-sm mb-4">
+                  Emre Legal LLC is a boutique law firm based in Singapore, dedicated to delivering practical and strategic legal solutions tailored to each client's needs. The firm provides clear, effective advice and strong representation across a broad spectrum of legal matters.
+                </p>
+                <p class="text-black text-sm mb-4">
+                  With a focus on professionalism, integrity, and trust, Emre Legal works closely with clients to navigate legal complexities with confidence and clarity. The team takes pride in offering personalised service and maintaining the highest standards of legal excellence.
+                </p>
+                <p class="text-black text-sm">
+                  <a href="https://emre-legal.com/" class="text-custom-red underline">https://emre-legal.com/</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- RIVERSIDE TRAINING Flip Card -->
+          <div class="flip-card" id="riverside-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front flex flex-col justify-center items-center">
+                <img src="https://riversidetraining.sg/wp-content/uploads/2022/05/MicrosoftTeams-image-103-1024x261.png" alt="RIVERSIDE TRAINING" class="h-20 mt-6 mb-6">
+                <h3 class="font-bold text-xl mt-4">RIVERSIDE TRAINING</h3>
+                <p class="text-black mt-4"></p>
+              </div>
+              <div class="flip-card-back">
+                <h3 class="font-bold text-custom-red text-xl mb-4">RIVERSIDE TRAINING</h3>
+                <p class="text-black text-sm mb-4 justify-content-center">
+                  Not Yet Ready
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -546,6 +806,79 @@
       option.addEventListener('click', function() {
         languageDropdown.classList.remove('open');
         languageIcon.style.transform = 'rotate(0)';
+      });
+    });
+
+    // Flip card functionality with smooth animations
+    const flipCards = document.querySelectorAll('.flip-card');
+    const section6 = document.querySelector('.section-6');
+    const section7 = document.querySelector('.section-7');
+
+    flipCards.forEach(card => {
+      card.addEventListener('click', function() {
+        // Store current height before flip
+        const currentHeight = this.offsetHeight;
+        
+        // Toggle current card flip state
+        this.classList.toggle('flipped');
+        
+        // Get the parent section
+        const parentSection = this.closest('.section-6, .section-7');
+        
+        // Count flipped cards in the section
+        const flippedCardsInSection = parentSection.querySelectorAll('.flip-card.flipped').length;
+        
+        // Apply section height changes based on flipped state
+        if (flippedCardsInSection > 0) {
+          parentSection.classList.add('flipped');
+          
+          // Calculate dynamic height for section with smoother approach
+          setTimeout(() => {
+            let maxCardHeight = 0;
+            const cards = parentSection.querySelectorAll('.flip-card');
+            
+            cards.forEach(card => {
+              const cardHeight = card.offsetHeight;
+              if (cardHeight > maxCardHeight) {
+                maxCardHeight = cardHeight;
+              }
+            });
+            
+            // Calculate total section height
+            const headerHeight = parentSection.querySelector('h2').offsetHeight;
+            const subtitleHeight = parentSection.querySelector('.subtitle').offsetHeight;
+            const gridGap = 32; // 2rem in pixels
+            
+            const totalHeight = headerHeight + subtitleHeight + maxCardHeight + gridGap + 100; // Extra padding
+            
+            // Apply smooth height transition
+            parentSection.style.transition = 'min-height 0.8s ease';
+            parentSection.style.minHeight = totalHeight + 'px';
+          }, 100); // Slightly longer delay for smoother animation
+          
+        } else {
+          parentSection.classList.remove('flipped');
+          
+          // Reset to default height with smooth transition
+          setTimeout(() => {
+            const defaultHeight = window.innerWidth <= 768 ? '400px' : '315px';
+            parentSection.style.transition = 'min-height 0.8s ease';
+            parentSection.style.minHeight = defaultHeight;
+          }, 100);
+        }
+      });
+    });
+
+    // Handle window resize to reset heights properly
+    window.addEventListener('resize', function() {
+      const sections = document.querySelectorAll('.section-6, .section-7');
+      sections.forEach(section => {
+        const flippedCards = section.querySelectorAll('.flip-card.flipped');
+        if (flippedCards.length === 0) {
+          const defaultHeight = window.innerWidth <= 768 ? '400px' : '315px';
+          section.style.transition = 'min-height 0.8s ease'; // Faster transition on resize
+          section.style.minHeight = defaultHeight;
+        }
       });
     });
   </script>
