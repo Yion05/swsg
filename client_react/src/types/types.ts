@@ -36,3 +36,10 @@ export interface ResourceCategory {
   questions: QuestionItem[];
 };
 
+export interface formChoice {
+  question_1: string,
+  question_2: string,
+  question_3: boolean | "",
+  question_4: boolean | "",
+  question_5: string,
+}

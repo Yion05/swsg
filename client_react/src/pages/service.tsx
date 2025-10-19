@@ -3,6 +3,7 @@ import SmartWillPlan from "../components/sections/smartWillPlan";
 import { productServices } from "../data/componentData";
 import { Link } from "react-router";
 import { BiShoppingBag } from "react-icons/bi";
+import { PlanForYou } from "../components/sections/serviceComponent";
 // import HeroServicePlan from "../components/sections/heroServicePlan";
 
 const Service = () => {
@@ -18,11 +19,11 @@ const Service = () => {
         </h1>
         <p className="text-lg text-white mb-20">{t("sect1_exp_p")}</p>
       </div>
-      <div className=" bg-button relative overflow-hidden text-center py-12 rounded-xl">
+      <div className=" bg-button relative overflow-hidden text-center py-12 rounded-xl flex flex-col items-center">
         <h1 className="text-white font-semibold text-4xl md:text-5xl text-center">
           {t("hero2_h1")}
         </h1>
-        <p className="text-lg  text-center text-white mt-4">
+        <p className="text-lg text-center text-white mt-4 max-w-4xl">
           {t("hero2_p1")}
           <span className="text-text-secondary font-semibold whitespace-nowrap">
             {t("hero2_sg")}
@@ -59,9 +60,7 @@ const Service = () => {
         </section>
       </div>
       <div className="shadow-lg p-20 rounded-2xl w-full mx-auto flex flex-col gap-4">
-        <h1 className="text-5xl font-semibold">
-          {t("hero4_title")}
-        </h1>
+        <h1 className="text-5xl font-semibold">{t("hero4_title")}</h1>
         <p className="text-xl">{t("hero4_title")}</p>
         <span className="flex items-center gap-6 mt-4">
           {" "}
@@ -80,8 +79,9 @@ const Service = () => {
         </span>
       </div>
 
-      {/* this part is removed */}
-      {/* <HeroServicePlan></HeroServicePlan> */}
+      <div className="shadow-lg rounded-lg overflow-hidden">
+        <PlanForYou></PlanForYou>
+      </div>
     </section>
   );
 };

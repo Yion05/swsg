@@ -8,16 +8,45 @@ export const HeroOneComponentFirst = () => {
   const { t } = useTranslation("home");
 
   return (
-    <section className="rounded-lg px-6 py-12 flex bg-cover bg-center bg-[url(/assets/HomeBGOne.webp)]">
-      <div className="max-w-7xl w-full flex flex-col gap-4 pb-40 pt-8 px-4 sm:px-8 lg:px-12 text-left">
-        <h3 className="text-base bg-button-secondary/30 rounded-xl px-2 py-1 w-fit">
-          {t("page_quote")}
+    <section className="rounded-lg py-12 px-6 flex justify-center bg-[url(/assets/HomeBGOne.webp)] bg-cover bg-center">
+      <div className="text-white max-w-7xl w-full flex flex-col items-center gap-4 pb-40 pt-8 px-4 sm:px-8 lg:px-12 text-center">
+        <h3 className="text-base text-black bg-button-secondary/30 rounded-xl px-2 py-1 w-fit">
+          {t("page_quote_1")}
         </h3>
 
         <h1 className="text-5xl md:text-6xl font-semibold max-w-4xl">
-          {t("hero_h1")}
+          {t("hero_h1_1")}
         </h1>
-        <h2 className="text-xl md:text-2xl max-w-4xl">{t("hero_h2")}</h2>
+
+        <h2 className="text-xl md:text-2xl max-w-4xl">{t("hero_h2_1")}</h2>
+
+        <span className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-4">
+          <Link
+            to={"/service"}
+            className="text-lg font-semibold bg-button px-4 py-2 text-white rounded-xl w-full sm:w-auto text-center"
+          >
+            {t("startWill")}
+          </Link>
+        </span>
+      </div>
+    </section>
+  );
+};
+
+export const HeroOneComponentTwo = () => {
+  const { t } = useTranslation("home");
+
+  return (
+    <section className="rounded-lg px-6 py-12 flex bg-cover bg-center bg-[url(/assets/HomeBGTwo.webp)]">
+      <div className="max-w-7xl w-full flex flex-col gap-4 pb-40 pt-8 px-4 sm:px-8 lg:px-12 text-left">
+        <h3 className="text-base bg-button-secondary/30 rounded-xl px-2 py-1 w-fit">
+          {t("page_quote_2")}
+        </h3>
+
+        <h1 className="text-5xl md:text-6xl font-semibold max-w-4xl">
+          {t("hero_h1_2")}
+        </h1>
+        <h2 className="text-xl md:text-2xl max-w-4xl">{t("hero_h2_2")}</h2>
         <span className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-4">
           <Link
             to={"/service"}
@@ -37,21 +66,21 @@ export const HeroOneComponentFirst = () => {
   );
 };
 
-export const HeroOneComponentSecond = () => {
+export const HeroOneComponentThree = () => {
   const { t } = useTranslation("home");
 
   return (
-    <section className="rounded-lg py-12 px-6 flex justify-center bg-[url(/assets/HomeBGTwo.webp)] bg-cover bg-center">
+    <section className="rounded-lg py-12 px-6 flex justify-center bg-[url(/assets/HomeBGThree.webp)] bg-cover bg-center">
       <div className="text-white max-w-7xl w-full flex flex-col items-center gap-4 pb-40 pt-8 px-4 sm:px-8 lg:px-12 text-center">
         <h3 className="text-base text-black bg-button-secondary/30 rounded-xl px-2 py-1 w-fit">
-          {t("page_quote_2")}
+          {t("page_quote_3")}
         </h3>
 
         <h1 className="text-5xl md:text-6xl font-semibold max-w-4xl">
-          {t("hero_h1_2")}
+          {t("hero_h1_3")}
         </h1>
 
-        <h2 className="text-xl md:text-2xl max-w-4xl">{t("hero_h2_2")}</h2>
+        <h2 className="text-xl md:text-2xl max-w-4xl">{t("hero_h2_3")}</h2>
 
         <span className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-4">
           <Link
@@ -67,10 +96,10 @@ export const HeroOneComponentSecond = () => {
 };
 
 export const HeroOneComponent = () => {
-  const [currentPage, setCurrentPage] = React.useState<number>(2);
+  const [currentPage, setCurrentPage] = React.useState<number>(1);
 
   React.useEffect(() => {
-    const totalPages = 2;
+    const totalPages = 3;
     const intervalTime = 15000;
 
     const timer = setInterval(() => {
@@ -79,13 +108,17 @@ export const HeroOneComponent = () => {
 
     return () => clearInterval(timer);
   }, []);
+
+  const map = {
+    1: <HeroOneComponentFirst></HeroOneComponentFirst>,
+    2: <HeroOneComponentTwo></HeroOneComponentTwo>,
+    3: <HeroOneComponentThree></HeroOneComponentThree>
+  }
   return (
     <div>
-      {currentPage === 1 ? (
-        <HeroOneComponentFirst />
-      ) : (
-        <HeroOneComponentSecond />
-      )}
+      {
+        map[currentPage as keyof typeof map]
+      }
     </div>
   );
 };
