@@ -66,7 +66,9 @@
       position: relative;
     }
     .section-footer {
-      height: 100px;
+        color: #fff;
+        text-align: center;
+        position: relative;
     }
     .bg-custom-red {
       background-color: #960001;
@@ -182,7 +184,6 @@
         width: calc(100% - 2rem);
       }
     }
-    /* Mobile-specific styles */
     @media (max-width: 768px) {
       .section-wrapper {
           margin: 0 1rem 2rem;
@@ -194,7 +195,6 @@
       .section-padding {
         padding: 3rem 2rem;
       }
-      /* Section 1: What is a Will */
       .section-1 {
         height: auto !important;
         min-height: 50vh;
@@ -207,7 +207,6 @@
         font-size: 12px !important;
         margin-top: 0;
       }
-      /* Section 2: Who We Are */
       .section-2 {
         height: auto !important;
         min-height: 80vh;
@@ -233,7 +232,6 @@
         margin: 1rem 0 !important;
         padding: 0 !important;
       }
-      /* Section 3: Our Vision */
       .section-3 {
         height: auto !important;
         min-height: 30vh;
@@ -247,7 +245,6 @@
         font-size: 12px !important;
         line-height: 1.5;
       }
-      /* Section 4: Our Value */
       .section-4 {
         height: auto !important;
         min-height: 80vh;
@@ -285,7 +282,6 @@
         font-size: 12px !important;
         margin-bottom: 0 !important;
       }
-      /* Section 5: Meet Our Team */
       .section-5 {
         height: auto !important;
         min-height: 80vh;
@@ -325,7 +321,6 @@
       .section-5 .team-card p {
         font-size: 12px !important;
       }
-      /* Section 6 & 7: Platform & Security, Business Partners */
       .section-6, .section-7 {
         min-height: 500px !important;
         padding: 2rem 0 !important;
@@ -368,19 +363,102 @@
         margin-top: 0 !important;
         margin-bottom: 1rem !important;
       }
-      
       .flip-card-back p {
         font-size: 12px !important;
         text-align: center !important;
       }
-      
       .section-6 .grid, .section-7 .grid {
         grid-template-columns: 1fr !important;
         gap: 1.5rem;
       }
+      .section-footer {
+        height: auto !important;
+        min-height: 500px;
+        position: relative;
+        padding: 2rem 1rem;
+      }
+      .section-footer .absolute {
+        position: static !important;
+        transform: none !important;
+        width: 100% !important;
+      }
+      .section-footer > .absolute:first-child {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        height: auto !important;
+        width: 100% !important;
+      }
+      .section-footer > .absolute:first-child img {
+        width: 150px !important;
+        margin: 0 auto;
+        margin-left: -1rem !important;
+        margin-top: -2rem !important;
+      }
+      .section-footer > .absolute:nth-child(2) {
+        width: 100% !important;
+        margin-bottom: 2rem;
+        left: 0 !important;
+        position: static !important;
+        transform: none !important;
+      }
+      .section-footer .grid-cols-5 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+      }
+      .section-footer .awards {
+        position: static !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .section-footer .iso-logo {
+        height: 50px !important;
+        width: auto !important;
+      }
+      .section-footer .slogan-text {
+        max-width: 11rem !important;
+        line-height: 1.3 !important;
+        text-align: center !important;
+        margin-bottom: 0.5rem !important;
+        margin-right: 1rem;
+      }
+      .section-footer .bracket-symbol {
+        transform: rotate(90deg) !important;
+        font-size: 2rem !important;
+        line-height: 1 !important;
+        margin-top: -0.5rem !important;
+      }
+      .section-footer .text-2xl {
+        font-size: 18px !important;
+        text-align: center;
+        margin-right: 0;
+        margin-top: 0;
+      }
+      .section-footer .footer-description {
+        text-align: center !important;
+        margin-right: 1.8rem !important;
+        margin-top: 0 !important;
+      }
+      .section-footer .text-sm {
+        font-size: 12px !important;
+        text-align: left;
+        margin-left: 1.3rem;
+      }
+      .section-footer .text-xs {
+        font-size: 10px !important;
+        text-align: left;
+        margin-left: 1.3rem;
+      }  
+      .section-footer .text-left {
+          text-align: center !important;
+      }
     }
   </style>
 </head>
+
+<div class="h-[100px]"></div>
 
 <body class="bg-custom-gray-light">
   <!-- Header --->
@@ -388,7 +466,7 @@
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
       <!-- Logo -->
       <div class="logo flex items-center">
-        <img src="https://csps.vercel.app/picture/logo.png" alt="SmartWills" class="h-8 w-30">
+        <img src="https://raw.githubusercontent.com/Yion05/swsg/10b671348704b23d6aaf0cd2189863834b5a5504/homepage%20pic/Website%20bg-20.png" alt="SmartWills" class="h-8 w-30">
       </div>
 
       <!-- Desktop Navigation --->
@@ -416,7 +494,7 @@
         <div class="relative">
           <button id="languageButton" class="flex items-center space-x-1 p-2 rounded-full hover:bg-gray-100 transition-colors duration-300">
             <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
-              <img src="https://img.freepik.com/premium-vector/malaysia-circle-flag-icon-digital-vector-illustration_1143296-1349.jpg?semt=ais_hybrid&w=740&q=80" alt="English" class="h-4 w-4">
+              <img src="https://raw.githubusercontent.com/Yion05/swsg/cf3e4f355b737471fa596ebb66593c15dc045e9e/homepage%20pic/Website%20bg-17.png" alt="English" class="h-4 w-4">
             </div>
             <span>EN</span>
             <svg class="w-4 h-4 transition-transform duration-300" id="languageIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -429,19 +507,19 @@
             <div class="py-2">
               <button class="flex items-center space-x-3 w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors duration-300">
                 <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
-                  <img src="https://img.freepik.com/premium-vector/malaysia-circle-flag-icon-digital-vector-illustration_1143296-1349.jpg?semt=ais_hybrid&w=740&q=80" alt="English" class="h-4 w-4">
+                  <img src="https://raw.githubusercontent.com/Yion05/swsg/cf3e4f355b737471fa596ebb66593c15dc045e9e/homepage%20pic/Website%20bg-17.png" alt="English" class="h-4 w-4">
                 </div>
                 <span>English</span>
               </button>
               <button class="flex items-center space-x-3 w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors duration-300">
                 <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
-                  <img src="https://img.freepik.com/premium-vector/malaysia-circle-flag-icon-digital-vector-illustration_1143296-1349.jpg?semt=ais_hybrid&w=740&q=80" alt="Malay" class="h-4 w-4">
+                  <img src="https://raw.githubusercontent.com/Yion05/swsg/cf3e4f355b737471fa596ebb66593c15dc045e9e/homepage%20pic/Website%20bg-17.png" alt="Malay" class="h-4 w-4">
                 </div>
                 <span>Malay</span>
               </button>
               <button class="flex items-center space-x-3 w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors duration-300">
                 <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
-                  <img src="https://img.freepik.com/premium-vector/china-3d-rounded-flag-button_97173-158.jpg?semt=ais_hybrid&w=740&q=80" alt="Chinese" class="h-4 w-4">
+                  <img src="https://raw.githubusercontent.com/Yion05/swsg/cf3e4f355b737471fa596ebb66593c15dc045e9e/homepage%20pic/Website%20bg-18.png" alt="Chinese" class="h-4 w-4">
                 </div>
                 <span>Chinese</span>
               </button>
@@ -477,8 +555,6 @@
       </div>
     </div>
   </header>
-
-  <div class="h-[100px]"></div>
 
   <!-- Section 1: What is a Will --->
   <div class="section-wrapper">
@@ -730,10 +806,86 @@
   </div>
 
   <!-- Footer --->
-  <footer class="section-container section-footer bg-gray-900 text-gray-300">
-    <div class="max-w-7xl h-full flex items-center justify-center text-center">
-      <p class="text-base md:text-lg">&copy; 2025 SmartWills. All rights reserved.</p>
-    </div>
+  <footer>
+      <div class="section-wrapper section-padding section-footer h-[330px] mx-auto bg-cover bg-center bg-no-repeat"
+          style="background-image: url('https://raw.githubusercontent.com/Yion05/swsg/main/homepage%20pic/Website%20bg-12.png');">
+          <!-- Left Side - Logo -->
+          <div class="absolute left-0 top-0 h-[100%] w-[25%]">
+              <img src="https://raw.githubusercontent.com/Yion05/swsg/10b671348704b23d6aaf0cd2189863834b5a5504/homepage%20pic/Website%20bg-19.png" alt="SmartWills Logo" class="w-100 mb-4">
+          </div>
+
+          <!-- Center - Company Info and Navigation -->
+          <div class="absolute left-[60%] top-6 transform -translate-x-1/2 text-center w-[70%]">
+              <p class="text-2xl font-semibold">MY SMARTWILLS PTE LTD</p>
+              <p class="text-sm footer-description mt-1">(UEN No. 202231612H)</p>
+              
+              <!-- Navigation Columns -->
+              <div class="grid grid-cols-5 gap-8 mt-6">
+                  <!-- Home -->
+                  <div class="text-left">
+                      <h3 class="font-bold text-[#ffbb00] mb-3 text-sm">Home</h3>
+                      <ul class="space-y-1 text-xs">
+                          <li><a href="#" class="hover:text-[#ffbb00]">Will Writing</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">3 Easy Steps</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Review</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Accolades</a></li>
+                      </ul>
+                  </div>
+
+                  <!-- Services & Plans -->
+                  <div class="text-left">
+                      <h3 class="font-bold text-[#ffbb00] mb-3 text-sm">Services & Plans</h3>
+                      <ul class="space-y-1 text-xs">
+                          <li><a href="#" class="hover:text-[#ffbb00]">SmartWills Plan</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">SmartWills+ Plan</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Product + Services</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Plan for YOU</a></li>
+                      </ul>
+                  </div>
+
+                  <!-- About Us -->
+                  <div class="text-left">
+                      <h3 class="font-bold text-[#ffbb00] mb-3 text-sm">About Us</h3>
+                      <ul class="space-y-1 text-xs">
+                          <li><a href="#" class="hover:text-[#ffbb00]">Introduction</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Vision & Value</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Meet Our Team</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Platform & Security</a></li>
+                      </ul>
+                  </div>
+
+                  <!-- Resources -->
+                  <div class="text-left">
+                      <h3 class="font-bold text-[#ffbb00] mb-3 text-sm">Resources</h3>
+                      <ul class="space-y-1 text-xs">
+                          <li><a href="#" class="hover:text-[#ffbb00]">FAQ</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">More Question</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Guides & Download</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Videos</a></li>
+                      </ul>
+                  </div>
+
+                  <!-- Partnership -->
+                  <div class="text-left">
+                      <h3 class="font-bold text-[#ffbb00] mb-3 text-sm">Partnership</h3>
+                      <ul class="space-y-1 text-xs">
+                          <li><a href="#" class="hover:text-[#ffbb00]">Reseller Program</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Certified SmartPlanner</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">SmartWriter Portal</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Bottom Section -->
+          <div class="absolute bottom-2 right-6 flex items-center gap-6 awards">
+              <img src="https://smartwills.com.sg/wp-content/uploads/2023/11/ISO-9001-2015-LOGO.png" alt="ISO-IAF-ACB" class="h-16 iso-logo">
+              <div class="text-center slogan-container">
+                  <p class="text-sm slogan-text" style="max-width: 12rem">Your smartest & fastest online will writer</p>
+                  <div class="-mt-2 rotate-90 text-5xl bracket-symbol">)</div>
+              </div>
+          </div>
+      </div>
   </footer>
 
   <script>
