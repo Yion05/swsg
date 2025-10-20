@@ -1,12 +1,12 @@
 import "../config/i18n";
-import { HomeHero, InfoHero, ProtectWhat } from "../components/sections/homeHero";
-import TestimonyHero from "../components/sections/testimony";
-import AccoladesHero from "../components/sections/accolades";
-import { Hero4Slide } from "../components/sections/homeSlide";
+import { HomeHero, InfoHero, ProtectWhat } from "../components/sections/home/homeHero";
+import TestimonyHero from "../components/sections/home/testimony";
+import AccoladesHero from "../components/sections/home/accolades";
+import { Hero4Slide } from "../components/sections/home/homeSlide";
 import {
   HeroOneComponent,
   HeroTwoComponent,
-} from "../components/sections/homeComponents";
+} from "../components/sections/home/homeComponents";
 
 const Home = () => {
   return (

@@ -1,5 +1,5 @@
-import { OurVision, WhatIsAWill, WhoWeAre } from "../components/sections/aboutHero";
-import { MeetOurTeam, OurValue } from "../components/sections/aboutValue";
+import { OurVision, WhatIsAWill, WhoWeAre } from "../components/sections/about_us/aboutHero";
+import { MeetOurTeam, OurValue } from "../components/sections/about_us/aboutValue";
 
 const About = () => {
   return (

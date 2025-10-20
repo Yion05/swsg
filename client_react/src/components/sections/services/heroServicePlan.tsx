@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { planCardsData } from "../../data/componentData";
+import { planCardsData } from "../../../data/componentData";
 import { Link } from "react-router";
 
 interface planCardSchema {

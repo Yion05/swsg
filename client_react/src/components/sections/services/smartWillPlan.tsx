@@ -4,8 +4,9 @@ import {
   basicFeatures,
   advancedFeatures,
   nationalityData,
-} from "../../data/componentData";
-import PlanCard from "../layout/planCard";
+} from "../../../data/componentData";
+import PlanCard from "../../layout/planCard";
+import { SmartConsult } from "../../ui/custom.icon";
 
 const SmartWillPlan = () => {
   const [currentSelect, setCurrentSelect] = useState<string>("Singaporean"); // to contributor reading (hi again), Nationality on site can be switch here
@@ -20,7 +21,7 @@ const SmartWillPlan = () => {
   };
 
   return (
-    <div className="shadow-lg rounded-2xl w-full flex flex-col items-center py-16">
+    <div className="w-full flex flex-col items-center py-16 px-12">
       <div className="grid grid-cols-2 gap-4 bg-button-secondary/30 px-2 rounded-full py-2 overflow-hidden mb-12">
         <button
           onClick={() => handleSwapSelect("Singaporean")}
@@ -68,7 +69,7 @@ const SmartWillPlan = () => {
           />
         </section>
       </div>
-      <span className="text-base bg-button-secondary/30 rounded-full py-2 px-6 mt-4">
+      <span className="text-sm bg-button-secondary/30 rounded-full py-2 px-6 mt-4">
         <p className="text-[#404040] text-center mx-auto font-medium">
           {currentSelect === "Singaporean" ? t("service_sg_footer1") : t('service_non_footer1')}
           <span className="text-button font-bold">{currentSelect === "Singaporean" ? t("service_sg_footer2") : t('service_non_footer2')}</span>
@@ -77,8 +78,12 @@ const SmartWillPlan = () => {
           {currentSelect === "Singaporean" ? t("service_sg_footer3") : t('service_non_footer3')}
         </p>
       </span>
+
+      <SmartConsult></SmartConsult>
     </div>
   );
 };
+
+
 
 export default SmartWillPlan;

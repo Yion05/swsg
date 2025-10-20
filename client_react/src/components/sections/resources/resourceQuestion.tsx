@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { resourceQuestionData } from "../../data/componentData";
+import { resourceQuestionData } from "../../../data/componentData";
 import { useTranslation } from "react-i18next";
 
 export const QnAPage = () => {

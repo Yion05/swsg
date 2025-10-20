@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
-import { hero4SlideData } from "../../data/componentData";
+import { hero4SlideData } from "../../../data/componentData";
 
 export const Hero4Slide = () => {
   const { t } = useTranslation("slides");

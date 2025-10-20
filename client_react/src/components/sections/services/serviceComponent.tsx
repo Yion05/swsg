@@ -1,122 +1,89 @@
 import { useCallback, useState } from "react";
-import { PlanForYouForm } from "../../data/serviceFormData";
-import type { formChoice } from "../../types/types";
-import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import { PlanForYouForm } from "../../../data/serviceFormData";
+import type { formChoice } from "../../../types/types";
+import { RiArrowRightLine } from "react-icons/ri";
+import {
+  ChoiceCardQuestion,
+  SelectionQuestion,
+} from "../../layout/serviceForm";
+import { useTranslation } from "react-i18next";
+import { productServices } from "../../../data/componentData";
 
-type Choice = {
-  choice_title: string;
-  choice_sub?: string;
-  choice_icon: string;
-  value: string;
-};
+export const HeroBackgroundOne = () => {
+  const { t } = useTranslation("service");
 
-type SelectionChoice = {
-  choice_title: string;
-  value: string | boolean;
-};
-
-interface ChoiceCardProps {
-  choices: Choice[];
-  selectedValue: string;
-  onSelect: (value: string) => void;
-}
-
-interface SelectionProps {
-  choices: SelectionChoice[];
-  selectedValue: string | boolean;
-  onSelect: (value: string | boolean) => void;
-}
-
-export const ChoiceCardQuestion: React.FC<ChoiceCardProps> = ({
-  choices,
-  selectedValue,
-  onSelect,
-}) => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
-      {choices.map((choice) => (
-        <button 
-          key={choice.value}
-          onClick={() => onSelect(choice.value)}
-          className={`
-            flex flex-col items-center justify-center rounded-xl text-center p-6
-            ${
-              selectedValue === choice.value
-                ? " bg-button-secondary"
-                : " bg-button-secondary/30 "
-            }
-          `}
-        >
-          <img
-            src={choice.choice_icon}
-            alt={choice.choice_title}
-            className="w-20 h-20 mb-3 object-contain"
-          />
-
-          <p className=" text-gray-800 text-xl font-bold">
-            {choice.choice_title}
-          </p>
-          {choice.choice_sub && (
-            <p className="font-bold text-base text-nowrap mt-1">{choice.choice_sub}</p>
-          )}
-        </button>
-      ))}
-    </div>
+    <section className="bg-[url(/assets/serviceBG.webp)] h-[50vh] rounded-xl bg-cover bg-center flex flex-col items-center justify-center gap-4 mt-8">
+      <h3 className="text-base bg-button-secondary/75 rounded-xl px-2 py-1 w-fit mb-4">
+        {t("sect1_page_quote")}
+      </h3>
+      <h1 className="text-5xl text-white font-semibold">
+        {t("sect1_servicePlan_h1")}
+      </h1>
+      <p className="text-lg text-white mb-20">{t("sect1_exp_p")}</p>
+    </section>
   );
 };
 
-export const SelectionQuestion: React.FC<SelectionProps> = ({
-  choices,
-  selectedValue,
-  onSelect,
-}) => {
-  const selectedTitle =
-    choices.find((c) => c.value === selectedValue)?.choice_title ||
-    choices[0].choice_title;
-
-  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedChoice = choices.find(
-      (c) => c.value.toString() === e.target.value
-    );
-    if (selectedChoice) {
-      onSelect(selectedChoice.value);
-    }
-  };
+export const SelectRightPlan = () => {
+  const { t } = useTranslation("service");
 
   return (
-    <div className="relative mx-auto w-full">
-      <select
-        value={selectedValue.toString()}
-        onChange={handleSelect}
-        className="appearance-none w-full px-8 py-5 text-lg font-medium text-gray-700 rounded-xl bg-gray-100 border border-gray-100 focus:outline-none focus:ring-2 focus:ring-red-300 transition-shadow cursor-pointer"
-      >
-        <option value="" disabled>
-          Select an Option
-        </option>
-        {choices.map((choice) => (
-          <option key={choice.choice_title} value={choice.value.toString()}>
-            {choice.choice_title}
-          </option>
-        ))}
-      </select>
+    <section className=" bg-button relative overflow-hidden text-center py-12 rounded-xl flex flex-col items-center">
+      <h1 className="text-white font-semibold text-4xl md:text-5xl text-center">
+        {t("hero2_h1")}
+      </h1>
+      <p className="text-lg text-center text-white mt-4 max-w-4xl">
+        {t("hero2_p1")}
+        <span className="text-text-secondary font-semibold whitespace-nowrap">
+          {t("hero2_sg")}
+        </span>
+        {t("hero2_p2")}
+        <span className="text-text-secondary font-semibold whitespace-nowrap">
+          {t("hero2_nosg")}
+        </span>
+        {t("hero2_p3")}
+      </p>
+    </section>
+  );
+};
 
-      <IoIosArrowDown className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-700 pointer-events-none text-xl" />
+export const ProductSelect = () => {
+  const { t } = useTranslation("service");
 
-      {selectedValue !== "" && (
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <span className="text-lg font-medium text-gray-800">
-            {selectedTitle}
+  return (
+    <section>
+      <h1 className="text-5xl font-semibold text-center">
+        {t("hero3_productService")}
+      </h1>
+      <h3 className="text-lg text-center">{t("hero3_des")}</h3>
+      <section className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-rows-2 gap-8  2xl:px-78 mt-8">
+        {productServices.map((data, index) => (
+          <span
+            className="bg-button-secondary/50 flex flex-col items-center p-4 rounded-2xl "
+            key={index}
+          >
+            <img
+              src={data.productImage}
+              className="w-32 h-32"
+              alt={data.productTitle}
+            />
+            <h1 className="text-center text-xl font-bold">
+              {data.productTitle}
+            </h1>
           </span>
-        </div>
-      )}
-    </div>
+        ))}
+      </section>
+    </section>
   );
 };
 
+// to contributor reading this, the function below is for the Plan For You's form;
 export const PlanForYou = () => {
   const totalQuestion = PlanForYouForm.length;
   const [currentQuestion, setCurrentQuestion] = useState<number>(1);
   const [answerValue, setAnswerValue] = useState<formChoice>({
+    // data value with interface-type of formChoice
     question_1: "",
     question_2: "",
     question_3: "",
@@ -155,13 +122,17 @@ export const PlanForYou = () => {
     setCurrentQuestion((prevIndex) => prevIndex + 1);
   };
 
+  // to contributor reading, the form data processing and API is expected to be here in the arrow function "handleSubmit",
+  // The objects and it datatype can be refer in type.ts interface "formChoice",
+  // if any issue encounter in this line, issue me in github (from: skx1322);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!isAnswered) {
+      // temporary checker
       alert("Please select your final concern before submitting!");
       return;
     }
-    console.log("Form Submitted with data:", answerValue);
+    console.log("Form Submitted with data:", answerValue); // remove this in production
   };
 
   const renderQuestion = () => {
@@ -191,13 +162,13 @@ export const PlanForYou = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-start justify-center py-20 bg-white">
+    <section className="flex items-start justify-center py-20 bg-white">
       <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-4">
           <h3 className="bg-button-secondary/30 inline-block rounded-full px-4 py-1 mb-4">
             Personalized wills and trusts for you
           </h3>
-          <h1 className="text-5xl font-semibold text-gray-900">
+          <h1 className="text-5xl font-semibold">
             Plan for <span className="text-button">YOU</span>
           </h1>
           <h2 className="text-xl">
@@ -206,8 +177,10 @@ export const PlanForYou = () => {
         </div>
 
         <div className="bg-white p-4 sm:p-10 rounded-2xl shadow-none">
-          <h2 className="text-2xl sm:text-3xl font-medium text-gray-900 mb-6 text-center">
-            <span className="text-button mr-2 font-semibold">Q{currentQuestion}.</span>
+          <h2 className="text-2xl sm:text-3xl font-medium mb-6 text-center">
+            <span className="text-button mr-2 font-semibold">
+              Q{currentQuestion}.
+            </span>
             {currentQuestionData.question}
           </h2>
 
@@ -233,11 +206,11 @@ export const PlanForYou = () => {
                   className={`flex items-center space-x-2 px-8 py-3 text-base font-semibold text-white rounded-lg transition duration-150 
                                         ${
                                           isAnswered
-                                            ? "bg-red-700 hover:bg-red-800"
-                                            : "bg-red-300 cursor-not-allowed"
+                                            ? "bg-button-green"
+                                            : "bg-button-green/30 cursor-not-allowed"
                                         }`}
                 >
-                  <span>Next</span> <IoIosArrowForward className="text-lg" />
+                  <span>Next</span> <RiArrowRightLine className="text-lg" />
                 </button>
               ) : (
                 <button
@@ -250,7 +223,7 @@ export const PlanForYou = () => {
                                             : "bg-red-300 cursor-not-allowed"
                                         }`}
                 >
-                  <span>GO!</span> <IoIosArrowForward className="text-lg" />
+                  <span>GO!</span> <RiArrowRightLine className="text-xl" />
                 </button>
               )}
             </div>
@@ -261,8 +234,8 @@ export const PlanForYou = () => {
                   key={index}
                   className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
                     index + 1 === currentQuestion
-                      ? "bg-red-700 w-3 h-3"
-                      : "bg-gray-300"
+                      ? "bg-button w-3 h-3"
+                      : "bg-button-secondary/30"
                   }`}
                 />
               ))}

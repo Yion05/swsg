@@ -1,5 +1,5 @@
-import { Hero, ResellerProgram } from "../components/sections/partnershipHero";
-import { CertifiedPlanner, JoinProgram, SmartWriterPortal } from "../components/sections/partnershipJoin";
+import { Hero, ResellerProgram } from "../components/sections/partnership/partnershipHero";
+import { CertifiedPlanner, JoinProgram, SmartWriterPortal } from "../components/sections/partnership/partnershipJoin";
 
 const Partnership = () => {
   return (

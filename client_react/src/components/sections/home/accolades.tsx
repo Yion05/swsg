@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import type { accolades_schema } from "../../types/types";
+import type { accolades_schema } from "../../../types/types";
 import { useState } from "react";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
 

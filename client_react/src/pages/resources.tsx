@@ -1,4 +1,4 @@
-import { ContactForm, QnAPage } from "../components/sections/resourceQuestion";
+import { ContactForm, QnAPage } from "../components/sections/resources/resourceQuestion";
 
 const Resources = () => {
   return (
