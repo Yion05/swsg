@@ -15,6 +15,9 @@
         html {
             scroll-behavior: smooth;
         }
+        #hero-section, #section-1, #section-2, #section-3, #section-4, #section-5 {
+            scroll-margin-top: 12vh;
+        }
         body, html {
             margin: 0;
             padding: 0;
@@ -110,7 +113,7 @@
             overflow: hidden;
         }
         .section-2 {
-            min-height: 600px;
+            min-height: 375px;
             background-size: cover;
             background-position: center;
             color: white;
@@ -134,7 +137,36 @@
             justify-content: space-between;
             position: relative;
             z-index: 2;
-        }     
+        }
+        .section-5 {
+            min-height: 450px;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+        .section-5-csps {
+            height: 800px;
+        }
+        .section-5-sw {
+            height: 640px;
+        }
+        .comparison-content {
+            position: relative;
+            line-height: 1.3;
+        }
+        .comparison-content .text-\[12px\] {
+            line-height: 1.1;
+        }
+        .comparison-content li {
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+        #cspsBox, #swBox {
+            transition: opacity 0.3s ease;
+        }
+        .hidden {
+            display: none;
+        }
         .section-footer {
             color: #fff;
             text-align: center;
@@ -171,10 +203,10 @@
                 height: 250px;
             }
             .section-hero h1 {
-                font-size: 25px !important;
+                font-size: 24px !important;
             }
             .section-hero p {
-                font-size: 12px !important;
+                font-size: 14px !important;
             }
             .section-1 {
                 height: auto !important;
@@ -182,15 +214,20 @@
             .section-1 h2 {
                 margin-top: 0;
                 margin-bottom: 0;
+                font-size: 24px !important;
             }
             .section-1 p {
                 margin-bottom: 0.5rem;
+                font-size: 14px !important;
             }
             .section-2 {
                 min-height: auto !important;
             }
-            .section-2 .grid {
-                grid-template-columns: repeat(2, 1fr) !important;
+            .section-2 h2 {
+                font-size: 24px !important;
+            }
+            .section-2 p {
+                font-size: 14px !important;
             }
             .section-3 {
                 height: auto !important;
@@ -198,9 +235,11 @@
             .section-3 h2 {
                 margin-top: 0;
                 margin-bottom: 0;
+                font-size: 24px !important;
             }
             .section-3 p {
                 margin-bottom: 0.5rem;
+                font-size: 14px !important;
             }
             .section-4 {
                 height: auto !important;
@@ -208,22 +247,76 @@
             .section-4 h2 {
                 margin-top: 0;
                 margin-bottom: 0;
+                font-size: 24px !important;
             }
             .section-4 p {
                 margin-bottom: 0.5rem;
+                font-size: 14px !important;
             }
-            .text-3xl, .text-4xl, .text-5xl {
-                font-size: 19px !important;
+            .section-5-csps, .section-5-sw {
+                height: auto !important;
+                min-height: 600px;
             }
-            .text-lg, .text-xl, .text-2xl {
+            .comparison-content {
+                line-height: 1.3;
+            }
+            .comparison-content .text-\[12px\] {
+                line-height: 1.1;
                 font-size: 12px !important;
             }
-            .text-base {
+            .comparison-content li {
+                line-height: 1.2;
+                margin-bottom: 0.5rem;
+            }
+            .bg-\[\#d9d9d9\] .rounded-3xl {
+                padding: 0.25rem !important;
+            }
+            #cspsButton, #swButton {
+                padding: 0.5rem 0.75rem !important;
+                font-size: 12px !important;
+                white-space: wrap;
+            }
+            .comparison-content .flex.justify-between.items-center {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }       
+            .comparison-content .text-xl {
+                font-size: 14px !important;
+                text-align: center;
+            }        
+            .section-5 .comparison-content .text-\[42px\] {
+                font-size: 24px !important;
+            }        
+            .comparison-content .mr-12 {
+                margin-right: 0 !important;
+                margin-top: 0.5rem;
+            }       
+            .comparison-content .absolute.ml-1 {
+                position: absolute !important;
+                margin-left: 0.25rem;
+                display: inline-block;
                 font-size: 10px !important;
             }
-            .text-sm {
-                font-size: 10px !important;
-                max-width: 80% !important;
+            .comparison-content .flex-col.md\:flex-row {
+                gap: 1rem;
+            }
+            .comparison-content .bg-\[\#D9D9D9\] {
+                padding: 1rem !important;
+            }       
+            .comparison-content .space-y-4 {
+                gap: 0.75rem;
+            }
+            .comparison-content .h-5.w-5 {
+                height: 12px !important;
+                width: 12px !important;
+                margin-top: 0.25rem !important;
+            }
+            .comparison-content .text-\[18px\] {
+                font-size: 14px !important;
+            }
+            .comparison-content ul.space-y-4 > li {
+                margin-bottom: 0.5rem;
             }
             .section-wrapper {
                 border-radius: 8px;
@@ -241,77 +334,70 @@
                 transform: none !important;
                 width: 100% !important;
             }
-            .section-footer > .absolute:first-child {
-                text-align: center;
-                margin-bottom: 1.5rem;
-                height: auto !important;
-                width: 100% !important;
-            }
-            .section-footer > .absolute:first-child img {
-                width: 150px !important;
-                margin: 0 auto;
-                margin-left: -1rem !important;
-                margin-top: -2rem !important;
-            }
-            .section-footer > .absolute:nth-child(2) {
-                width: 100% !important;
-                margin-bottom: 2rem;
-                left: 0 !important;
-                position: static !important;
-                transform: none !important;
-            }
             .section-footer .grid-cols-5 {
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 1.5rem !important;
             }
-            .section-footer .awards {
-                position: static !important;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-                margin-top: 2rem;
-            }
-            .section-footer .iso-logo {
-                height: 50px !important;
-                width: auto !important;
-            }
-            .section-footer .slogan-text {
-                max-width: 11rem !important;
-                line-height: 1.3 !important;
-                text-align: center !important;
-                margin-bottom: 0.5rem !important;
-                margin-right: 1rem;
-            }
-            .section-footer .bracket-symbol {
-                transform: rotate(90deg) !important;
-                font-size: 2rem !important;
-                line-height: 1 !important;
-                margin-top: -0.5rem !important;
-            }
             .section-footer .text-2xl {
-                font-size: 18px !important;
-                text-align: center !important;
+                font-size: 24px !important;
+                text-align: center;
                 margin-right: 0;
                 margin-top: 0;
             }
             .section-footer .footer-description {
-            text-align: center !important;
-            margin-right: 1.8rem !important;
-            margin-top: 0 !important;
-            }
-            .section-footer .text-sm {
+                text-align: center !important;
+                margin-right: 1.8rem !important;
+                margin-top: 0 !important;
                 font-size: 12px !important;
+            }
+            .section-footer .text-base {
+                font-size: 14px !important;
                 text-align: left;
-                margin-left: 1.3rem;
+                margin-left: 0.5rem;
             }
             .section-footer .text-xs {
                 font-size: 10px !important;
                 text-align: left;
-                margin-left: 1.3rem;
-            }  
-            .section-footer .text-left {
-                text-align: center !important;
+                margin-left: 0.5rem;
+            }
+            .section-footer [class*="text-\[10px\]"] {
+                font-size: 10px !important;
+                text-align: left;
+                margin-left: 1.2rem;
+            }
+            
+            /* Commission structure mobile improvements */
+            .section-2 .text-1xl {
+                font-size: 14px !important;
+            }
+            .section-2 .text-base {
+                font-size: 12px !important;
+            }
+            
+            /* Button text sizes */
+            .btn-transition {
+                font-size: 12px !important;
+            }
+            
+            /* Text size overrides */
+            .text-3xl, .text-4xl, .text-5xl {
+                font-size: 24px !important;
+            }
+            .text-xl, .text-2xl {
+                font-size: 20px !important;
+            }
+            .text-lg {
+                font-size: 18px !important;
+            }
+            .text-base {
+                font-size: 14px !important;
+            }
+            .text-sm {
+                font-size: 12px !important;
+                max-width: 80% !important;
+            }
+            .text-xs {
+                font-size: 10px !important;
             }
         }
     </style>
@@ -420,8 +506,8 @@
         <section class="section-hero section-padding relative bg-cover bg-center flex items-center justify-center text-center"
             style="background-image: url('https://raw.githubusercontent.com/Yion05/swsg/main/homepage%20pic/Website%20bg-10.png'); height: 320px;">
             <div class="fixed-width-container text-white">
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold">Partnership with SmartWills</h1>
-                <p class="text-base md:text-lg lg:text-xl mt-4 max-w-10xl mx-auto">
+                <h1 class="text-3xl md:text-[42px] lg:text-[42px] font-semibold">Partnership with SmartWills</h1>
+                <p class="text-base md:text-[18px] lg:text-[18px] mt-4 max-w-10xl mx-auto">
                     Consider partnering with SmartWills and discover a new avenue to increase your income.
                 </p>
             </div>
@@ -429,18 +515,18 @@
     </div>
 
     <!-- Section 1: Reseller Program --->
-    <div class="section-wrapper">
+    <div class="section-wrapper"  id="section-1">
         <section class="section-1 section-padding flex flex-col items-center justify-center"
             style="background-image: url('https://raw.githubusercontent.com/Yion05/swsg/main/homepage%20pic/Website%20bg-11.png');">
             <div class="no-stack h-full w-full">
                 <!-- Text Container -->
                 <div class="w-full md:w-1/2 h-full flex items-center fixed-width-container">
                     <div class="z-10">
-                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-black">Reseller Business Program</h2>
-                        <p class="text-black mb-8 leading-relaxed text-sm md:text-base lg:text-lg max-w-2xl">
+                        <h2 class="text-3xl md:text-[42px] lg:text-[42px] font-semibold mb-6 text-black">Reseller Business Program</h2>
+                        <p class="text-black mb-8 leading-relaxed text-sm md:text-[14px] lg:text-[14px] max-w-[450px]">
                             Leverage our established platform through our reseller program, expanding your portfolio and offering enhanced services to your clientele.
                         </p>
-                        <a href="#" class="mt-4 bg-custom-red text-center text-white px-6 py-3 rounded-lg hover:bg-[#7a0001] transition-all duration-300 text-base md:text-lg btn-transition inline-block">
+                        <a href="#" class="font-semibold mt-4 bg-custom-red text-center text-white px-6 py-3 rounded-lg hover:bg-[#7a0001] transition-all duration-300 text-base md:text-[16px] btn-transition inline-block">
                             Contact Us Now
                         </a>
                     </div>
@@ -451,67 +537,39 @@
         </section>
     </div>
 
-    <!-- Section 2: Join Program --->
-    <div class="section-wrapper">
+    <!-- Section 2: Join Program -->
+    <div class="section-wrapper" id="section-2">
         <section class="section-2 section-padding text-white"
             style="background-image: url('https://raw.githubusercontent.com/Yion05/swsg/main/homepage%20pic/Website%20bg-12.png');">
             <div class="fixed-width-container h-full flex flex-col justify-center text-center">
-                <h2 class="mt-2 text-3xl md:text-4xl lg:text-5xl font-semibold mb-6">Join Our Reseller Program</h2>
-                <p class="text-white mb-8 leading-relaxed text-sm md:text-base lg:text-lg max-w-6xl mx-auto">
-                    While we welcome individuals from all professional backgrounds to our reseller program, we especially value those with relevant business relationships and customer experience. If you are in one of the following professions, we would be particularly interested in having you join our team of SmartWriters.
+                <h2 class="mt-2 text-3xl md:text-[42px] lg:text-[42px] font-semibold mb-6">
+                    <span class="text-[#FFBB00]">Join</span> Our Reseller Program
+                </h2>
+                <p class="text-white mb-8 leading-relaxed text-sm md:text-[14px] lg:text-[14px] max-w-[1151px] mx-auto">
+                    While we welcome individuals from all professional backgrounds to our reseller program, we especially value those with relevant business
+                    relationships and customer experiences. If you are in one of the following professions,we would be particularly interested in having you join our team of SmartWriters.
                 </p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-                    <div class="flex flex-col items-center">
-                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Insurance Agents</h3>
+                
+                <!-- Commission Structure -->
+                <div class="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-32 mb-12">
+                    <!-- SmartWriter Commission -->
+                    <div class="text-center">
+                        <h2 class="text-[16px] md:text-[32px] lg:text-[32px] font-bold mb-2 text-yellow-400">25% Commission</h2>
+                        <p class="text-[14px] md:text-[21px] lg:text-[21px] text-white">for SmartWriter</p>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Estate Planners</h3>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Real Estate Agents</h3>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
-                            <i class="fas fa-monument"></i>
-                        </div>
-                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Memorial Park Agents</h3>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Remisiers</h3>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
-                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Investment Consultants</h3>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
-                            <i class="fas fa-coins"></i>
-                        </div>
-                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Financial Planners</h3>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="bg-white text-custom-red rounded-full h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 flex items-center justify-center shadow-lg mb-2 text-xl md:text-2xl lg:text-3xl icon-transition">
-                            <i class="fas fa-file-contract"></i>
-                        </div>
-                        <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center -mb-6">Will & Trust Consultants</h3>
+                    
+                    <!-- Vertical Divider -->
+                    <div class="hidden md:block h-20 w-0.5 bg-yellow-400"></div>
+                    
+                    <!-- Certified Commission -->
+                    <div class="text-center">
+                        <h2 class="text-[16px] md:text-[32px] lg:text-[32px] font-bold mb-2 text-yellow-400">35% Commission</h2>
+                        <p class="text-[14px] md:text-[21px] lg:text-[21px] text-white">for Certified Smart Planner (CSPS)</p>
                     </div>
                 </div>
-                <div class="mt-14">
-                    <a href="#" class="bg-yellow-400 text-center text-custom-red font-semibold px-6 py-3 rounded-lg hover:bg-yellow-500 transition-all duration-300 text-base md:text-lg btn-transition inline-block">
+                
+                <div class="mt-2">
+                    <a href="#" class="bg-[#FFBB00] text-center text-[#C60000] font-semibold px-6 py-3 rounded-lg hover:bg-yellow-500 transition-all duration-300 text-base md:text-lg btn-transition inline-block">
                         Contact Us Now
                     </a>
                 </div>
@@ -519,44 +577,24 @@
         </section>
     </div>
 
-    <!-- Section 3: Certified Smart Planner --->
-    <div class="section-wrapper">
+    <!-- Section 3: Certified Smart Planner -->
+    <div class="section-wrapper" id="section-3">
         <section class="section-3 section-padding flex flex-col items-center justify-center"
             style="background-image: url('https://raw.githubusercontent.com/Yion05/swsg/main/homepage%20pic/Website%20bg-13.png');">
             <div class="no-stack h-full w-full">
                 <!-- Text Container -->
                 <div class="w-full md:w-1/2 h-full flex items-center fixed-width-container">
                     <div class="z-10">
-                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-black">Certified Smart Planner</h2>
-                        <p class="text-black mb-8 leading-relaxed text-sm md:text-base lg:text-lg max-w-2xl">
-                            SmartPlanner is a certification program by SmartWills that trains advisors in modern estate planning using wills, trusts, and digital tools.
+                        <h2 class="text-3xl md:text-[42px] lg:text-[42px] font-semibold mb-6 text-black">Certified<br>Smart Planner (CSPS)</h2>
+                        <p class="text-black mb-8 leading-relaxed text-sm md:text-[14px] lg:text-[14px] max-w-[535px]">
+                            Build your professional career in Estate Planning, Trusts, and Cross-Border Wills. Learn from lawyers, trustees, and estate experts — and unlock new income opportunities across Asia.
                         </p>
-                        <a href="#" class="mt-4 bg-custom-red text-center text-white px-6 py-3 rounded-lg hover:bg-[#7a0001] transition-all duration-300 text-base md:text-lg btn-transition inline-block">
-                            Login
-                        </a>
-                    </div>
-                </div>
-                <!-- Empty container for layout -->
-                <div class="w-1/2 h-full"></div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Section 4: SmartWriter Portal --->
-    <div class="section-wrapper">
-        <section class="section-4 section-padding flex flex-col items-center justify-center"
-            style="background-image: url('https://raw.githubusercontent.com/Yion05/swsg/main/homepage%20pic/Website%20bg-14.png');">
-            <div class="no-stack h-full w-full">
-                <!-- Text Container -->
-                <div class="w-full md:w-1/2 h-full flex items-center fixed-width-container">
-                    <div class="z-10 text-right w-full">
-                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-black">SmartWriter Portal</h2>
-                        <p class="text-black mb-8 leading-relaxed text-sm md:text-base lg:text-lg max-w-2xl ml-auto">
-                            Our registered reseller (SmartWriter) can log in here to create a Will for your client, anytime and anywhere.
-                        </p>
-                        <div class="text-right">
-                            <a href="#" class="mt-4 inline-block text-center bg-custom-red text-white px-6 py-3 rounded-lg hover:bg-[#7a0001] transition-all duration-300 text-base md:text-lg btn-transition">
+                        <div class="flex gap-4 justify-left">
+                            <a href="#" class="flex items-center justify-center font-semibold bg-custom-red text-white px-6 py-3 rounded-lg hover:bg-[#7a0001] transition-all duration-300 text-base md:text-lg btn-transition">
                                 Login
+                            </a>
+                            <a href="#" class="flex items-center justify-center font-semibold bg-[#d9d9d9] text-black px-6 py-3 rounded-lg hover:bg-[#c4c4c4] transition-all duration-300 text-base md:text-lg btn-transition">
+                                Know More
                             </a>
                         </div>
                     </div>
@@ -567,88 +605,341 @@
         </section>
     </div>
 
-    <!-- Footer --->
-    <footer>
-        <div class="section-wrapper section-padding section-footer h-[330px] mx-auto bg-cover bg-center bg-no-repeat"
-            style="background-image: url('https://raw.githubusercontent.com/Yion05/swsg/main/homepage%20pic/Website%20bg-12.png');">
-            <!-- Left Side - Logo -->
-            <div class="absolute left-0 top-0 h-[100%] w-[25%]">
-                <img src="https://raw.githubusercontent.com/Yion05/swsg/10b671348704b23d6aaf0cd2189863834b5a5504/homepage%20pic/Website%20bg-19.png" alt="SmartWills Logo" class="w-100 mb-4">
+    <!-- Section 4: SmartWriter Portal -->
+    <div class="section-wrapper" id="section-4">
+        <section class="section-4 section-padding flex flex-col items-center justify-center"
+            style="background-image: url('https://raw.githubusercontent.com/Yion05/swsg/main/homepage%20pic/Website%20bg-14.png');">
+            <div class="no-stack h-full w-full">
+                <!-- Text Container -->
+                <div class="w-full md:w-1/2 h-full flex items-center fixed-width-container">
+                    <div class="z-10 text-right w-full">
+                        <h2 class="text-3xl md:text-[42px] lg:text-[42px] font-semibold mb-6 text-black">SmartWriter Portal</h2>
+                        <p class="text-black mb-8 leading-relaxed text-sm md:text-[14px] lg:text-[14px] max-w-[467px] ml-auto">
+                            SmartWriter is an affiliate program by SmartWills Singapore, designed for anyone who wants to help others create their Will easily — and earn income while doing it!
+                        </p>
+                        <p class="text-black mb-8 leading-relaxed text-sm md:text-[14px] lg:text-[14px] max-w-[467px] ml-auto">
+                            You don't need legal or financial experience. SmartWriter acts as a simple Will form-filling assistant, guiding clients through the SmartWills online platform step by step.
+                        </p>
+                        <div class="text-right">
+                            <div class="flex gap-4 justify-end">
+                                <a href="#" class="flex items-center justify-center font-semibold bg-custom-red text-white px-6 py-3 rounded-lg hover:bg-[#7a0001] transition-all duration-300 text-base md:text-lg btn-transition">
+                                    Login
+                                </a>
+                                <a href="#" class="flex items-center justify-center font-semibold bg-[#d9d9d9] text-black px-6 py-3 rounded-lg hover:bg-[#c4c4c4] transition-all duration-300 text-base md:text-lg btn-transition">
+                                    Know More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Empty container for layout -->
+                <div class="w-1/2 h-full"></div>
             </div>
+        </section>
+    </div>
 
-            <!-- Center - Company Info and Navigation -->
-            <div class="absolute left-[60%] top-6 transform -translate-x-1/2 text-center w-[70%]">
-                <p class="text-2xl font-semibold">MY SMARTWILLS PTE LTD</p>
-                <p class="text-sm footer-description mt-1">(UEN No. 202231612H)</p>
+    <!-- Section 5: Compare The Package -->
+    <div class="section-wrapper" id="section-5">
+        <section class="section-5 section-padding bg-white section-5-csps">
+            <div class="fixed-width-container">
+                <h2 class="text-[20px] md:text-[42px] lg:text-[42px] font-semibold mb-8 text-center text-black">Compare The Package</h2>
                 
-                <!-- Navigation Columns -->
-                <div class="grid grid-cols-5 gap-8 mt-6">
-                    <!-- Home -->
-                    <div class="text-left">
-                        <h3 class="font-bold text-[#ffbb00] mb-3 text-sm">Home</h3>
-                        <ul class="space-y-1 text-xs">
-                            <li><a href="#" class="hover:text-[#ffbb00]">Will Writing</a></li>
-                            <li><a href="#" class="hover:text-[#ffbb00]">3 Easy Steps</a></li>
-                            <li><a href="#" class="hover:text-[#ffbb00]">Review</a></li>
-                            <li><a href="#" class="hover:text-[#ffbb00]">Accolades</a></li>
-                        </ul>
+                <!-- Toggle Buttons -->
+                <div class="flex justify-center mb-8">
+                    <div class="bg-[rgb(217_217_217_/_0.3)] rounded-3xl p-1 flex">
+                        <button id="cspsButton" class="px-6 py-3 rounded-3xl font-medium transition-all duration-300 bg-custom-red text-white">
+                            Certified SmartPlanner Singapore (CSPS)
+                        </button>
+                        <button id="swButton" class="px-6 py-3 rounded-3xl font-medium transition-all duration-300 text-black">
+                            SmartWriter (SW)
+                        </button>
                     </div>
+                </div>
+                
+                <!-- Light Gray Background Box -->
+                <div class="bg-[rgb(217_217_217_/_0.1)] rounded-lg p-6 mb-8">
+                    <div class="comparison-content">
+                        <!-- CSPS Box -->
+                        <div id="cspsBox">
+                            <div class="text-center mb-6">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="text-2xl md:text-[42px] font-semibold text-black">Certified SmartPlanner Singapore (CSPS)</h3>
+                                    <div class="mr-12">
+                                        <span class="text-2xl md:text-[42px] font-semibold text-custom-red">388</span>
+                                        <span class="text-[18px] font-bold text-custom-red absolute ml-1">SDG</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row gap-6">
+                                <!-- Left Box -->
+                                <div class="bg-[rgb(217_217_217_/_0.3)] rounded-lg p-6 shadow-md flex-1">
+                                    <ul class="space-y-4">
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-black text-[18px] font-semibold">
+                                                Commission : 35%
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-black font-medium">
+                                                <span class="font-semibold text-[18px]">Target Group :</span><br>
+                                                <span class="text-[12px] font-medium mt-0">
+                                                    - Financial planners<br>
+                                                    - Insurance agents<br>
+                                                    - Investment Consultants<br>
+                                                    - Accountants<br>
+                                                    - Lawyers<br>
+                                                    - Business consultants<br>
+                                                    - Anyone seeking to become a certified estate planner
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-black font-semibold text-[18px]">2 Days Online Training</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-black font-medium">
+                                                <span class="text-black font-semibold text-[18px]">Bundled Offer :</span><br>
+                                                <span class="text-[12px] font-medium">1 PRO + Corp.Trustee Appointment + Premium Printing (Total Value of $5485)</span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Right Box -->
+                                <div class="bg-[rgb(217_217_217_/_0.3)] rounded-lg p-4 shadow-md flex-1">                      
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-[#8C8C8C] font-medium">
+                                                <span class="font-semibold text-[18px]">Do Cross-Border Wills</span><br>
+                                                <span class="text-[12px] font-medium">Serve clients in Singapore, Malaysia, Hong Kong & beyond.</span>
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-[#8C8C8C] font-medium">
+                                                <span class="font-semibold text-[18px]">Learn from Experts</span><br>
+                                                <span class="text-[12px] font-medium">Professional trainers, lawyers & trustees.</span>
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-[#8C8C8C] font-medium">
+                                                <span class="font-semibold text-[18px]">Higher Commissions</span><br>
+                                                <span class="text-[12px] font-medium">with certified planner status.</span>
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-[#8C8C8C] font-medium">
+                                                <span class="font-semibold text-[18px]">Get Certified (CSPS)</span><br>
+                                                <span class="text-[12px] font-medium">Build instant trust with professional recognition.</span>
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-[#8C8C8C] font-medium">
+                                                <span class="font-semibold text-[18px]">Offer More Services</span><br>
+                                                <span class="text-[12px] font-medium">Wills, Testamentary Trusts, Trust products & more.</span>
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-[#8C8C8C] font-medium">
+                                                <span class="font-semibold text-[18px]">Do GP & LA Business</span><br>
+                                                <span class="text-[12px] font-medium">Submit Grant of Prakate & Letter of Administration cases through the platform.</span>
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-[#8C8C8C] font-medium">
+                                                <span class="font-semibold text-[18px]">Flexible Learning</span><br>
+                                                <span class="text-[12px] font-medium">2-day online class + optional cross-border sessions.</span>
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-[#8C8C8C] font-medium">
+                                                <span class="font-semibold text-[18px]">Network Globally</span><br>
+                                                <span class="text-[12px] font-medium">Meet planners and professionals from other countries.</span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
 
-                    <!-- Services & Plans -->
-                    <div class="text-left">
-                        <h3 class="font-bold text-[#ffbb00] mb-3 text-sm">Services & Plans</h3>
-                        <ul class="space-y-1 text-xs">
-                            <li><a href="#" class="hover:text-[#ffbb00]">SmartWills Plan</a></li>
-                            <li><a href="#" class="hover:text-[#ffbb00]">SmartWills+ Plan</a></li>
-                            <li><a href="#" class="hover:text-[#ffbb00]">Product + Services</a></li>
-                            <li><a href="#" class="hover:text-[#ffbb00]">Plan for YOU</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- About Us -->
-                    <div class="text-left">
-                        <h3 class="font-bold text-[#ffbb00] mb-3 text-sm">About Us</h3>
-                        <ul class="space-y-1 text-xs">
-                            <li><a href="#" class="hover:text-[#ffbb00]">Introduction</a></li>
-                            <li><a href="#" class="hover:text-[#ffbb00]">Vision & Value</a></li>
-                            <li><a href="#" class="hover:text-[#ffbb00]">Meet Our Team</a></li>
-                            <li><a href="#" class="hover:text-[#ffbb00]">Platform & Security</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Resources -->
-                    <div class="text-left">
-                        <h3 class="font-bold text-[#ffbb00] mb-3 text-sm">Resources</h3>
-                        <ul class="space-y-1 text-xs">
-                            <li><a href="#" class="hover:text-[#ffbb00]">FAQ</a></li>
-                            <li><a href="#" class="hover:text-[#ffbb00]">More Question</a></li>
-                            <li><a href="#" class="hover:text-[#ffbb00]">Guides & Download</a></li>
-                            <li><a href="#" class="hover:text-[#ffbb00]">Videos</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Partnership -->
-                    <div class="text-left">
-                        <h3 class="font-bold text-[#ffbb00] mb-3 text-sm">Partnership</h3>
-                        <ul class="space-y-1 text-xs">
-                            <li><a href="#" class="hover:text-[#ffbb00]">Reseller Program</a></li>
-                            <li><a href="#" class="hover:text-[#ffbb00]">Certified SmartPlanner</a></li>
-                            <li><a href="#" class="hover:text-[#ffbb00]">SmartWriter Portal</a></li>
-                        </ul>
+                        <!-- SW Box -->
+                        <div id="swBox" class="hidden">
+                            <div class="text-center mb-6">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="text-2xl md:text-[42px] font-semibold text-black">SmartWriter (SW)</h3>
+                                    <div class="mr-12">
+                                        <span class="text-2xl md:text-[42px] font-semibold text-custom-red">188</span>
+                                        <span class="text-[18px] font-bold text-custom-red absolute ml-1">SDG</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row gap-6">
+                                <!-- Left Box -->
+                                <div class="bg-[rgb(217_217_217_/_0.3)] rounded-lg p-6 shadow-md flex-1">
+                                    <ul class="space-y-4">
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-black text-[18px] font-semibold">
+                                                Commission : 25%
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-black font-medium">
+                                                <span class="font-semibold text-[18px]">Target Group : Anyone </span><br>
+                                                <span class="text-[12px] font-medium">
+                                                    - Hemembers<br>
+                                                    - Students<br>
+                                                    - Freelancers<br>
+                                                    - Part-timers<br>
+                                                    - Anyone who can fill in a form and wants to earn extra income
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-black font-semibold text-[18px]">2 Hours Online Training</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-black font-medium">
+                                                <span class="text-black font-semibold text-[18px]">Bundled Offer :</span><br>
+                                                <span class="text-[12px] font-medium">1 Advanced + 1 Premium Printing (Total Value of $263)</span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Right Box -->
+                                <div class="bg-[rgb(217_217_217_/_0.3)] rounded-lg p-6 shadow-md flex-1">                      
+                                    <ul class="space-y-4">
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-[#8C8C8C] font-medium">
+                                                <span class="font-semibold text-[18px]">No Experience Needed — just basic computer skills.</span>
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-[#8C8C8C] font-medium">
+                                                <span class="font-semibold text-[18px]">Easy-to-use Will Form</span>
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-[#8C8C8C] font-medium">
+                                                <span class="font-semibold text-[18px]">Start Earning Immediately</span>
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-[#8C8C8C] font-medium">
+                                                <span class="font-semibold text-[18px]">Monthly Training</span>
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-[#8C8C8C] font-medium">
+                                                <span class="font-semibold text-[18px]">Work Anywhere — Home, office, or on your phone.</span>
+                                            </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <span class="text-[#8C8C8C] font-medium">
+                                                <span class="font-semibold text-[18px]">Trusted Platform by SmartWills Singapore.</span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+    </div>
 
-            <!-- Bottom Section -->
-            <div class="absolute bottom-2 right-6 flex items-center gap-6 awards">
-                <img src="https://smartwills.com.sg/wp-content/uploads/2023/11/ISO-9001-2015-LOGO.png" alt="ISO-IAF-ACB" class="h-16 iso-logo">
-                <div class="text-center slogan-container">
-                    <p class="text-sm slogan-text" style="max-width: 12rem">Your smartest & fastest online will writer</p>
-                    <div class="-mt-2 rotate-90 text-5xl bracket-symbol">)</div>
-                </div>
-            </div>
-        </div>
-    </footer>
+  <!-- Footer --->
+  <footer>
+      <div class="section-wrapper section-padding section-footer h-[330px] mx-auto bg-cover bg-center bg-no-repeat"
+          style="background-image: url('https://raw.githubusercontent.com/Yion05/swsg/ee712c130141e94df4bf01f709e7e92446659fc7/homepage%20pic/Website%20bg-19.png');">
+
+          <!-- Center - Company Info and Navigation -->
+          <div class="absolute left-[60%] top-6 transform -translate-x-1/2 text-center w-[70%]">
+              <p class="text-2xl font-semibold">MY SMARTWILLS PTE LTD</p>
+              <p class="text-[10px] footer-description mt-1">(UEN No. 202231612H)</p>
+              
+              <!-- Navigation Columns -->
+              <div class="grid grid-cols-5 gap-8 mt-6">
+                  <!-- Home -->
+                  <div class="text-left">
+                      <h3 class="font-semibold text-[#ffbb00] mb-3 text-base">Home</h3>
+                      <ul class="space-y-1 text-xs">
+                          <li><a href="#" class="hover:text-[#ffbb00]">Will Writing</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">3 Easy Steps</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Review</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Accolades</a></li>
+                      </ul>
+                  </div>
+
+                  <!-- Services & Plans -->
+                  <div class="text-left">
+                      <h3 class="font-semibold text-[#ffbb00] mb-3 text-base">Services & Plans</h3>
+                      <ul class="space-y-1 text-xs">
+                          <li><a href="#" class="hover:text-[#ffbb00]">SmartWills Plan</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">SmartWills+ Plan</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Product + Services</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Plan for YOU</a></li>
+                      </ul>
+                  </div>
+
+                  <!-- About Us -->
+                  <div class="text-left">
+                      <h3 class="font-semibold text-[#ffbb00] mb-3 text-base">About Us</h3>
+                      <ul class="space-y-1 text-xs">
+                          <li><a href="#" class="hover:text-[#ffbb00]">Introduction</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Vision & Value</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Meet Our Team</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Platform & Security</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Our Business Partners</a></li>
+                      </ul>
+                  </div>
+
+                  <!-- Resources -->
+                  <div class="text-left">
+                      <h3 class="font-semibold text-[#ffbb00] mb-3 text-base">Resources</h3>
+                      <ul class="space-y-1 text-xs">
+                          <li><a href="#" class="hover:text-[#ffbb00]">FAQ</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">More Question</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Brochures</a></li>
+                          <li><a href="#" class="hover:text-[#ffbb00]">Videos</a></li>
+                      </ul>
+                  </div>
+
+                  <!-- Partnership -->
+                  <div class="text-left">
+                      <h3 class="font-semibold text-[#ffbb00] mb-3 text-base">Partnership</h3>
+                      <ul class="space-y-1 text-xs">
+                          <li><a href="#section-1" class="hover:text-[#ffbb00]">Reseller Program</a></li>
+                          <li><a href="#section-3" class="hover:text-[#ffbb00]">Certified SmartPlanner</a></li>
+                          <li><a href="#section-4" class="hover:text-[#ffbb00]">SmartWriter Portal</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
 
     <script>
         // Mobile Menu Toggle
@@ -721,6 +1012,37 @@
                 languageDropdown.classList.remove('open');
                 languageIcon.style.transform = 'rotate(0)';
             });
+        });
+
+        // Package Comparison Toggle
+        const cspsButton = document.getElementById('cspsButton');
+        const swButton = document.getElementById('swButton');
+        const cspsBox = document.getElementById('cspsBox');
+        const swBox = document.getElementById('swBox');
+        const section5 = document.getElementById('section5');
+
+        cspsButton.addEventListener('click', function() {
+            cspsBox.classList.remove('hidden');
+            swBox.classList.add('hidden');
+            cspsButton.classList.add('bg-custom-red', 'text-white');
+            cspsButton.classList.remove('text-black', 'bg-[rgb(217_217_217_/_0.0)]');
+            swButton.classList.remove('bg-custom-red', 'text-white');
+            swButton.classList.add('text-black', 'bg-[rgb(217_217_217_/_0.0)]');
+            
+            section5.classList.remove('section-5-sw');
+            section5.classList.add('section-5-csps');
+        });
+
+        swButton.addEventListener('click', function() {
+            swBox.classList.remove('hidden');
+            cspsBox.classList.add('hidden');
+            swButton.classList.add('bg-custom-red', 'text-white');
+            swButton.classList.remove('text-black', 'bg-[rgb(217_217_217_/_0.0)]');
+            cspsButton.classList.remove('bg-custom-red', 'text-white');
+            cspsButton.classList.add('text-black', 'bg-[rgb(217_217_217_/_0.0)]');
+            
+            section5.classList.remove('section-5-csps');
+            section5.classList.add('section-5-sw');
         });
     </script>
 </body>
