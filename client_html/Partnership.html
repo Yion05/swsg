@@ -15,7 +15,7 @@
         html {
             scroll-behavior: smooth;
         }
-        #hero-section, #section-1, #section-2, #section-3, #section-4, #section-5 {
+        #hero-section, #section-1, #section-2, #section-3, #section-4 {
             scroll-margin-top: 12vh;
         }
         body, html {
@@ -138,29 +138,6 @@
             position: relative;
             z-index: 2;
         }
-        .section-5 {
-            min-height: 450px;
-            background-size: cover;
-            background-position: center;
-            overflow: hidden;
-        }
-        .section-5-csps {
-            height: 800px;
-        }
-        .section-5-sw {
-            height: 640px;
-        }
-        .comparison-content {
-            position: relative;
-            line-height: 1.3;
-        }
-        .comparison-content .text-\[12px\] {
-            line-height: 1.1;
-        }
-        .comparison-content li {
-            line-height: 1.2;
-            margin-bottom: 0.5rem;
-        }
         #cspsBox, #swBox {
             transition: opacity 0.3s ease;
         }
@@ -188,6 +165,89 @@
             z-index: 1;
             color: #fff;
         }
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.300);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .popup-content {
+            background-color: #FCFCFC; 
+            border-radius: 10px;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            overflow: visible; 
+        }
+        .popup-overlay.active .popup-content {
+            transform: scale(1);
+        }
+        .popup-close {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #8C8C8C; 
+            color: #FCFCFC;  
+            width: 27.5px;
+            height: 27.5px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1001;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .popup-close:hover {
+            background: #595959; 
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+        #cspsPopup .popup-content {
+            width: 1200px;
+            height: 585px;
+            border-radius: 10px;
+        }
+        #swPopup .popup-content {
+            width: 1200px;
+            height: 425px;
+            border-radius: 10px;
+        }
+        #cspsPopup .popup-content,
+        #swPopup .popup-content {
+            background: #FCFCFC !important; 
+        }
+        #cspsPopup .bg-\[rgb\(217_217_217_\/_0\.1\)\],
+        #swPopup .bg-\[rgb\(217_217_217_\/_0\.1\)\] {
+            background: transparent !important; 
+        }
+        #cspsPopup .bg-white,
+        #swPopup .bg-white {
+            background: transparent !important; 
+        }
+        #cspsPopup .section-padding,
+        #swPopup .section-padding {
+            background: transparent !important;
+        }
+        #cspsPopup .bg-\[\#D9D9D9\] .rounded-3xl,
+        #swPopup .bg-\[\#D9D9D9\] .rounded-3xl {
+            background: transparent !important;
+        }
+
         @media (max-width: 1280px) {
             .fixed-width-container, .header-wrapper, .footer-wrapper {
                 width: 100%;
@@ -197,6 +257,12 @@
                 margin: 0 1rem 2rem;
                 width: calc(100% - 2rem);
             }
+            #cspsPopup .popup-content, #swPopup .popup-content {
+                width: 95%;
+                height: auto;
+                max-height: 80vh;
+            }
+
         }
         @media (max-width: 768px) {
             .section-hero {
@@ -253,21 +319,6 @@
                 margin-bottom: 0.5rem;
                 font-size: 14px !important;
             }
-            .section-5-csps, .section-5-sw {
-                height: auto !important;
-                min-height: 600px;
-            }
-            .comparison-content {
-                line-height: 1.3;
-            }
-            .comparison-content .text-\[12px\] {
-                line-height: 1.1;
-                font-size: 12px !important;
-            }
-            .comparison-content li {
-                line-height: 1.2;
-                margin-bottom: 0.5rem;
-            }
             .bg-\[\#d9d9d9\] .rounded-3xl {
                 padding: 0.25rem !important;
             }
@@ -275,48 +326,6 @@
                 padding: 0.5rem 0.75rem !important;
                 font-size: 12px !important;
                 white-space: wrap;
-            }
-            .comparison-content .flex.justify-between.items-center {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }       
-            .comparison-content .text-xl {
-                font-size: 14px !important;
-                text-align: center;
-            }        
-            .section-5 .comparison-content .text-\[42px\] {
-                font-size: 24px !important;
-            }        
-            .comparison-content .mr-12 {
-                margin-right: 0 !important;
-                margin-top: 0.5rem;
-            }       
-            .comparison-content .absolute.ml-1 {
-                position: absolute !important;
-                margin-left: 0.25rem;
-                display: inline-block;
-                font-size: 10px !important;
-            }
-            .comparison-content .flex-col.md\:flex-row {
-                gap: 1rem;
-            }
-            .comparison-content .bg-\[\#D9D9D9\] {
-                padding: 1rem !important;
-            }       
-            .comparison-content .space-y-4 {
-                gap: 0.75rem;
-            }
-            .comparison-content .h-5.w-5 {
-                height: 12px !important;
-                width: 12px !important;
-                margin-top: 0.25rem !important;
-            }
-            .comparison-content .text-\[18px\] {
-                font-size: 14px !important;
-            }
-            .comparison-content ul.space-y-4 > li {
-                margin-bottom: 0.5rem;
             }
             .section-wrapper {
                 border-radius: 8px;
@@ -392,6 +401,67 @@
             }
             .text-xs {
                 font-size: 10px !important;
+            }
+            #cspsPopup .popup-content, #swPopup .popup-content {
+                width: 90%;
+                height: auto;
+                max-height: 80vh;
+                overflow-x: hidden;
+                overflow-y: auto;
+                position: relative;
+            }
+            .popup-close {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                background: #8C8C8C;
+                color: #FCFCFC;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                z-index: 1001;
+                font-size: 18px;
+                font-weight: bold;
+                overflow: visible;
+            }
+            .popup-close:hover {
+                background: #595959;
+                transform: scale(1.1);
+                transition: transform 0.3s ease;
+            }
+            #cspsPopup .text-center.mb-6,
+            #swPopup .text-center.mb-6 {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: center;
+            }
+            #cspsPopup .flex.justify-between.items-center,
+            #swPopup .flex.justify-between.items-center {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+            #cspsPopup .mr-12,
+            #swPopup .mr-12 {
+                margin-right: 3rem;
+                margin-top: 1rem;
+                align-self: center;
+                position: relative;
+            }
+            #cspsPopup .text-3xl.md\:text-\[42px\],
+            #swPopup .text-3xl.md\:text-\[42px\] {
+                font-size: 24px !important;
+                text-align: center;
+                width: 100%;
+            }
+            #cspsPopup .absolute.ml-1,
+            #swPopup .absolute.ml-1 {
+                position: absolute !important;
             }
         }
     </style>
@@ -525,7 +595,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- Empty container for layout -->
                 <div class="w-1/2 h-full"></div>
             </div>
         </section>
@@ -544,18 +613,14 @@
                     relationships and customer experiences. If you are in one of the following professions,we would be particularly interested in having you join our team of SmartWriters.
                 </p>
                 
-                <!-- Commission Structure -->
                 <div class="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-32 mb-12">
-                    <!-- SmartWriter Commission -->
                     <div class="text-center">
                         <h2 class="text-[16px] md:text-[32px] lg:text-[32px] font-bold mb-2 text-yellow-400">25% Commission</h2>
                         <p class="text-[14px] md:text-[21px] lg:text-[21px] text-white">for SmartWriter</p>
                     </div>
                     
-                    <!-- Vertical Divider -->
                     <div class="hidden md:block h-20 w-0.5 bg-yellow-400"></div>
                     
-                    <!-- Certified Commission -->
                     <div class="text-center">
                         <h2 class="text-[16px] md:text-[32px] lg:text-[32px] font-bold mb-2 text-yellow-400">35% Commission</h2>
                         <p class="text-[14px] md:text-[21px] lg:text-[21px] text-white">for Certified Smart Planner (CSPS)</p>
@@ -576,7 +641,6 @@
         <section class="section-3 section-padding flex flex-col items-center justify-center"
             style="background-image: url('https://raw.githubusercontent.com/Yion05/swsg/main/homepage%20pic/Website%20bg-13.png');">
             <div class="no-stack h-full w-full">
-                <!-- Text Container -->
                 <div class="w-full md:w-1/2 h-full flex items-center fixed-width-container">
                     <div class="z-10">
                         <h2 class="text-3xl md:text-[42px] lg:text-[42px] font-semibold mb-6 text-black">Certified<br>Smart Planner (CSPS)</h2>
@@ -587,13 +651,12 @@
                             <a href="#" class="flex items-center justify-center font-semibold bg-custom-red text-white px-6 py-3 rounded-lg hover:bg-[#7a0001] transition-all duration-300 text-base md:text-lg btn-transition">
                                 Login
                             </a>
-                            <a href="#" class="flex items-center justify-center font-semibold bg-[#d9d9d9] text-black px-6 py-3 rounded-lg hover:bg-[#c4c4c4] transition-all duration-300 text-base md:text-lg btn-transition">
+                            <button id="cspsKnowMore" class="flex items-center justify-center font-semibold bg-[#d9d9d9] text-black px-6 py-3 rounded-lg hover:bg-[#c4c4c4] transition-all duration-300 text-base md:text-lg btn-transition">
                                 Know More
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
-                <!-- Empty container for layout -->
                 <div class="w-1/2 h-full"></div>
             </div>
         </section>
@@ -604,7 +667,6 @@
         <section class="section-4 section-padding flex flex-col items-center justify-center"
             style="background-image: url('https://raw.githubusercontent.com/Yion05/swsg/main/homepage%20pic/Website%20bg-14.png');">
             <div class="no-stack h-full w-full">
-                <!-- Text Container -->
                 <div class="w-full md:w-1/2 h-full flex items-center fixed-width-container">
                     <div class="z-10 text-right w-full">
                         <h2 class="text-3xl md:text-[42px] lg:text-[42px] font-semibold mb-6 text-black">SmartWriter Portal</h2>
@@ -619,46 +681,32 @@
                                 <a href="#" class="flex items-center justify-center font-semibold bg-custom-red text-white px-6 py-3 rounded-lg hover:bg-[#7a0001] transition-all duration-300 text-base md:text-lg btn-transition">
                                     Login
                                 </a>
-                                <a href="#" class="flex items-center justify-center font-semibold bg-[#d9d9d9] text-black px-6 py-3 rounded-lg hover:bg-[#c4c4c4] transition-all duration-300 text-base md:text-lg btn-transition">
+                                <button id="swKnowMore" class="flex items-center justify-center font-semibold bg-[#d9d9d9] text-black px-6 py-3 rounded-lg hover:bg-[#c4c4c4] transition-all duration-300 text-base md:text-lg btn-transition">
                                     Know More
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Empty container for layout -->
                 <div class="w-1/2 h-full"></div>
             </div>
         </section>
     </div>
 
-    <!-- Section 5: Compare The Package -->
-    <div class="section-wrapper" id="section-5">
-        <section class="section-5 section-padding bg-white section-5-csps">
-            <div class="fixed-width-container">
-                <h2 class="text-[20px] md:text-[42px] lg:text-[42px] font-semibold mb-8 text-center text-black">Compare The Package</h2>
-                
-                <!-- Toggle Buttons -->
-                <div class="flex justify-center mb-8">
-                    <div class="bg-[rgb(217_217_217_/_0.3)] rounded-3xl p-1 flex">
-                        <button id="cspsButton" class="px-6 py-3 rounded-3xl font-medium transition-all duration-300 bg-custom-red text-white">
-                            Certified SmartPlanner Singapore (CSPS)
-                        </button>
-                        <button id="swButton" class="px-6 py-3 rounded-3xl font-medium transition-all duration-300 text-black">
-                            SmartWriter (SW)
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="bg-[rgb(217_217_217_/_0.1)] rounded-lg p-6 mb-8">
-                    <div class="comparison-content">
+    <!-- Popup for CSPS -->
+    <div id="cspsPopup" class="popup-overlay">
+        <div class="popup-content shadow-lg">
+            <div class="popup-close" id="cspsPopupClose">×</div>
+            <div class="section-padding">
+                <div class="fixed-width-container">
+                    <div class="bg-[rgb(217_217_217_/_0.1)] rounded-lg p-2 mb-2">
                         <!-- CSPS Box -->
                         <div id="cspsBox">
                             <div class="text-center mb-6">
                                 <div class="flex justify-between items-center">
-                                    <h3 class="text-2xl md:text-[42px] font-semibold text-black">Certified SmartPlanner Singapore (CSPS)</h3>
+                                    <h3 class="text-3xl md:text-[42px] font-semibold text-black">Certified SmartPlanner Singapore (CSPS)</h3>
                                     <div class="mr-12">
-                                        <span class="text-2xl md:text-[42px] font-semibold text-custom-red">388</span>
+                                        <span class="text-3xl md:text-[42px] font-semibold text-custom-red">388</span>
                                         <span class="text-[18px] font-bold text-custom-red absolute ml-1">SDG</span>
                                     </div>
                                 </div>
@@ -666,18 +714,12 @@
                             <div class="flex flex-col md:flex-row gap-6">
                                 <!-- Left Box -->
                                 <div class="bg-[rgb(217_217_217_/_0.3)] rounded-lg p-6 shadow-md flex-1 transition-transform duration-300 hover:-translate-y-2">
-                                    <ul class="space-y-4">
-                                        <li class="flex items-start">
-                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-black text-[18px] font-semibold">
-                                                Commission : 35%
-                                            </span>
-                                        </li>
+                                    <ul class="space-y-2">
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
                                             <span class="text-black font-medium">
                                                 <span class="font-semibold text-[18px]">Target Group :</span><br>
-                                                <span class="text-[12px] font-medium mt-0">
+                                                <span class="text-[12px] font-medium">
                                                     - Financial planners<br>
                                                     - Insurance agents<br>
                                                     - Investment Consultants<br>
@@ -704,89 +746,95 @@
                                 
                                 <!-- Right Box -->
                                 <div class="bg-[rgb(217_217_217_/_0.3)] rounded-lg p-4 shadow-md flex-1 transition-transform duration-300 hover:-translate-y-2">                      
-                                    <ul class="space-y-3">
+                                    <ul class="space-y-2">
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-[#8C8C8C] font-medium">
-                                                <span class="font-semibold text-[18px]">Do Cross-Border Wills</span><br>
-                                                <span class="text-[12px] font-medium">Serve clients in Singapore, Malaysia, Hong Kong & beyond.</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Do Cross-Border Wills</span>
+                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">Serve clients in Singapore, Malaysia, Hong Kong & beyond.</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-[#8C8C8C] font-medium">
-                                                <span class="font-semibold text-[18px]">Learn from Experts</span><br>
-                                                <span class="text-[12px] font-medium">Professional trainers, lawyers & trustees.</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Learn from Experts</span>
+                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">Professional trainers, lawyers & trustees.</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-[#8C8C8C] font-medium">
-                                                <span class="font-semibold text-[18px]">Higher Commissions</span><br>
-                                                <span class="text-[12px] font-medium">with certified planner status.</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Higher Commissions</span>
+                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">with certified planner status.</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-[#8C8C8C] font-medium">
-                                                <span class="font-semibold text-[18px]">Get Certified (CSPS)</span><br>
-                                                <span class="text-[12px] font-medium">Build instant trust with professional recognition.</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Get Certified (CSPS)</span>
+                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">Build instant trust with professional recognition.</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-[#8C8C8C] font-medium">
-                                                <span class="font-semibold text-[18px]">Offer More Services</span><br>
-                                                <span class="text-[12px] font-medium">Wills, Testamentary Trusts, Trust products & more.</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Offer More Services</span>
+                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">Wills, Testamentary Trusts, Trust products & more.</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-[#8C8C8C] font-medium">
-                                                <span class="font-semibold text-[18px]">Do GP & LA Business</span><br>
-                                                <span class="text-[12px] font-medium">Submit Grant of Prakate & Letter of Administration cases through the platform.</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Do GP & LA Business</span>
+                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">Submit Grant of Prakate & Letter of Administration cases through the platform.</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-[#8C8C8C] font-medium">
-                                                <span class="font-semibold text-[18px]">Flexible Learning</span><br>
-                                                <span class="text-[12px] font-medium">2-day online class + optional cross-border sessions.</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Flexible Learning</span>
+                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">2-day online class + optional cross-border sessions.</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-[#8C8C8C] font-medium">
-                                                <span class="font-semibold text-[18px]">Network Globally</span><br>
-                                                <span class="text-[12px] font-medium">Meet planners and professionals from other countries.</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Network Globally</span>
+                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">Meet planners and professionals from other countries.</span>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Popup for SW -->
+    <div id="swPopup" class="popup-overlay">
+        <div class="popup-content shadow-lg">
+            <div class="popup-close" id="swPopupClose">×</div>
+            <div class="section-padding">
+                <div class="fixed-width-container">
+                    <div class="bg-[rgb(217_217_217_/_0.1)] rounded-lg p-2 mb-2">
                         <!-- SW Box -->
-                        <div id="swBox" class="hidden">
+                        <div id="swBox">
                             <div class="text-center mb-6">
                                 <div class="flex justify-between items-center">
-                                    <h3 class="text-2xl md:text-[42px] font-semibold text-black">SmartWriter (SW)</h3>
+                                    <h3 class="text-3xl md:text-[42px] font-semibold text-black">SmartWriter (SW)</h3>
                                     <div class="mr-12">
-                                        <span class="text-2xl md:text-[42px] font-semibold text-custom-red">188</span>
+                                        <span class="text-3xl md:text-[42px] font-semibold text-custom-red">188</span>
                                         <span class="text-[18px] font-bold text-custom-red absolute ml-1">SDG</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex flex-col md:flex-row gap-6">
                                 <!-- Left Box -->
-                                <div class="bg-[rgb(217_217_217_/_0.3)] rounded-lg p-6 shadow-md flex-1 transition-transform duration-300 hover:-translate-y-2">
-                                    <ul class="space-y-4">
-                                        <li class="flex items-start">
-                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-black text-[18px] font-semibold">
-                                                Commission : 25%
-                                            </span>
-                                        </li>
+                                <div class="bg-[rgb(217_217_217_/_0.3)] rounded-lg p-4 shadow-md flex-1 transition-transform duration-300 hover:-translate-y-2">
+                                    <ul class="space-y-2">
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
                                             <span class="text-black font-medium">
@@ -816,7 +864,7 @@
                                 
                                 <!-- Right Box -->
                                 <div class="bg-[rgb(217_217_217_/_0.3)] rounded-lg p-6 shadow-md flex-1 transition-transform duration-300 hover:-translate-y-2">                      
-                                    <ul class="space-y-4">
+                                    <ul class="space-y-2">
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
                                             <span class="text-[#8C8C8C] font-medium">
@@ -860,7 +908,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
 
   <!-- Footer --->
@@ -1007,35 +1055,58 @@
             });
         });
 
-        // Package Comparison Toggle
-        const cspsButton = document.getElementById('cspsButton');
-        const swButton = document.getElementById('swButton');
-        const cspsBox = document.getElementById('cspsBox');
-        const swBox = document.getElementById('swBox');
-        const section5 = document.getElementById('section5');
+        // Popup functionality
+        const cspsKnowMore = document.getElementById('cspsKnowMore');
+        const swKnowMore = document.getElementById('swKnowMore');
+        const cspsPopup = document.getElementById('cspsPopup');
+        const swPopup = document.getElementById('swPopup');
+        const cspsPopupClose = document.getElementById('cspsPopupClose');
+        const swPopupClose = document.getElementById('swPopupClose');
 
-        cspsButton.addEventListener('click', function() {
-            cspsBox.classList.remove('hidden');
-            swBox.classList.add('hidden');
-            cspsButton.classList.add('bg-custom-red', 'text-white');
-            cspsButton.classList.remove('text-black', 'bg-[rgb(217_217_217_/_0.0)]');
-            swButton.classList.remove('bg-custom-red', 'text-white');
-            swButton.classList.add('text-black', 'bg-[rgb(217_217_217_/_0.0)]');
-            
-            section5.classList.remove('section-5-sw');
-            section5.classList.add('section-5-csps');
+        // Open CSPS popup
+        cspsKnowMore.addEventListener('click', function() {
+            cspsPopup.classList.add('active');
+            document.body.style.overflow = 'hidden';
         });
 
-        swButton.addEventListener('click', function() {
-            swBox.classList.remove('hidden');
-            cspsBox.classList.add('hidden');
-            swButton.classList.add('bg-custom-red', 'text-white');
-            swButton.classList.remove('text-black', 'bg-[rgb(217_217_217_/_0.0)]');
-            cspsButton.classList.remove('bg-custom-red', 'text-white');
-            cspsButton.classList.add('text-black', 'bg-[rgb(217_217_217_/_0.0)]');
+        // Open SW popup
+        swKnowMore.addEventListener('click', function() {
+            swPopup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close CSPS popup
+        cspsPopupClose.addEventListener('click', function() {
+            cspsPopup.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close SW popup
+        swPopupClose.addEventListener('click', function() {
+            swPopup.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close popups when clicking outside
+        document.addEventListener('click', function(event) {
+            if (cspsPopup.classList.contains('active') && !event.target.closest('.popup-content') && !event.target.closest('#cspsKnowMore')) {
+                cspsPopup.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
             
-            section5.classList.remove('section-5-csps');
-            section5.classList.add('section-5-sw');
+            if (swPopup.classList.contains('active') && !event.target.closest('.popup-content') && !event.target.closest('#swKnowMore')) {
+                swPopup.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close popups with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                cspsPopup.classList.remove('active');
+                swPopup.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         });
     </script>
 </body>
