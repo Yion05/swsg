@@ -101,7 +101,7 @@
             max-width: 1280px;
             height: 80px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
         .section-padding {
             padding: 2rem 1rem;
@@ -137,6 +137,27 @@
             justify-content: space-between;
             position: relative;
             z-index: 2;
+        }
+        .bg-custom-dark-red {
+            background-color: #C60000;
+        }
+        .text-custom-dark-red {
+            color: #960000;
+        }
+        .italic-text {
+            font-style: italic;
+        }
+        .benefit-header {
+            background-color: white;
+            border-radius: 100px;
+            padding: 4px 36px;
+            margin-bottom: 8px;
+            color: #8C8C8C;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
         }
         #cspsBox, #swBox {
             transition: opacity 0.3s ease;
@@ -219,12 +240,12 @@
         }
         #cspsPopup .popup-content {
             width: 1200px;
-            height: 585px;
+            height: 678px;
             border-radius: 10px;
         }
         #swPopup .popup-content {
             width: 1200px;
-            height: 425px;
+            height: 565px;
             border-radius: 10px;
         }
         #cspsPopup .popup-content,
@@ -411,9 +432,9 @@
                 position: relative;
             }
             .popup-close {
-                position: absolute;
-                top: 5px;
-                right: 5px;
+                position: fixed !important;
+                top: 5px !important;
+                right: 5px !important;
                 background: #8C8C8C;
                 color: #FCFCFC;
                 width: 30px;
@@ -423,7 +444,7 @@
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
-                z-index: 1001;
+                z-index: 1002;
                 font-size: 18px;
                 font-weight: bold;
                 overflow: visible;
@@ -446,12 +467,12 @@
                 align-items: flex-start;
                 width: 100%;
             }
-            #cspsPopup .mr-12,
-            #swPopup .mr-12 {
-                margin-right: 3rem;
-                margin-top: 1rem;
+            #cspsPopup .mr-0,
+            #swPopup .mr-0 {
                 align-self: center;
+                margin-right: -2rem !important;
                 position: relative;
+                margin-top: 1rem;
             }
             #cspsPopup .text-3xl.md\:text-\[42px\],
             #swPopup .text-3xl.md\:text-\[42px\] {
@@ -469,16 +490,16 @@
  
 <body class="bg-custom-gray-light">
     <!-- Header -->
-    <header class="w-full bg-white shadow-sm fixed top-0 z-50">
+    <header class="w-full max-w-[1280px] mx-auto bg-white shadow-lg fixed top-0 z-50 rounded-[10px] left-1/2 transform -translate-x-1/2">
         <div class="header-wrapper mx-auto flex items-center justify-between">
             <!-- Logo -->
             <div class="flex items-center">
-                <img src="https://raw.githubusercontent.com/Yion05/swsg/10b671348704b23d6aaf0cd2189863834b5a5504/homepage%20pic/Website%20bg-20.png" alt="SmartWills" class="h-8 w-30">
+                <img src="https://raw.githubusercontent.com/Yion05/swsg/10b671348704b23d6aaf0cd2189863834b5a5504/homepage%20pic/Website%20bg-20.png" alt="SmartWills" class="h-6 w-30 md:h-12 md:w-40">
             </div>
 
             <!-- Desktop Navigation --->
             <nav class="hidden lg:block absolute left-1/2 transform -translate-x-1/2">
-                <ul class="flex items-center space-x-8 text-gray-800 font-medium">
+                <ul class="flex items-center space-x-5 text-gray-800 font-medium">
                     <li><a href="#" class="hover:text-[#960001] transition-colors">Home</a></li>
                     <li><a href="#" class="hover:text-[#960001] transition-colors">Services & Plans</a></li>
                     <li><a href="#" class="hover:text-[#960001] transition-colors">About Us</a></li>
@@ -500,7 +521,7 @@
                 <!-- Language Dropdown -->
                 <div class="relative">
                     <button id="languageButton" class="flex items-center space-x-1 p-2 rounded-full hover:bg-gray-100 transition-colors duration-300">
-                        <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
+                        <div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center">
                             <img src="https://raw.githubusercontent.com/Yion05/swsg/cf3e4f355b737471fa596ebb66593c15dc045e9e/homepage%20pic/Website%20bg-17.png" alt="English" class="h-4 w-4">
                         </div>
                         <span>EN</span>
@@ -513,19 +534,19 @@
                     <div id="languageDropdown" class="language-dropdown absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
                         <div class="py-2">
                             <button class="flex items-center space-x-3 w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors duration-300">
-                                <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
+                                <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center">
                                     <img src="https://raw.githubusercontent.com/Yion05/swsg/cf3e4f355b737471fa596ebb66593c15dc045e9e/homepage%20pic/Website%20bg-17.png" alt="English" class="h-4 w-4">
                                 </div>
                                 <span>English</span>
                             </button>
                             <button class="flex items-center space-x-3 w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors duration-300">
-                                <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
+                                <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center">
                                     <img src="https://raw.githubusercontent.com/Yion05/swsg/cf3e4f355b737471fa596ebb66593c15dc045e9e/homepage%20pic/Website%20bg-17.png" alt="Malay" class="h-4 w-4">
                                 </div>
                                 <span>Malay</span>
                             </button>
                             <button class="flex items-center space-x-3 w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors duration-300">
-                                <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center border border-gray-300">
+                                <div class="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center">
                                     <img src="https://raw.githubusercontent.com/Yion05/swsg/cf3e4f355b737471fa596ebb66593c15dc045e9e/homepage%20pic/Website%20bg-18.png" alt="Chinese" class="h-4 w-4">
                                 </div>
                                 <span>Chinese</span>
@@ -612,18 +633,18 @@
                     While we welcome individuals from all professional backgrounds to our reseller program, we especially value those with relevant business
                     relationships and customer experiences. If you are in one of the following professions,we would be particularly interested in having you join our team of SmartWriters.
                 </p>
-                
-                <div class="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-32 mb-12">
-                    <div class="text-center">
-                        <h2 class="text-[16px] md:text-[32px] lg:text-[32px] font-bold mb-2 text-yellow-400">25% Commission</h2>
-                        <p class="text-[14px] md:text-[21px] lg:text-[21px] text-white">for SmartWriter</p>
+                                
+                <div class="flex flex-col md:flex-row items-center justify-center gap-16 mb-8">
+                    <div class="text-center md:w-1/2">
+                        <h2 class="text-[16px] md:text-[32px] lg:text-[32px] font-bold mb-2 text-yellow-400">SmartWriter</h2>
+                        <p class="text-[14px] md:text-[21px] lg:text-[21px] text-white font-medium">Affiliate Program to Earn Income by Assisting in Will Preparation</p>
                     </div>
                     
                     <div class="hidden md:block h-20 w-0.5 bg-yellow-400"></div>
                     
-                    <div class="text-center">
-                        <h2 class="text-[16px] md:text-[32px] lg:text-[32px] font-bold mb-2 text-yellow-400">35% Commission</h2>
-                        <p class="text-[14px] md:text-[21px] lg:text-[21px] text-white">for Certified Smart Planner (CSPS)</p>
+                    <div class="text-center md:w-1/2">
+                        <h2 class="text-[16px] md:text-[32px] lg:text-[32px] font-bold mb-2 text-yellow-400">Certified Smart Planner (CSPS)</h2>
+                        <p class="text-[14px] md:text-[21px] lg:text-[21px] text-white font-medium">Cross-Border Estate Planning Business Opportunity</p>
                     </div>
                 </div>
                 
@@ -641,13 +662,19 @@
         <section class="section-3 section-padding flex flex-col items-center justify-center"
             style="background-image: url('https://raw.githubusercontent.com/Yion05/swsg/main/homepage%20pic/Website%20bg-13.png');">
             <div class="no-stack h-full w-full">
-                <div class="w-full md:w-1/2 h-full flex items-center fixed-width-container">
+                <div class="w-full md:w-3/4 h-full flex items-center fixed-width-container">
                     <div class="z-10">
-                        <h2 class="text-3xl md:text-[42px] lg:text-[42px] font-semibold mb-6 text-black">Certified<br>Smart Planner (CSPS)</h2>
-                        <p class="text-black mb-8 leading-relaxed text-sm md:text-[14px] lg:text-[14px] max-w-[535px]">
-                            Build your professional career in Estate Planning, Trusts, and Cross-Border Wills. Learn from lawyers, trustees, and estate experts — and unlock new income opportunities across Asia.
+                        <h2 class="text-3xl md:text-[36px] lg:text-[36px] font-semibold mb-6 text-black">Certified Smart Planner (CSPS)</h2>
+                        <p class="text-black mb-4 leading-relaxed text-sm md:text-[14px] lg:text-[14px] max-w-[535px]">
+                            Certified SmartPlanner (CSPS) is a professional certification program by SmartWills Singapore, designed for individuals who want to build a career in estate and legacy planning.
                         </p>
-                        <div class="flex gap-4 justify-left">
+                        <p class="text-black mb-4 leading-relaxed text-sm md:text-[14px] lg:text-[14px] max-w-[535px]">
+                            Our SmartWills solution is simple and easy to use, allowing you to help clients prepare Wills, Trusts, Testamentary Trusts, and cross-border plans confidently — without complicated legal processes.
+                        </p>
+                        <p class="text-black mb-8 leading-relaxed text-sm md:text-[14px] lg:text-[14px] max-w-[535px]">
+                            With CSPS, you can expand your advisory services, grow your client network, and explore cross-border estate planning opportunities across Singapore, Malaysia, and Southeast Asia.
+                        </p>
+                        <div class="flex flex-wrap gap-4 justify-left">
                             <a href="#" class="flex items-center justify-center font-semibold bg-custom-red text-white px-6 py-3 rounded-lg hover:bg-[#7a0001] transition-all duration-300 text-base md:text-lg btn-transition">
                                 Login
                             </a>
@@ -669,17 +696,23 @@
             <div class="no-stack h-full w-full">
                 <div class="w-full md:w-1/2 h-full flex items-center fixed-width-container">
                     <div class="z-10 text-right w-full">
-                        <h2 class="text-3xl md:text-[42px] lg:text-[42px] font-semibold mb-6 text-black">SmartWriter Portal</h2>
-                        <p class="text-black mb-8 leading-relaxed text-sm md:text-[14px] lg:text-[14px] max-w-[467px] ml-auto">
-                            SmartWriter is an affiliate program by SmartWills Singapore, designed for anyone who wants to help others create their Will easily — and earn income while doing it!
+                        <h2 class="text-3xl md:text-[36px] lg:text-[36px] font-semibold mb-6 text-black">SmartWriter Portal</h2>
+                        <p class="text-black mb-4 leading-relaxed text-sm md:text-[14px] lg:text-[14px] max-w-[467px] ml-auto">
+                            SmartWriter is an affiliate program by SmartWills Singapore that lets you earn income by helping clients fill in their Will forms easily through our user-friendly online platform.
+                        </p>
+                        <p class="text-black mb-4 leading-relaxed text-sm md:text-[14px] lg:text-[14px] max-w-[467px] ml-auto">
+                            No legal or financial background is required — anyone who knows how to use a mobile phone or computer device can start right away!
                         </p>
                         <p class="text-black mb-8 leading-relaxed text-sm md:text-[14px] lg:text-[14px] max-w-[467px] ml-auto">
-                            You don't need legal or financial experience. SmartWriter acts as a simple Will form-filling assistant, guiding clients through the SmartWills online platform step by step.
+                            You’ll also gain access to our Basic Will Knowledge e-Learning, designed to help you get started confidently.
                         </p>
                         <div class="text-right">
-                            <div class="flex gap-4 justify-end">
+                            <div class="flex gap-4 justify-end flex-wrap">
                                 <a href="#" class="flex items-center justify-center font-semibold bg-custom-red text-white px-6 py-3 rounded-lg hover:bg-[#7a0001] transition-all duration-300 text-base md:text-lg btn-transition">
                                     Login
+                                </a>
+                                <a href="#" class="flex items-center justify-center font-semibold bg-[#C60000] text-center text-white px-3 py-3 rounded-lg hover:bg-[#a50000] transition-all duration-300 text-base md:text-lg btn-transition">
+                                    Register SmartWriter Now
                                 </a>
                                 <button id="swKnowMore" class="flex items-center justify-center font-semibold bg-[#d9d9d9] text-black px-6 py-3 rounded-lg hover:bg-[#c4c4c4] transition-all duration-300 text-base md:text-lg btn-transition">
                                     Know More
@@ -705,9 +738,9 @@
                             <div class="text-center mb-6">
                                 <div class="flex justify-between items-center">
                                     <h3 class="text-3xl md:text-[42px] font-semibold text-black">Certified SmartPlanner Singapore (CSPS)</h3>
-                                    <div class="mr-12">
+                                    <div class="mr-0">
+                                        <span class="text-[18px] font-bold text-custom-red absolute -ml-10">SDG</span>
                                         <span class="text-3xl md:text-[42px] font-semibold text-custom-red">388</span>
-                                        <span class="text-[18px] font-bold text-custom-red absolute ml-1">SDG</span>
                                     </div>
                                 </div>
                             </div>
@@ -715,92 +748,137 @@
                                 <!-- Left Box -->
                                 <div class="bg-[rgb(217_217_217_/_0.3)] rounded-lg p-6 shadow-md flex-1 transition-transform duration-300 hover:-translate-y-2">
                                     <ul class="space-y-2">
+                                        <div class="benefit-header">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            Key Benefits
+                                        </div>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-black font-medium">
-                                                <span class="font-semibold text-[18px]">Target Group :</span><br>
-                                                <span class="text-[12px] font-medium">
-                                                    - Financial planners<br>
-                                                    - Insurance agents<br>
-                                                    - Investment Consultants<br>
-                                                    - Accountants<br>
-                                                    - Lawyers<br>
-                                                    - Business consultants<br>
-                                                    - Anyone seeking to become a certified estate planner
-                                                </span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Bundled Offer</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Join for <span class="italic-text text-custom-dark-red font-bold">S$388</span> and get a <span class="italic-text text-custom-dark-red font-bold">Free PRO Will + Corp.Trustee Appointment + Premium Printing</span>  (worth S$495).</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-black font-semibold text-[18px]">2 Days Online Training</span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[18px] text-black">Do Cross-Border Wills</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Serve clients in Singapore, Malaysia, Hong Kong & beyond.</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-black font-medium">
-                                                <span class="text-black font-semibold text-[18px]">Bundled Offer :</span><br>
-                                                <span class="text-[12px] font-medium">1 PRO + Corp.Trustee Appointment + Premium Printing (Total Value of $5485)</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Learn from Experts</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Professional trainers, lawyers & trustees.</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Higher Commissions</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">with certified planner status.</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Get Certified (CSPS)</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Build instant trust with professional recognition.</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Offer More Services</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Wills, Testamentary Trusts, Trust products & more.</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Do GP & LA Business</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Submit Grant of Probate & Letter of Administration cases through the platform.</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Flexible Learning</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">2-day online class + optional cross-border sessions.</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Network Globally</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Meet planners and professionals from other countries.</span>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>
                                 
                                 <!-- Right Box -->
-                                <div class="bg-[rgb(217_217_217_/_0.3)] rounded-lg p-4 shadow-md flex-1 transition-transform duration-300 hover:-translate-y-2">                      
+                                <div class="bg-[rgb(217_217_217_/_0.3)] rounded-lg p-6 shadow-md flex-1 transition-transform duration-300 hover:-translate-y-2">                      
                                     <ul class="space-y-2">
+                                        <div class="benefit-header">
+                                            <i class="fas fa-user"></i>
+                                            Who Can Join
+                                        </div>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
                                             <div class="flex flex-col gap-0">
-                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Do Cross-Border Wills</span>
-                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">Serve clients in Singapore, Malaysia, Hong Kong & beyond.</span>
+                                                <span class="font-semibold text-[16px] text-black">Financial Planners</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Add estate and legacy planning to your client services.</span>
                                             </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
                                             <div class="flex flex-col gap-0">
-                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Learn from Experts</span>
-                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">Professional trainers, lawyers & trustees.</span>
+                                                <span class="font-semibold text-[16px] text-black">Insurance Agents</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Offer complete protection solutions beyond insurance.</span>
                                             </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
                                             <div class="flex flex-col gap-0">
-                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Higher Commissions</span>
-                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">with certified planner status.</span>
+                                                <span class="font-semibold text-[16px] text-black">Investment Consultants</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Integrate estate planning into long-term wealth strategies.</span>
                                             </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
                                             <div class="flex flex-col gap-0">
-                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Get Certified (CSPS)</span>
-                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">Build instant trust with professional recognition.</span>
+                                                <span class="font-semibold text-[16px] text-black">Accountants</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Advise on multi-country assets and tax matters.</span>
                                             </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
                                             <div class="flex flex-col gap-0">
-                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Offer More Services</span>
-                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">Wills, Testamentary Trusts, Trust products & more.</span>
+                                                <span class="font-semibold text-[16px] text-black">Business Consultants</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Support owners in regional succession planning.</span>
                                             </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
                                             <div class="flex flex-col gap-0">
-                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Do GP & LA Business</span>
-                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">Submit Grant of Prakate & Letter of Administration cases through the platform.</span>
+                                                <span class="font-semibold text-[16px] text-black">Property Agents</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Advise on inheritance of real estate assets.</span>
                                             </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
                                             <div class="flex flex-col gap-0">
-                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Flexible Learning</span>
-                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">2-day online class + optional cross-border sessions.</span>
+                                                <span class="font-semibold text-[16px] text-black">Funeral Agents</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Support families with end-of-life estate matters.</span>
                                             </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
                                             <div class="flex flex-col gap-0">
-                                                <span class="font-semibold text-[18px] text-[#8C8C8C]">Network Globally</span>
-                                                <span class="text-[12px] font-medium text-[#8C8C8C] leading-tight mt-0">Meet planners and professionals from other countries.</span>
+                                                <span class="font-semibold text-[16px] text-black">Anyone Seeking to Become a Certified Estate Planner</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Build a rewarding career helping families plan their legacy.</span>
                                             </div>
                                         </li>
                                     </ul>
@@ -822,42 +900,64 @@
                     <div class="bg-[rgb(217_217_217_/_0.1)] rounded-lg p-2 mb-2">
                         <!-- SW Box -->
                         <div id="swBox">
-                            <div class="text-center mb-6">
+                            <div class="text-center mb-4">
                                 <div class="flex justify-between items-center">
                                     <h3 class="text-3xl md:text-[42px] font-semibold text-black">SmartWriter (SW)</h3>
-                                    <div class="mr-12">
+                                    <div class="mr-0">
+                                        <span class="text-[18px] font-bold text-custom-red absolute -ml-10">SDG</span>
                                         <span class="text-3xl md:text-[42px] font-semibold text-custom-red">188</span>
-                                        <span class="text-[18px] font-bold text-custom-red absolute ml-1">SDG</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex flex-col md:flex-row gap-6">
                                 <!-- Left Box -->
-                                <div class="bg-[rgb(217_217_217_/_0.3)] rounded-lg p-4 shadow-md flex-1 transition-transform duration-300 hover:-translate-y-2">
-                                    <ul class="space-y-2">
+                                <div class="bg-[rgb(217_217_217_/_0.3)] rounded-lg p-6 shadow-md flex-1 transition-transform duration-300 hover:-translate-y-2">
+                                    <ul class="space-y-4">
+                                        <div class="benefit-header">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            Key Benefits
+                                        </div>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-black font-medium">
-                                                <span class="font-semibold text-[18px]">Target Group : Anyone </span><br>
-                                                <span class="text-[12px] font-medium">
-                                                    - Hemembers<br>
-                                                    - Students<br>
-                                                    - Freelancers<br>
-                                                    - Part-timers<br>
-                                                    - Anyone who can fill in a form and wants to earn extra income
-                                                </span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Bundled Offer</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Join for <span class="italic-text text-custom-dark-red font-bold">S$188</span> and get a <span class="italic-text text-custom-dark-red font-bold">Free Advanced Will + Premium Printing</span> (worth S$263).</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-black font-semibold text-[18px]">2 Hours Online Training</span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Earn Extra Income</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Training and guidance provided.</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-black font-medium">
-                                                <span class="text-black font-semibold text-[18px]">Bundled Offer :</span><br>
-                                                <span class="text-[12px] font-medium">1 Advanced + 1 Premium Printing (Total Value of $263)</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">No Experience Needed</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Training and guidance provided.</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Work Anytime, Anywhere</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">100% online; at home, office or on your phone.</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Support & Training Provided</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Step-by-step learning videos and online support team.</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Help Locals & Foreigners</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Assist anyone with Singapore assets to create a Will.</span>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>
@@ -865,41 +965,58 @@
                                 <!-- Right Box -->
                                 <div class="bg-[rgb(217_217_217_/_0.3)] rounded-lg p-6 shadow-md flex-1 transition-transform duration-300 hover:-translate-y-2">                      
                                     <ul class="space-y-2">
+                                        <div class="benefit-header">
+                                            <i class="fas fa-user"></i>
+                                            Who Can Join
+                                        </div>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-[#8C8C8C] font-medium">
-                                                <span class="font-semibold text-[18px]">No Experience Needed — just basic computer skills.</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Anyone Interested in Estate Planning</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Start simple and grow your career later.</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-[#8C8C8C] font-medium">
-                                                <span class="font-semibold text-[18px]">Easy-to-use Will Form</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[18px] text-black">University & College Students</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Learn real-life skills and earn while studying.</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-[#8C8C8C] font-medium">
-                                                <span class="font-semibold text-[18px]">Start Earning Immediately</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[18px] text-black">Insurance & Financial Consultants</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Enhance your client service with Will preparation support.</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-[#8C8C8C] font-medium">
-                                                <span class="font-semibold text-[18px]">Monthly Training</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Part-Timers, Homemakers & Caring Individuals</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Meaningful side income for those who love helping others.</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-[#8C8C8C] font-medium">
-                                                <span class="font-semibold text-[18px]">Work Anywhere — Home, office, or on your phone.</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Freelancers & Online Marketers</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Add another income stream easily.</span>
+                                            </div>
                                         </li>
                                         <li class="flex items-start">
                                             <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
-                                            <span class="text-[#8C8C8C] font-medium">
-                                                <span class="font-semibold text-[18px]">Trusted Platform by SmartWills Singapore.</span>
-                                            </span>
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Community Volunteers or Counsellors</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Help families plan for their future meaningfully.</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <img src="https://raw.githubusercontent.com/Yion05/swsg/c2698f33302ce00f3b14f7a5feb15fb10c3c0f11/homepage%20pic/Website%20bg-30.png" alt="bullet" class="h-5 w-5 mt-1 mr-3 flex-shrink-0">
+                                            <div class="flex flex-col gap-0">
+                                                <span class="font-semibold text-[16px] text-black">Anyone Interested in Estate Planning</span>
+                                                <span class="text-[12px] font-medium text-black leading-tight mt-0">Start simple and grow your career later.</span>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>
