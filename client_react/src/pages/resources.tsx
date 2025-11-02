@@ -1,4 +1,8 @@
-import { ContactForm, QnAPage } from "../components/sections/resources/resourceQuestion";
+import {
+  ContactForm,
+  DownloadHere,
+  QnAPage,
+} from "../components/sections/resources/resourceQuestion";
 
 const Resources = () => {
   return (
@@ -8,6 +12,9 @@ const Resources = () => {
       </div>
       <div className="rounded-lg shadow-lg overflow-hidden">
         <ContactForm></ContactForm>
+      </div>
+      <div className="rounded-lg shadow-lg overflow-hidden">
+        <DownloadHere></DownloadHere>
       </div>
     </section>
   );
