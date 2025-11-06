@@ -32,3 +32,23 @@ export interface contactSchema {
   type: 'Hotline' | 'WhatsApp' | "Email",
   content: string[]
 }
+
+export interface ServiceContent {
+  content_title: string;
+  extra_content_title?: string;
+  content_description: string[];
+  link: string;
+  benefit_title?: string;
+  benefit_description?: string;
+  benefits?: string[];
+}
+
+export interface ServicePopupProps {
+  data: {
+    title: string;
+    extra_title?: string;
+    content: ServiceContent;
+  };
+  imageIndex: number;
+  onClose: () => void;
+}

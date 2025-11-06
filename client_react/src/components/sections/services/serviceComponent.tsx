@@ -7,7 +7,6 @@ import {
   SelectionQuestion,
 } from "../../layout/serviceForm";
 import { useTranslation } from "react-i18next";
-import { productServices } from "../../../data/componentData";
 
 export const HeroBackgroundOne = () => {
   const { t } = useTranslation("service");
@@ -44,36 +43,6 @@ export const SelectRightPlan = () => {
         </span>
         {t("hero2_p3")}
       </p>
-    </section>
-  );
-};
-
-export const ProductSelect = () => {
-  const { t } = useTranslation("service");
-
-  return (
-    <section>
-      <h1 className="text-5xl font-semibold text-center">
-        {t("hero3_productService")}
-      </h1>
-      <h3 className="text-lg text-center">{t("hero3_des")}</h3>
-      <section className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-rows-2 gap-8  2xl:px-78 mt-8">
-        {productServices.map((data, index) => (
-          <span
-            className="bg-button-secondary/50 flex flex-col items-center p-4 rounded-2xl "
-            key={index}
-          >
-            <img
-              src={data.productImage}
-              className="w-32 h-32"
-              alt={data.productTitle}
-            />
-            <h1 className="text-center text-xl font-bold">
-              {data.productTitle}
-            </h1>
-          </span>
-        ))}
-      </section>
     </section>
   );
 };

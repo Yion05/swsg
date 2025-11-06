@@ -72,13 +72,13 @@ const Header = () => {
           className="h-12 w-auto"
         />
 
-        <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2">
+        <nav className="hidden xl:flex absolute left-1/2 -translate-x-1/2">
           <ul className="flex items-center space-x-8 text-[#404040]">
             {headerData.map((data, index) => (
               <li key={index}>
                 <Link
                   to={data.link}
-                  className={`transition-colors text-base ${
+                  className={`transition-colors text-base text-nowrap ${
                     location.pathname === data.link ? "font-semibold" : ""
                   }`}
                 >
@@ -114,7 +114,7 @@ const Header = () => {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-md text-gray-600 hover:text-[#960001] hover:bg-gray-100"
+            className="xl:hidden p-2 rounded-md text-gray-600 hover:text-[#960001] hover:bg-gray-100"
           >
             {isMobileMenuOpen ? (
               <svg
