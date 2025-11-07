@@ -52,3 +52,16 @@ export interface ServicePopupProps {
   imageIndex: number;
   onClose: () => void;
 }
+
+export interface platformPartnerSchema {
+  title: string,
+  description: string,
+  content: companySchema[]
+}
+
+export interface companySchema {
+  company_name: string,
+  company_logo: string,
+  details: string[],
+  link?: string,
+}

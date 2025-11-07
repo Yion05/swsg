@@ -4,8 +4,8 @@ export const WhatIsAWill = () => {
   const { t } = useTranslation("about");
 
   return (
-    <section className="p-8 bg-cover bg-center flex items-center justify-center text-center min-h-[50vh] md:h-[420px]">
-      <div className="text-black">
+    <section className="p-8 bg-cover bg-center flex items-center justify-center text-center min-h-[60vh] md:h-[420px] bg-[url(/assets/about/whatIsWill.webp)] bg-center bg-cover">
+      <div className="text-white">
         <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold">
           {t("What is a Will?")}
         </h2>
@@ -23,18 +23,17 @@ export const WhoWeAre = () => {
   const { t } = useTranslation("about");
   return (
     <section className="relative bg-white pt-8 md:pt-0 text-center">
-      <div className="relative top-0 left-0 w-full bg-button-secondary/50 flex flex-col items-center justify-center py-16 z-10">
-        <h2 className="mt-8 md:mt-16 text-2xl md:text-3xl lg:text-5xl font-semibold">
+      <div className="flex flex-col items-center justify-center py-16 z-10 bg-center bg-cover bg-[url(/assets/about/whoWeAre.webp)] min-h-[50vh]">
+        <h2 className="text-white mt-8 md:mt-16 text-2xl md:text-3xl lg:text-5xl font-semibold">
           {t("Who We Are?")}
         </h2>
-        <h3 className="text-sm md:text-base lg:text-lg mt-4 max-w-4xl px-4">
+        <h3 className="text-white text-sm md:text-base lg:text-lg mt-4 max-w-4xl px-4">
           {t("Know SmartWills - Your Smartest & Fastest Online Will Writer")}
         </h3>
       </div>
 
-      <div className="relative top-1/3 left-0 w-full h-10 bg-button-secondary/50 [border-radius:0_0_50%_50%_/_0_0_100%_100%] z-0"></div>
 
-      <div className="relative z-10 my-12 max-w-7xl mx-auto px-4">
+      <div className=" my-12 max-w-7xl mx-auto px-4">
         <div className="text-[12px] md:text-base lg:text-lg text-black leading-relaxed space-y-4 md:space-y-6">
           <p>
             We are a Wealth FinTech company dedicated to meeting the modern
