@@ -1,7 +1,7 @@
 import { BiShoppingBag } from "react-icons/bi";
 import { IoMdClose } from "react-icons/io";
 import type { ServicePopupProps } from "../../types/component.type";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 
@@ -17,9 +17,13 @@ export const ServicePopup: React.FC<ServicePopupProps> = ({
   onClose,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+
   const { t } = useTranslation("service");
 
   useEffect(() => {
+    setIsAnimating(true);
+
     const handleClickOutside = (event: MouseEvent) => {
       if (
         modalRef.current &&
@@ -43,11 +47,18 @@ export const ServicePopup: React.FC<ServicePopupProps> = ({
 
   const headerStyle = getHeaderStyle(data.title);
 
+  const animationClasses = isAnimating
+    ? "opacity-100 scale-100"
+    : "opacity-0 scale-0";
+
   return (
     <div className="fixed inset-0 z-50 bg-black/25 bg-opacity-70 flex items-center justify-center">
       <div
         ref={modalRef}
-        className={`bg-white rounded-3xl max-w-[1440px] w-full max-h-[90vh] overflow-y-auto transition-all duration-300 transform scale-100 ${headerStyle}`}
+        className={`
+           transition-all duration-500 transform 
+                   ${animationClasses}
+          bg-white rounded-3xl max-w-[1440px] w-full max-h-[90vh] overflow-y-auto transition-all duration-300 transform scale-100 ${headerStyle}`}
       >
         <button
           onClick={onClose}
@@ -64,15 +75,10 @@ export const ServicePopup: React.FC<ServicePopupProps> = ({
                 {data.content.content_title}
               </h2>
               {data.extra_title && (
-                <p className="text-xl">
-                  {data.extra_title}
-                </p>
+                <p className="text-xl">{data.extra_title}</p>
               )}
               {data.content.content_description.map((desc, i) => (
-                <p
-                  key={i}
-                  className="mb-4 text-base leading-relaxed"
-                >
+                <p key={i} className="mb-4 text-base leading-relaxed">
                   {desc}
                 </p>
               ))}
@@ -123,9 +129,7 @@ export const ServicePopup: React.FC<ServicePopupProps> = ({
               ))}
             </ul>
 
-            <p className="mt-6 pt-4">
-              {data.content.benefit_description}
-            </p>
+            <p className="mt-6 pt-4">{data.content.benefit_description}</p>
           </div>
         )}
       </div>

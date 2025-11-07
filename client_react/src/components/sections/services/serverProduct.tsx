@@ -27,7 +27,7 @@ export const ProductSelect = () => {
         {t("hero3_productService")}
       </h1>
       <h3 className="text-lg text-center mb-4">{t("hero3_des")}</h3>
-      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 px-4 md:px-12 lg:px-24">
         {serviceComponent.map((data, index) => (
           <div
             key={index}
