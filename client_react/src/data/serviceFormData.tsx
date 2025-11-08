@@ -43,7 +43,7 @@ export const PlanForYouForm = [
         value: "Yes, I have a minor child",
       },
       {
-        choice_title: "Yes, I have minor children",
+        choice_title: "Yes, I have minor children with dependents with special needs",
         value: "Yes, I have a minor child with dependents with special needs",
       },
       {

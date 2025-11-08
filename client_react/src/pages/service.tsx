@@ -8,7 +8,7 @@ import { ProductSelect } from "../components/sections/services/serverProduct";
 
 const Service = () => {
   return (
-    <section className="px-4 sm:px-16 lg:px-36 flex flex-col gap-8 mt-24">
+    <section className="px-4 sm:px-16 lg:px-24 flex flex-col gap-8 mt-24">
       <div className="rounded-lg overflow-hidden">
         <HeroBackgroundOne></HeroBackgroundOne>
       </div>

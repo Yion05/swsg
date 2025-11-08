@@ -22,24 +22,29 @@ export const ProductSelect = () => {
   );
 
   return (
-    <section>
-      <h1 className="text-5xl font-semibold text-center mb-2">
+    <section className="py-8">
+      {" "}
+      <h1 className="text-3xl sm:text-5xl font-semibold text-center mb-2">
         {t("hero3_productService")}
       </h1>
-      <h3 className="text-lg text-center mb-4">{t("hero3_des")}</h3>
-      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 px-4 md:px-12 lg:px-24">
+      <h3 className="text-base sm:text-lg text-center mb-4">
+        {t("hero3_des")}
+      </h3>
+      <section
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 px-4 md:px-12 lg:px-24"
+      >
         {serviceComponent.map((data, index) => (
           <div
             key={index}
             onClick={() => openService(data.title)}
             className={`relative w-full aspect-square block group overflow-hidden rounded-xl shadow-lg transition-transform duration-300 group
-              ${
-                data.title !== "SmartWills Plan" &&
-                data.title !== "SmartWills Plus"
-                  ? "cursor-pointer"
-                  : "cursor-not-allowed"
-              }
-              `}
+                    ${
+                      data.title !== "SmartWills Plan" &&
+                      data.title !== "SmartWills Plus"
+                        ? "cursor-pointer"
+                        : "cursor-not-allowed"
+                    }
+                    `}
           >
             <img
               src={`/assets/service/solutions/${index}.webp`}
@@ -49,13 +54,12 @@ export const ProductSelect = () => {
 
             <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-6 bg-black/25 group-hover:bg-black/50 duration-500">
               <div className="text-center">
-                {" "}
                 <h1 className="text-white text-xl sm:text-2xl font-bold leading-snug">
                   {data.title}
                 </h1>
                 {(data.title === "SmartWills Pro" ||
                   data.title === "SmartWills PFT") && (
-                  <p className="text-lg text-white mt-1 font-medium">
+                  <p className="text-sm sm:text-lg text-white mt-1 font-medium">
                     {data.title === "SmartWills PFT"
                       ? "(Will and Testamentary Trust)"
                       : "(Smart Provident Fund Trust)"}

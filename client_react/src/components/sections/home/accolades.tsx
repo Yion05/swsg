@@ -2,9 +2,20 @@ import { useTranslation } from "react-i18next";
 import type { accolades_schema } from "../../../types/types";
 import { useState } from "react";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
+import useLazyLoad from "../../../hook/useLazyLoad";
 
 const AccoladesHero = () => {
   const { t } = useTranslation("accolades");
+  const [sectionRef, isVisible] = useLazyLoad({
+    rootMargin: "0px 0px -100px 0px",
+  });
+
+  const slideFromTopAnimation = `
+    transition-all duration-500 ease-out delay-200
+    ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-36"}
+  `;
+
+  
   // data to for the MyAccolades, you can modify the accolades here
   const staticData: accolades_schema[] = [
     {
@@ -76,7 +87,7 @@ const AccoladesHero = () => {
   };
 
   return (
-    <section className="shadow-lg rounded-2xl w-full py-16">
+    <section className={`shadow-lg rounded-2xl w-full py-16 ${slideFromTopAnimation}`} ref={sectionRef}>
       <div className="flex flex-col items-center text-center max-w-full mx-auto gap-4">
         <h1 className="font-semibold text-3xl sm:text-4xl">
           {t("ourAccolades")}

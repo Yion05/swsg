@@ -63,13 +63,13 @@ const Header = () => {
   return (
     <header
       ref={mobileMenuRef}
-      className="w-full px-4 sm:px-16 lg:px-36  bg-white shadow-sm fixed top-0 z-50 py-2"
+      className="w-full px-0 sm:px-16 lg:px-36  bg-white shadow-sm fixed top-0 z-50 py-2"
     >
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+      <div className="mx-auto px-2 sm:px-6 lg:px-8 flex items-center justify-between h-20">
         <img
           src="/assets/logoMain1x3.png"
           alt="SmartWills"
-          className="h-12 w-auto"
+          className="h-8 md:h-12 w-auto"
         />
 
         <nav className="hidden xl:flex absolute left-1/2 -translate-x-1/2">

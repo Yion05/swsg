@@ -1,9 +1,18 @@
 import { useTranslation } from "react-i18next";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
 import type { clientReview_schema } from "../../../types/types";
+import useLazyLoad from "../../../hook/useLazyLoad";
 
 const TestimonyHero = () => {
   const { t } = useTranslation("home");
+  const [sectionRef, isVisible] = useLazyLoad({
+    rootMargin: "0px 0px -100px 0px",
+  });
+
+  const slideFromTopAnimation = `
+    transition-all duration-500 ease-out delay-200
+    ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-36"}
+  `;
 
   const staticData: clientReview_schema[] = [
     {
@@ -24,7 +33,7 @@ const TestimonyHero = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center py-10">
+    <div className={`flex flex-col items-center py-10 ${slideFromTopAnimation}`} ref={sectionRef}>
       <h1 className="text-4xl font-bold mb-2">{t("ourReview")}</h1>
       <h3 className="text-lg mb-10">{t("clientReview")}</h3>
 

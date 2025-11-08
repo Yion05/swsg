@@ -74,7 +74,7 @@ export const SelectionQuestion: React.FC<SelectionProps> = ({
       </select>
 
       <div
-        className={`absolute right-18 top-1/2 -translate-y-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px]`}
+        className={`hidden md:block absolute right-18 top-1/2 -translate-y-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px]`}
       ></div>
 
       {selectedValue !== "" && (

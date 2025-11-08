@@ -19,7 +19,7 @@ const PlanCard = ({
 }: cardSchema) => {
   return (
     <div className={`flex flex-col rounded-xl mt-6 ${planType == "Basic Plan" ? 'bg-white' : 'bg-button-secondary/15'} overflow-hidden w-full justify-between`}>
-      <div className="flex justify-between items-center px-6 pt-6 pb-4">
+      <div className="flex justify-between items-center px-0 md:px-6 pt-6 pb-4">
         <span className="flex items-center gap-3">
           <span className={` bg-linear-to-l ${planType == "Basic Plan" ? ' from-button to-element-one' : ' from-[#FFBB00] via-[#FF2626] to-[#C60000]'} p-3 rounded-2xl`}>
             <img

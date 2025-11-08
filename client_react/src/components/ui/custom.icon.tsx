@@ -17,14 +17,22 @@ export const HeadPhone = () => {
 
 export const SmartConsult = () => {
     return (
-        <div className="absolute transform -bottom-4/5 self-end flex flex-col items-center gap-4">
-            <span>
-                <p className="text-sm font-semibold bg-button-secondary rounded-full px-6 py-1">SmartConsult</p>
-                <div className="absolute top-4 left-1/2 transform -translate-x-1/2 translate-y-full w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[12px] border-t-button-secondary"></div>
-            </span>
-            <span className="bg-button rounded-full p-5">
-                <HeadPhone></HeadPhone>
-            </span>
+        <div className="w-full flex justify-center mt-4 md:mt-0 md:absolute md:-bottom-6 lg:-right-10/16 2xl:-right-12/15 md:translate-y-1/2 z-20">
+            <div className="flex flex-col items-center gap-4">
+                
+                <span className="relative">
+                    <p className="text-sm font-semibold bg-button-secondary rounded-full px-6 py-1">SmartConsult</p>
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 translate-y-0 w-0 h-0 
+                                    border-l-[12px] border-l-transparent 
+                                    border-r-[12px] border-r-transparent 
+                                    border-t-[12px] border-t-button-secondary">
+                    </div>
+                </span>
+                
+                <span className="bg-button rounded-full p-5">
+                    <HeadPhone></HeadPhone>
+                </span>
+            </div>
         </div>
-    )
-}
+    );
+};

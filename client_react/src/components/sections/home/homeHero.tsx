@@ -1,12 +1,21 @@
 import { useTranslation } from "react-i18next";
 import WaveSeparator from "../../ui/waveSVG";
 import { contactItems } from "../../../data/componentData";
+import useLazyLoad from "../../../hook/useLazyLoad";
 
 export const HomeHero = () => {
   const { t } = useTranslation("home");
+  const [sectionRef, isVisible] = useLazyLoad({
+    rootMargin: "0px 0px -100px 0px",
+  });
+
+  const slideFromTopAnimation = `
+    transition-all duration-1000 ease-out delay-200
+    ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-36"}
+  `;
 
   return (
-    <section className="w-full bg-main relative">
+    <div className={`w-full bg-main relative ${slideFromTopAnimation}`} ref={sectionRef}>
       <h1 className="text-white font-semibold text-4xl sm:text-5xl text-center pt-16 pb-12">
         {t("hero2_h1")}
       </h1>
@@ -74,28 +83,46 @@ export const HomeHero = () => {
       <div className=" absolute bottom-0 w-full lg:h2/4 z-10">
         <WaveSeparator />
       </div>
-    </section>
+    </div>
   );
 };
 
 export const ProtectWhat = () => {
   const { t } = useTranslation("home");
+  const [sectionRef, isVisible] = useLazyLoad({
+    rootMargin: "0px 0px -100px 0px",
+  });
+
+  const slideFromTopAnimation = `
+    transition-all duration-1000 ease-out delay-200
+    ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-36"}
+  `;
 
   return (
-    <section className="px-4 bg-hero-gray text-white flex flex-col items-center text-center gap-2 py-16">
+    <div className={`px-4 bg-hero-gray text-white flex flex-col items-center text-center gap-2 py-16 ${slideFromTopAnimation}`} ref={sectionRef}>
       <p className="text-base bg-button-secondary/70 px-3 py-1 rounded-xl text-black">
         {t("hero5_p1")}
       </p>
       <h1 className="text-5xl font-semibold">{t("hero5_h1")}</h1>
       <p className="text-xl font-normal text-main">{t("hero5_p2")}</p>
       <p className="text-base text-wrap md:w-3xl">{t("hero5_p3")}</p>
-    </section>
+    </div>
   );
 };
 
 export const InfoHero = () => {
+  const [sectionRef, isVisible] = useLazyLoad({
+    rootMargin: "0px 0px -100px 0px",
+  });
+
+  const slideFromTopAnimation = `
+    transition-all duration-1000 ease-out delay-200
+    ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-36"}
+  `;
+
+
   return (
-    <section className="w-full bg-hero-gray py-12 rounded-xl">
+    <div className={`w-full bg-hero-gray py-12 rounded-xl ${slideFromTopAnimation}`} ref={sectionRef}>
       {" "}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 justify-items-center text-center">
@@ -117,6 +144,6 @@ export const InfoHero = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };

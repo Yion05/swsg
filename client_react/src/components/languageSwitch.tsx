@@ -42,7 +42,7 @@ const LanguageSwitcher = () => {
       <img
         src={getLanguageMap(i18n.language)}
         alt=""
-        className="rounded-full w-8 h-8"
+        className="rounded-full w-4 sm:w-8 h-4 sm:h-8"
       />
       <p>{getLanguageName(i18n.language)}</p>
     </button>

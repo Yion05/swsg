@@ -7,23 +7,33 @@ import {
   HeroOneComponent,
   HeroTwoComponent,
 } from "../components/sections/home/homeComponents";
+import useLazyLoad from "../hook/useLazyLoad";
 
 const Home = () => {
+  const [sectionRef, isVisible] = useLazyLoad({
+    rootMargin: "0px 0px -100px 0px",
+  });
+
+  const slideFromTopAnimation = `
+    transition-all duration-1000 ease-out delay-200
+    ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-36"}
+  `;
+
   return (
     <section className="flex flex-col items-center justify-center gap-12 w-full px-4 sm:px-16 lg:px-36">
-      <div className="relative w-full rounded-lg mt-36">
+      <section className={`relative w-full rounded-lg mt-36 ${slideFromTopAnimation}`} ref={sectionRef}>
         <span className="relative z-10 w-full">
           <HeroOneComponent />
         </span>
 
-        <span className="relative z-20 mt-[-8rem] md:mt-[-2rem]">
+        <span className={`relative z-20 -top-4 mt-[-8rem] md:mt-[-2rem] ${slideFromTopAnimation}`} ref={sectionRef}>
           <HeroTwoComponent />
         </span>
-      </div>
+      </section>
 
-      <div className="shadow-lg w-full overflow-hidden rounded-lg">
+      <section className="shadow-lg w-full overflow-hidden rounded-lg">
         <HomeHero></HomeHero>
-      </div>
+      </section>
 
       <div className="shadow-lg w-full overflow-hidden rounded-lg">
         <Hero4Slide></Hero4Slide>
