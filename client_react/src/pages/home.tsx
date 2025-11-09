@@ -48,10 +48,6 @@ const Home = () => {
       </div>
 
       <div className="shadow-lg w-full overflow-hidden rounded-lg">
-        <ProtectWhat></ProtectWhat>
-      </div>
-
-      <div className="shadow-lg w-full overflow-hidden rounded-lg">
         <AccoladesHero></AccoladesHero>
       </div>
 

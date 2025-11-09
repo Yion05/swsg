@@ -34,8 +34,8 @@ const TestimonyHero = () => {
 
   return (
     <div className={`flex flex-col items-center py-10 ${slideFromTopAnimation}`} ref={sectionRef}>
-      <h1 className="text-4xl font-bold mb-2">{t("ourReview")}</h1>
-      <h3 className="text-lg mb-10">{t("clientReview")}</h3>
+      <h1 className="text-4xl font-bold mb-2">{t("1.5.1_title")}</h1>
+      <h3 className="text-lg mb-10">{t("1.5.2_title")}</h3>
 
       <div className="w-full max-w-8xl mx-auto flex relative items-center justify-center">
         <IoMdArrowDropleft className="text-5xl absolute -left-0 z-20 text-secondary cursor-pointer top-1/2 -translate-y-1/2" />
