@@ -84,7 +84,7 @@ export const Hero4Slide = () => {
                           }`}
             >
               <section
-                className={`max-w-2xl w-full
+                className={`max-w-xl w-full
                           ${
                             slide.alignment === "start"
                               ? "text-left"
