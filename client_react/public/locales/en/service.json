@@ -1,17 +1,20 @@
 {
-    "sect1_page_quote": "Complete a Legal Will in Just 15 Minutes",
-    "sect1_servicePlan_h1": "Services & Plans",
-    "sect1_exp_p": "Experience our fast, easy and secure online Will writing platform.",
-    "hero2_h1": "Selecting The Right Plan",
-    "hero2_p1": "Whether you are a ",
-    "hero2_sg": "Singaporean",
-    "hero2_p2": " or a ",
-    "hero2_nosg": "non-Singaporean",
-    "hero2_p3": " residing in Singapore, residing in Singapore, We have a package tailored for you",
-    "service_sg_footer1": "The Will maker, Executor(s), Guardian(s), Witness(s) and Beneficiary(ies) are ",
-    "service_sg_footer2": "Singaporeans.  ",
-    "service_sg_footer3": "[ You must use your Singapore NRIC Number (ie. ID number) when filling up the particulars on Will maker, Executor(s), Guardian(s), Witness(s) and Beneficiary(ies) .]",
-    "service_non_footer1": "The Will maker, Executor(s), Guardian(s), Witness(s) and Beneficiary(ies) are ",
-    "service_non_footer2": "Non-Singaporeans.  ",
-    "service_non_footer3": "[ You must use your International Passport Numbers when filling up the particulars on Will maker, Executor(s), Guardian(s), Witness(s) and Beneficiary(ies). ]"
+    "2.1.1_quote": "Complete a Legal Will in Just 15 Minutes",
+    "2.1.2_title": "Services & Plans",
+    "2.1.3_title": "Experience our fast, easy and secure online Will writing platform.",
+    
+    "2.2.1_title": "Selecting The Right Plan",
+    "2.2.2_content": "Whether you are a ",
+    "2.2.3_content": "Singaporean",
+    "2.2.4_content": " or a ",
+    "2.2.5_content": "non-Singaporean",
+    "2.2.6_content": " residing in Singapore, residing in Singapore, We have a package tailored for you",
+    
+    "2.3.1_content": "The Will maker, Executor(s), Guardian(s), Witness(s) and Beneficiary(ies) are ",
+    "2.3.2_content": "Singaporeans.  ",
+    "2.3.3_content": "[ You must use your Singapore NRIC Number (ie. ID number) when filling up the particulars on Will maker, Executor(s), Guardian(s), Witness(s) and Beneficiary(ies) .]",
+    "2.3.4_content": "The Will maker, Executor(s), Guardian(s), Witness(s) and Beneficiary(ies) are ",
+    "2.3.5_content": "Non-Singaporeans.  ",
+    "2.3.6_content": "[ You must use your International Passport Numbers when filling up the particulars on Will maker, Executor(s), Guardian(s), Witness(s) and Beneficiary(ies). ]",
+    "2.3.7_title": "SmartConsult"
 }

@@ -72,11 +72,11 @@ const SmartWillPlan = () => {
       </div>
       <span className="relative max-w-7xl text-sm bg-button-secondary/30 rounded-2xl md:rounded-full py-2 px-6 mt-4">
         <p className="text-[#404040] text-center mx-auto font-medium">
-          {currentSelect === "Singaporean" ? t("service_sg_footer1") : t('service_non_footer1')}
-          <span className="text-button font-bold">{currentSelect === "Singaporean" ? t("service_sg_footer2") : t('service_non_footer2')}</span>
+          {currentSelect === "Singaporean" ? t("2.3.1_content") : t('2.3.4_content')}
+          <span className="text-button font-bold">{currentSelect === "Singaporean" ? t("2.3.2_content") : t('2.3.5_content')}</span>
         </p>
         <p className="text-[#404040] text-center mx-auto font-medium">
-          {currentSelect === "Singaporean" ? t("service_sg_footer3") : t('service_non_footer3')}
+          {currentSelect === "Singaporean" ? t("2.3.3_content") : t('2.3.6_content')}
         </p>
         
       </span>

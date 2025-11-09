@@ -14,12 +14,12 @@ export const HeroBackgroundOne = () => {
   return (
     <section className="bg-[url(/assets/serviceBG.webp)] h-[50vh] rounded-xl bg-cover bg-center flex flex-col items-center justify-center gap-4 mt-8">
       <h3 className="text-base bg-button-secondary/75 rounded-xl px-2 py-1 w-fit mb-4">
-        {t("sect1_page_quote")}
+        {t("2.1.1_quote")}
       </h3>
       <h1 className="text-5xl text-white font-semibold">
-        {t("sect1_servicePlan_h1")}
+        {t("2.1.2_title")}
       </h1>
-      <p className="text-lg text-white mb-20">{t("sect1_exp_p")}</p>
+      <p className="text-lg text-white mb-20">{t("2.1.3_title")}</p>
     </section>
   );
 };
@@ -30,18 +30,18 @@ export const SelectRightPlan = () => {
   return (
     <section className=" bg-button relative overflow-hidden text-center py-12 rounded-xl flex flex-col items-center">
       <h1 className="text-white font-semibold text-4xl md:text-5xl text-center">
-        {t("hero2_h1")}
+        {t("2.2.1_title")}
       </h1>
       <p className="text-lg text-center text-white mt-4 max-w-4xl">
-        {t("hero2_p1")}
+        {t("2.2.2_content")}
         <span className="text-text-secondary font-semibold whitespace-nowrap">
-          {t("hero2_sg")}
+          {t("2.2.3_content")}
         </span>
-        {t("hero2_p2")}
+        {t("2.2.4_content")}
         <span className="text-text-secondary font-semibold whitespace-nowrap">
-          {t("hero2_nosg")}
+          {t("2.2.5_content")}
         </span>
-        {t("hero2_p3")}
+        {t("2.2.6_content")}
       </p>
     </section>
   );

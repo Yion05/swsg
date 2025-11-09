@@ -26,15 +26,15 @@ export const OurValue = () => {
     <section className="py-8 px-4 bg-white flex flex-col items-center justify-center text-center">
       <div className="max-w-5xl">
         <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold mb-2">
-          {t("Our Value")}
+          {t("3.4.1_title")}
         </h2>
         <h3 className="text-black text-sm md:text-base lg:text-xl">
-          {t("Simple, Secure and Affordable Digital Estate Planning")}
+          {t("3.4.2_content")}
         </h3>
         <p className="text-black mb-10 text-sm md:text-base lg:text-xl">
-          {t("Making Will-writing and Legacy Management")}{" "}
+          {t("3.4.3_content")}{" "}
           <span className="font-semibold text-button">
-            {t('FASTER, SMARTER AND MORE ACCESSIBLE.')}
+            {t('3.4.4_content')}
           </span>
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
