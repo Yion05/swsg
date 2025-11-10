@@ -128,12 +128,12 @@ export const HeroTwoComponent = () => {
 
   const pricingData = {
     MY: {
-      currency: "RM",
+      currency: "SGD",
       basicPrice: 388,
       advancedPrice: 788,
     },
     NOT_MY: {
-      currency: "RM",
+      currency: "SGD",
       basicPrice: 499,
       advancedPrice: 889,
     },
