@@ -149,24 +149,33 @@ const Header = () => {
         </div>
       </div>
 
-      {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white shadow-lg border-t">
-          <ul className="py-4 px-6 space-y-4 text-gray-800 text-lg font-medium">
-            {headerData.map((data, index) => (
-              <li key={index}>
-                <Link
-                  to={data.link}
-                  className={`text-center block py-2 transition-colors duration-300 ${
-                    location.pathname === data.title ? "font-semib-old" : ""
-                  }`}
-                >
-                  {data.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div
+        className={`
+    lg:hidden bg-white shadow-lg border-t 
+    transition-all duration-500 ease-out 
+    absolute top-full left-0 w-full z-50 
+        ${
+          isMobileMenuOpen
+            ? "opacity-100 visible"
+            : " opacity-0 invisible pointer-events-none"
+        } 
+  `}
+      >
+        <ul className="py-4 px-6 space-y-4 text-gray-800 text-lg font-medium">
+          {headerData.map((data, index) => (
+            <li key={index}>
+              <Link
+                to={data.link}
+                className={`text-center block py-2 transition-colors duration-300 ${
+                  location.pathname === data.title ? "font-semib-old" : ""
+                }`}
+              >
+                {data.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </header>
   );
 };

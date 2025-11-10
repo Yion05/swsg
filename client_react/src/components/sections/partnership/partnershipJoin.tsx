@@ -112,7 +112,7 @@ export const SmartWriterPortal = () => {
 
   return (
     <>
-      <section className="relative bg-cover bg-center h-120 flex items-center justify-end bg-[url(/assets/partnership/partnershipWrite.webp)]">
+      <section className="relative bg-cover bg-blend-darken md:bg-center h-120 flex items-center justify-end bg-[url(/assets/partnership/partnershipWrite.webp)]">
         <div className="w-full md:w-1/2 p-8 md:pl-16 flex flex-col justify-center items-end text-right">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-black">
             {t("SmartWriter Portal")}
@@ -122,22 +122,24 @@ export const SmartWriterPortal = () => {
               "Our registered reseller (SmartWriter) can log in here to create a Will for your client, anytime and anywhere."
             )}
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-col md:flex-row gap-4 items-end">
             <Link
               to="#"
-              className="mt-4 bg-button text-center text-white px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
+              className="w-full sm:w-auto text-nowrap bg-button text-center text-white px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
             >
               Login
             </Link>
+
             <Link
               to="#"
-              className="mt-4 bg-element-one text-center text-white px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
+              className="w-full sm:w-auto text-nowrap bg-element-one text-center text-white px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
             >
               Register SmartWriter Now
             </Link>
+
             <button
               onClick={openPopup}
-              className="mt-4 bg-button-secondary text-center px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
+              className="w-full sm:w-auto text-nowrap bg-button-secondary text-center px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
             >
               Know More
             </button>

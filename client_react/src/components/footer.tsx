@@ -15,7 +15,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-y-8 gap-x-4 w-full md:w-4/5 md:pl-8">
+          <div className="grid grid-cols text-center md:text-start md:grid-cols-5 gap-y-8 gap-x-4 w-full md:w-4/5 md:pl-8">
             {footerNav.map((column) => (
               <div key={column.title} className="flex flex-col">
                 <h4 className="text-base font-bold mb-2 uppercase text-text-secondary">

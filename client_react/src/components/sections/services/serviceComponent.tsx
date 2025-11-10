@@ -7,6 +7,7 @@ import {
   SelectionQuestion,
 } from "../../layout/serviceForm";
 import { useTranslation } from "react-i18next";
+import PlanResult from "./planResult";
 
 export const HeroBackgroundOne = () => {
   const { t } = useTranslation("service");
@@ -16,9 +17,7 @@ export const HeroBackgroundOne = () => {
       <h3 className="text-base bg-button-secondary/75 rounded-xl px-2 py-1 w-fit mb-4">
         {t("2.1.1_quote")}
       </h3>
-      <h1 className="text-5xl text-white font-semibold">
-        {t("2.1.2_title")}
-      </h1>
+      <h1 className="text-5xl text-white font-semibold">{t("2.1.2_title")}</h1>
       <p className="text-lg text-white mb-20">{t("2.1.3_title")}</p>
     </section>
   );
@@ -51,6 +50,7 @@ export const SelectRightPlan = () => {
 export const PlanForYou = () => {
   const totalQuestion = PlanForYouForm.length;
   const [currentQuestion, setCurrentQuestion] = useState<number>(1);
+  const [showResult, setShowResult] = useState<boolean>(false);
   const [answerValue, setAnswerValue] = useState<formChoice>({
     // data value with interface-type of formChoice
     question_1: "",
@@ -91,9 +91,6 @@ export const PlanForYou = () => {
     setCurrentQuestion((prevIndex) => prevIndex + 1);
   };
 
-  // to contributor reading, the form data processing and API is expected to be here in the arrow function "handleSubmit",
-  // The objects and it datatype can be refer in type.ts interface "formChoice",
-  // if any issue encounter in this line, issue me in github (from: skx1322);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!isAnswered) {
@@ -101,6 +98,7 @@ export const PlanForYou = () => {
       alert("Please select your final concern before submitting!");
       return;
     }
+    setShowResult(true);
     console.log("Form Submitted with data:", answerValue); // remove this in production
   };
 
@@ -132,85 +130,94 @@ export const PlanForYou = () => {
 
   return (
     <section className="flex items-start justify-center py-20 bg-white">
-      <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-4">
-          <h3 className="bg-button-secondary/30 inline-block rounded-full px-4 py-1 mb-4">
-            Personalized wills and trusts for you
-          </h3>
-          <h1 className="text-5xl font-semibold">
-            Plan for <span className="text-button">YOU</span>
-          </h1>
-          <h2 className="text-xl">
-            Tailored Estate Planning for Every Life Stage
-          </h2>
-        </div>
-
-        <div className="bg-white p-4 sm:p-10 rounded-2xl shadow-none">
-          <h2 className="text-2xl sm:text-3xl font-medium mb-6 text-center">
-            <span className="text-button mr-2 font-semibold">
-              Q{currentQuestion}.
-            </span>
-            {currentQuestionData.question}
-          </h2>
-
-          <form onSubmit={handleSubmit} className="flex flex-col items-center">
-            <div className="w-full">{renderQuestion()}</div>
-
-            <div className="flex justify-center items-center mt-6 space-x-4">
-              {currentQuestion > 1 && (
-                <button
-                  type="button"
-                  onClick={goToPrevious}
-                  className="px-6 py-3 text-base font-semibold text-gray-700 rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-150"
-                >
-                  Back
-                </button>
-              )}
-
-              {currentQuestion < totalQuestion ? (
-                <button
-                  type="button"
-                  onClick={goToNext}
-                  disabled={!isAnswered}
-                  className={`flex items-center space-x-2 px-8 py-3 text-base font-semibold text-white rounded-lg transition duration-150 
-                                        ${
-                                          isAnswered
-                                            ? "bg-button-green"
-                                            : "bg-button-green/30 cursor-not-allowed"
-                                        }`}
-                >
-                  <span>Next</span> <RiArrowRightLine className="text-lg" />
-                </button>
-              ) : (
-                <button
-                  type="submit"
-                  disabled={!isAnswered}
-                  className={`flex items-center space-x-2 px-8 py-3 text-base font-semibold text-white rounded-lg transition duration-150 
-                                        ${
-                                          isAnswered
-                                            ? "bg-[#990000] hover:bg-[#7a0000]"
-                                            : "bg-red-300 cursor-not-allowed"
-                                        }`}
-                >
-                  <span>GO!</span> <RiArrowRightLine className="text-xl" />
-                </button>
-              )}
+      <div className={`w-full`}>
+        {showResult ? (
+          <PlanResult />
+        ) : (
+          <>
+            <div className="text-center mb-4">
+              <h3 className="bg-button-secondary/30 inline-block rounded-full px-4 py-1 mb-4">
+                Personalized wills and trusts for you
+              </h3>
+              <h1 className="text-5xl font-semibold">
+                Plan for <span className="text-button">YOU</span>
+              </h1>
+              <h2 className="text-xl">
+                Tailored Estate Planning for Every Life Stage
+              </h2>
             </div>
 
-            <div className="flex space-x-2 mt-16">
-              {[...Array(totalQuestion)].map((_, index) => (
-                <div
-                  key={index}
-                  className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
-                    index + 1 === currentQuestion
-                      ? "bg-button w-3 h-3"
-                      : "bg-button-secondary/30"
-                  }`}
-                />
-              ))}
+            <div className="bg-white p-4 sm:p-10 rounded-2xl shadow-none">
+              <h2 className="text-2xl sm:text-3xl font-medium mb-6 text-center">
+                <span className="text-button mr-2 font-semibold">
+                  Q{currentQuestion}.
+                </span>
+                {currentQuestionData.question}
+              </h2>
+
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col items-center"
+              >
+                <div className="w-full">{renderQuestion()}</div>
+
+                <div className="flex justify-center items-center mt-6 space-x-4">
+                  {currentQuestion > 1 && (
+                    <button
+                      type="button"
+                      onClick={goToPrevious}
+                      className="px-6 py-3 text-base font-semibold text-gray-700 rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-150"
+                    >
+                      Back
+                    </button>
+                  )}
+
+                  {currentQuestion < totalQuestion ? (
+                    <button
+                      type="button"
+                      onClick={goToNext}
+                      disabled={!isAnswered}
+                      className={`flex items-center space-x-2 px-8 py-3 text-base font-semibold text-white rounded-lg transition duration-150 
+                                                                    ${
+                                                                      isAnswered
+                                                                        ? "bg-button-green"
+                                                                        : "bg-button-green/30 cursor-not-allowed"
+                                                                    }`}
+                    >
+                      <span>Next</span> <RiArrowRightLine className="text-lg" />
+                    </button>
+                  ) : (
+                    <button
+                      type="submit"
+                      disabled={!isAnswered}
+                      className={`flex items-center space-x-2 px-8 py-3 text-base font-semibold text-white rounded-lg transition duration-150 
+                                                                    ${
+                                                                      isAnswered
+                                                                        ? "bg-[#990000] hover:bg-[#7a0000]"
+                                                                        : "bg-red-300 cursor-not-allowed"
+                                                                    }`}
+                    >
+                      <span>GO!</span> <RiArrowRightLine className="text-xl" />
+                    </button>
+                  )}
+                </div>
+
+                <div className="flex space-x-2 mt-16">
+                  {[...Array(totalQuestion)].map((_, index) => (
+                    <div
+                      key={index}
+                      className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
+                        index + 1 === currentQuestion
+                          ? "bg-button w-3 h-3"
+                          : "bg-button-secondary/30"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </form>
             </div>
-          </form>
-        </div>
+          </>
+        )}
       </div>
     </section>
   );

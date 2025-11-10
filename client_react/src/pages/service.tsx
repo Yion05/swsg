@@ -5,6 +5,7 @@ import {
   SelectRightPlan,
 } from "../components/sections/services/serviceComponent";
 import { ProductSelect } from "../components/sections/services/serverProduct";
+import PlanResult from "../components/sections/services/planResult";
 
 const Service = () => {
   return (
@@ -24,6 +25,9 @@ const Service = () => {
 
       <div className="shadow-lg rounded-lg overflow-hidden">
         <PlanForYou></PlanForYou>
+      </div>
+      <div>
+        <PlanResult></PlanResult>
       </div>
     </section>
   );

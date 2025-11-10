@@ -1,4 +1,7 @@
-import type { ChoiceCardProps, SelectionProps } from "../../types/component.type";
+import type {
+  ChoiceCardProps,
+  SelectionProps,
+} from "../../types/component.type";
 
 export const ChoiceCardQuestion: React.FC<ChoiceCardProps> = ({
   choices,
@@ -10,6 +13,7 @@ export const ChoiceCardQuestion: React.FC<ChoiceCardProps> = ({
       {choices.map((choice) => (
         <button
           key={choice.value}
+          type="button"
           onClick={() => onSelect(choice.value)}
           className={`
             flex flex-col items-center justify-center rounded-xl text-center p-6
