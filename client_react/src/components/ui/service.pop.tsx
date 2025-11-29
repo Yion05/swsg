@@ -5,12 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 
-const getHeaderStyle = (title: string): string => {
-  if (title.includes("GP")) return "border-blue-500";
-  if (title.includes("LA")) return "border-orange-500";
-  return "border-gray-200";
-};
-
 export const ServicePopup: React.FC<ServicePopupProps> = ({
   data,
   imageIndex,
@@ -18,8 +12,17 @@ export const ServicePopup: React.FC<ServicePopupProps> = ({
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
   const { t } = useTranslation("service");
+
+  const handleClose = () => {
+    setIsClosing(true);
+
+    setTimeout(() => {
+      onClose();
+    }, 500);
+  };
 
   useEffect(() => {
     setIsAnimating(true);
@@ -29,14 +32,14 @@ export const ServicePopup: React.FC<ServicePopupProps> = ({
         modalRef.current &&
         !modalRef.current.contains(event.target as Node)
       ) {
-        onClose();
+        handleClose();
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [onClose]);
+  }, [isClosing]);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -45,23 +48,25 @@ export const ServicePopup: React.FC<ServicePopupProps> = ({
     };
   }, []);
 
-  const headerStyle = getHeaderStyle(data.title);
-
-  const animationClasses = isAnimating
-    ? "opacity-100 scale-100"
-    : "opacity-0 scale-0";
+  const animationClasses =
+    isAnimating && !isClosing ? "opacity-100 scale-100" : "opacity-0 scale-95";
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/25 bg-opacity-70 flex items-center justify-center">
+    <div
+      className={`fixed px-4 md:px-16 inset-0 z-50 bg-black/25 flex items-center justify-center transition-opacity duration-500 ${
+        isClosing ? "opacity-0" : "opacity-100"
+      }`}
+    >
+      {" "}
       <div
         ref={modalRef}
         className={`
            transition-all duration-500 transform 
                    ${animationClasses}
-          bg-white rounded-3xl max-w-[1440px] w-full max-h-[90vh] overflow-y-auto transition-all duration-300 transform scale-100 ${headerStyle}`}
+          bg-white rounded-3xl max-w-[1440px] w-full max-h-[90vh] overflow-y-auto transition-all duration-300 transform scale-100`}
       >
         <button
-          onClick={onClose}
+          onClick={handleClose}
           className="absolute top-4 right-4 text-gray-800 hover:text-red-600 text-3xl z-50"
           aria-label="Close modal"
         >
@@ -70,15 +75,15 @@ export const ServicePopup: React.FC<ServicePopupProps> = ({
 
         <div className={``}>
           <div className="flex flex-col md:flex-row items-start relative">
-            <div className="md:w-2/3 p-8">
-              <h2 className="text-5xl font-semibold mb-4">
+            <div className="md:w-2/3">
+              <h2 className="text-5xl font-semibold mb-4 pt-4 pl-8">
                 {data.content.content_title}
               </h2>
               {data.extra_title && (
                 <p className="text-xl">{data.extra_title}</p>
               )}
               {data.content.content_description.map((desc, i) => (
-                <p key={i} className="mb-4 text-base leading-relaxed">
+                <p key={i} className="mb-4 text-base leading-relaxed pl-8">
                   {desc}
                 </p>
               ))}

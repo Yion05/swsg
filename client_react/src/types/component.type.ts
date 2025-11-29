@@ -43,14 +43,18 @@ export interface ServiceContent {
   benefits?: string[];
 }
 
-export interface ServicePopupProps {
+export interface onCloseSchema {
+  onClose: () => void;
+}
+
+
+export interface ServicePopupProps extends onCloseSchema {
   data: {
     title: string;
     extra_title?: string;
     content: ServiceContent;
   };
-  imageIndex: number;
-  onClose: () => void;
+  imageIndex: string;
 }
 
 export interface platformPartnerSchema {

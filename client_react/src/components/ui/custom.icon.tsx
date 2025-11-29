@@ -21,14 +21,14 @@ export const SmartConsult = () => {
   const { t } = useTranslation("service");
 
   return (
-    <div className="w-full flex justify-center mt-4 md:mt-0 md:absolute md:-bottom-6 lg:-right-10/16 2xl:-right-12/15 md:translate-y-1/2 z-20">
+    <div className="w-full flex justify-center mt-4 md:mt-0 md:absolute md:-bottom-24 lg:-right-10/16 2xl:-right-10/15 md:translate-y-1/2 z-20 cursor-pointer">
       <div className="flex flex-col items-center gap-4">
         <span className="relative">
           <p className="text-sm font-semibold bg-button-secondary rounded-full px-6 py-1">
             {t("2.3.7_title")}
           </p>
           <div
-            className="absolute top-full left-1/2 transform -translate-x-1/2 translate-y-0 w-0 h-0 
+            className="absolute top-6 left-1/2 transform -translate-x-1/2 translate-y-0 w-0 h-0 
                                     border-l-[12px] border-l-transparent 
                                     border-r-[12px] border-r-transparent 
                                     border-t-[12px] border-t-button-secondary"

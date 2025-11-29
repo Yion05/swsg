@@ -18,6 +18,8 @@ export const advancedFeatures = [
   "Balance & Future Asset",
 ];
 
+export const featureMethods = ["Distribution Way", "Assets", "Beneficiary", "Executor", "Guardian", "Include"]
+
 export const productServices = [
   {
     productImage: "/",

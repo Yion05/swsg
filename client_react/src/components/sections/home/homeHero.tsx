@@ -122,7 +122,7 @@ export const InfoHero = () => {
 
 
   return (
-    <div className={`w-full py-12 rounded-xl ${slideFromTopAnimation}`} ref={sectionRef}>
+    <div className={`w-full py-2 rounded-xl ${slideFromTopAnimation}`} ref={sectionRef}>
       {" "}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 justify-items-center text-center">
@@ -132,11 +132,11 @@ export const InfoHero = () => {
                 <img src={item.icon} alt={item.title} className="w-8 h-8"/>
               </div>
 
-              <p className="text-white text-lg font-normal">
+              <p className="text-white text-sm font-normal">
                 {item.title}
               </p>
               {item.subtitle && (
-                <p className="text-white text-lg font-normal text-nowrap">
+                <p className="text-white text-sm font-normal text-nowrap">
                   {item.subtitle}
                 </p>
               )}
