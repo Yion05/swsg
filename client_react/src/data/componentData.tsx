@@ -18,7 +18,14 @@ export const advancedFeatures = [
   "Balance & Future Asset",
 ];
 
-export const featureMethods = ["Distribution Way", "Assets", "Beneficiary", "Executor", "Guardian", "Include"]
+export const featureMethods = [
+  "Distribution Way",
+  "Assets",
+  "Beneficiary",
+  "Executor",
+  "Guardian",
+  "Include",
+];
 
 export const productServices = [
   {
@@ -116,96 +123,147 @@ export const planCardsData = [
 export const resourceQuestionData: ResourceCategory[] = [
   {
     questionPlan: "Will & Legal Basics",
-    questionSVG: "/assets/icon/willLega.svg",
+    questionSVG: "/assets/icon/willLegal.svg",
     questions: [
       {
-        question: "What is a Will?",
-        answer: "null for now",
-      },
-      {
-        question: "What constitutes a legally binding Will?",
-        answer: "null for now",
-      },
-      {
-        question: "Is stamping required for the Will?",
+        question: "Is stamping required for a Will?",
         answer:
           "No. A legally binding Will does not require stamping at the Inland Revenue Authority of Singapore (IRAS) office.",
+      },
+      {
+        question: "What makes a Will legally binding?",
+        answer: "Pending.",
+      },
+      {
+        question:
+          "Is a Will compulsory? What are the importance and benefits of having one?",
+        answer: "Pending.",
+      },
+      {
+        question: "What risks are involved in writing a Will?",
+        answer: "Pending.",
+      },
+      {
+        question: "Can I revoke my own Will?",
+        answer: "Pending.",
       },
     ],
   },
   {
-    questionPlan: "Eligibility & Roles",
-    questionSVG: "/assets/icon/eligibilityRole.svg",
-    questions: [
-      {
-        question: "What is a Will?",
-        answer: "null for now",
-      },
-      {
-        question: "What constitutes a legally binding Will?",
-        answer: "null for now",
-      },
-      {
-        question: "Is stamping required for the Will?",
-        answer:
-          "No. A legally binding Will does not require stamping at the Inland Revenue Authority of Singapore (IRAS) office.",
-      },
-    ],
-  },
-  {
-    questionPlan: "Service & Process",
+    questionPlan: "Products & Services",
     questionSVG: "/assets/icon/serviceProcess.svg",
     questions: [
       {
-        question: "What is a Will?",
-        answer: "null for now",
+        question: "If I am a foreigner, which package is most suitable for me?",
+        answer: "Pending.",
       },
       {
-        question: "What constitutes a legally binding Will?",
-        answer: "null for now",
+        question:
+          "Do you offer add-ons such as Trusts or Lasting Power of Attorney (LPA)?",
+        answer: "Pending.",
       },
       {
-        question: "Is stamping required for the Will?",
-        answer:
-          "No. A legally binding Will does not require stamping at the Inland Revenue Authority of Singapore (IRAS) office.",
+        question: "Can I update or revise my Will after purchase?",
+        answer: "Pending.",
+      },
+      {
+        question: "Do you provide professional review or lawyer guidance?",
+        answer: "Pending.",
+      },
+      {
+        question: "Do you offer a Will custody or storage service?",
+        answer: "Pending.",
       },
     ],
   },
   {
-    questionPlan: "Security & Risks",
+    questionPlan: "Partnership",
+    questionSVG: "/assets/icon/eligibilityRole.svg",
+    questions: [
+      {
+        question: "What partnership opportunities does your company offer?",
+        answer: "Pending.",
+      },
+      {
+        question: "What is a Certified SmartPlanner (CSPS)?",
+        answer: "Pending.",
+      },
+      {
+        question: "Is there a fee to join the partnership program?",
+        answer: "Pending.",
+      },
+      {
+        question: "Can international partners collaborate with you?",
+        answer: "Pending.",
+      },
+      {
+        question:
+          "Do you have an affiliate program? Is it easy for beginners to start?",
+        answer: "Pending.",
+      },
+    ],
+  },
+  {
+    questionPlan: "Platform",
     questionSVG: "/assets/icon/securityRisk.svg",
     questions: [
       {
-        question: "What is a Will?",
-        answer: "null for now",
+        question: "Can I rewrite my Will using the SmartWills service?",
+        answer: "Pending.",
       },
       {
-        question: "What constitutes a legally binding Will?",
-        answer: "null for now",
+        question: "How does SmartWills protect my data and payment information?",
+        answer: "Pending.",
       },
       {
-        question: "Is stamping required for the Will?",
-        answer:
-          "No. A legally binding Will does not require stamping at the Inland Revenue Authority of Singapore (IRAS) office.",
+        question: "What fees do I have to pay for this online service?",
+        answer: "Pending.",
+      },
+      {
+        question: "Which company provides this online Will-writing service?",
+        answer: "Pending.",
+      },
+      {
+        question:
+          "If I face problems while writing my Will online, who can I contact for help?",
+        answer: "Pending.",
+      },
+      {
+        question:
+          "Who is SmartWills?",
+        answer: "Pending.",
       },
     ],
   },
   {
-    questionPlan: "Others",
+    questionPlan: "Blog",
     questionSVG: "/assets/icon/otherQ.svg",
-    questions: [
+        questions: [
       {
-        question: "What is a Will?",
-        answer: "null for now",
+        question: "Can I rewrite my Will using the SmartWills service?",
+        answer: "Pending.",
       },
       {
-        question: "What constitutes a legally binding Will?",
-        answer: "null for now",
+        question: "How does SmartWills protect my data and payment information?",
+        answer: "Pending.",
       },
       {
-        question: "Is stamping required for the Will?",
-        answer:
-          "No. A legally binding Will does not require stamping at the Inland Revenue Authority of Singapore (IRAS) office.",
+        question: "What fees do I have to pay for this online service?",
+        answer: "Pending.",
+      },
+      {
+        question: "Which company provides this online Will-writing service?",
+        answer: "Pending.",
+      },
+      {
+        question:
+          "If I face problems while writing my Will online, who can I contact for help?",
+        answer: "Pending.",
+      },
+      {
+        question:
+          "Who is SmartWills?",
+        answer: "Pending.",
       },
     ],
   },
@@ -258,24 +316,23 @@ export const hero4SlideData: hero4Slide_schema[] = [
 
 export const contactItems = [
   {
-    icon: '/assets/contact_logo/Hotline.svg',
+    icon: "/assets/contact_logo/Hotline.svg",
     title: "Hotline: +65 8912 9929",
     subtitle: "Customer Service: +65 8813 9929",
   },
   {
-    icon: '/assets/contact_logo/Whatsapp.svg',
+    icon: "/assets/contact_logo/Whatsapp.svg",
     title: "Sales: +65 8915 9929",
     subtitle: "(WhatsApp Chat Only)",
   },
   {
-    icon: '/assets/contact_logo/Email.svg',
+    icon: "/assets/contact_logo/Email.svg",
     title: "Email:",
     subtitle: "enquiry@smartwills.com.sg",
   },
   {
-    icon: '/assets/contact_logo/Location.svg',
+    icon: "/assets/contact_logo/Location.svg",
     title: "1, North Bridge Road, #06-16",
     subtitle: "High Street Centre, Singapore 179094",
   },
 ];
-

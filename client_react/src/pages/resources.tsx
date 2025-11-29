@@ -1,7 +1,7 @@
+import { QnAPage } from "../components/sections/resources/AnyQuestion";
 import {
   ContactForm,
   DownloadHere,
-  QnAPage,
 } from "../components/sections/resources/resourceQuestion";
 
 const Resources = () => {
