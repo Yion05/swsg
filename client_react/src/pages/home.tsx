@@ -1,5 +1,5 @@
 import "../config/i18n";
-import { HomeHero, InfoHero, ProtectWhat } from "../components/sections/home/homeHero";
+import { HomeHero, ProtectWhat } from "../components/sections/home/homeHero";
 import TestimonyHero from "../components/sections/home/testimony";
 import AccoladesHero from "../components/sections/home/accolades";
 import { Hero4Slide } from "../components/sections/home/homeSlide";
@@ -51,9 +51,9 @@ const Home = () => {
         <AccoladesHero></AccoladesHero>
       </div>
 
-      <div className="shadow-lg w-full overflow-hidden rounded-lg">
+      {/* <div className="shadow-lg w-full overflow-hidden rounded-lg">
         <InfoHero></InfoHero>
-      </div>
+      </div> */}
     </section>
   );
 };

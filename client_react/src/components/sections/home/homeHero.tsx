@@ -117,22 +117,22 @@ export const InfoHero = () => {
 
   const slideFromTopAnimation = `
     transition-all duration-1000 ease-out delay-200
-    ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-36"}
+    ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-36"}
   `;
 
 
   return (
-    <div className={`w-full bg-hero-gray py-12 rounded-xl ${slideFromTopAnimation}`} ref={sectionRef}>
+    <div className={`w-full py-12 rounded-xl ${slideFromTopAnimation}`} ref={sectionRef}>
       {" "}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 justify-items-center text-center">
           {contactItems.map((item, index) => (
             <div key={index} className="flex flex-col items-center">
-              <div className="bg-button p-4 rounded-full mb-4">
-                <img src={item.icon} alt={item.title} className="w-6 h-6"/>
+              <div className="bg-text-secondary p-2 rounded-full mb-4">
+                <img src={item.icon} alt={item.title} className="w-8 h-8"/>
               </div>
 
-              <p className="text-white text-lg font-normal mb-1">
+              <p className="text-white text-lg font-normal">
                 {item.title}
               </p>
               {item.subtitle && (
