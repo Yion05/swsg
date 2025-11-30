@@ -85,7 +85,7 @@ export const QnAPage = () => {
       setQaContentMaxHeight(0);
       setTimeout(() => {
         setActiveCategory("");
-      }, 100);
+      }, 150);
     } else {
       setActiveCategory(categoryName);
       setQaContentMaxHeight(0);
@@ -98,7 +98,7 @@ export const QnAPage = () => {
       if (activeCategory && qaContentRef.current) {
         setQaContentMaxHeight(qaContentRef.current.scrollHeight);
       }
-    }, 500);
+    }, 300);
     return () => clearTimeout(timer);
   }, [activeCategory, selectedCategory, openQuestions]);
 

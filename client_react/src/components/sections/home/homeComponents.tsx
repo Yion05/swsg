@@ -58,50 +58,50 @@ export const HeroTwoComponent = () => {
   const { t } = useTranslation("home");
 
   const pricingData = {
-    MY: {
+    SG: {
       currency: "SGD",
-      basicPrice: 388,
-      advancedPrice: 788,
+      basicPrice: 98,
+      advancedPrice: 238,
     },
-    NOT_MY: {
+    NOT_SG: {
       currency: "SGD",
-      basicPrice: 499,
-      advancedPrice: 889,
+      basicPrice: 129,
+      advancedPrice: 269,
     },
   };
 
-  const [selectedPlan, setSelectedPlan] = React.useState<"MY" | "NOT_MY">("MY");
+  const [selectedPlan, setSelectedPlan] = React.useState<"SG" | "NOT_SG">("SG");
   const currentPrices = pricingData[selectedPlan];
   const handlePlanChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedPlan(event.target.value as "MY" | "NOT_MY");
+    setSelectedPlan(event.target.value as "SG" | "NOT_SG");
   };
   return (
-    <div className="bg-white shadow-2xl rounded-lg py-4 px-6 max-w-7xl flex flex-wrap items-center justify-center gap-8 mx-auto">
+    <div className="bg-white shadow-2xl rounded-lg py-4 px-6 max-w-[1185px] flex flex-wrap lg:flex-nowrap items-center justify-center gap-4 mx-auto">
       <div className="relative">
         <select
-          className="appearance-none text-lg px-8 pr-12 py-2.5 border-2 rounded-xl border-button-secondary bg-transparent cursor-pointer focus:outline-none focus:ring-2 focus:ring-button-secondary/50 transition-shadow"
+          className="appearance-none text-base px-8 pr-12 py-2.5 border-2 rounded-xl border-button-secondary bg-transparent cursor-pointer focus:outline-none focus:ring-2 focus:ring-button-secondary/50 transition-shadow"
           name="planCheck"
           id="planCheck"
           value={selectedPlan}
           onChange={handlePlanChange}
         >
-          <option value="MY">{t("1.1.12_forPeople")}</option>
-          <option value="NOT_MY">{t("1.1.13_forPeople")}</option>
+          <option value="SG">{t("1.1.12_forPeople")}</option>
+          <option value="NOT_SG">{t("1.1.13_forPeople")}</option>
         </select>
 
         <FaCaretDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 pointer-events-none" />
       </div>
 
       <span className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
-        <h3 className="text-lg px-4 py-2.5 rounded-xl bg-button-secondary/30 text-center sm:text-left">
-          {t("SmartWills Plan Basic")}{" "}
+        <h3 className="text-base px-4 py-2.5 rounded-xl bg-button-secondary/30 text-center sm:text-left text-nowrap">
+          {t("SmartWills Plan Basic")}{" "}{selectedPlan === "NOT_SG" ? "+" : ""}
           <b className="font-semibold">
             ({currentPrices.currency}
             {currentPrices.basicPrice})
           </b>
         </h3>
-        <h3 className="text-lg px-4 py-2.5 rounded-xl bg-button-secondary/30 text-center sm:text-left">
-          {t("SmartWills Plan Advanced")}{" "}
+        <h3 className="text-base px-4 py-2.5 rounded-xl bg-button-secondary/30 text-center sm:text-left text-nowrap">
+          {t("SmartWills Plan Advanced")}{" "}{selectedPlan === "NOT_SG" ? "+" : ""}
           <b className="font-semibold">
             ({currentPrices.currency}
             {currentPrices.advancedPrice})
@@ -111,7 +111,7 @@ export const HeroTwoComponent = () => {
 
       <Link
         to={"/service"}
-        className="gap-2 rounded-xl bg-button-green py-2.5 px-4 text-lg flex items-center text-white"
+        className="gap-2 rounded-xl bg-button-green py-2.5 px-4 text-base flex items-center text-white text-nowrap"
       >
         {t("Start Now")}
         <RiArrowRightLine />
