@@ -16,7 +16,11 @@ const QuestionAccordionItem: React.FC<QuestionItemProps> = ({
   const contentRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className={`mb-4 transition-all duration-500`}>
+    <div
+      className={`mb-4 transition-all duration-500 ${
+        isOpen ? "opacity-0" : "opacity-100"
+      }`}
+    >
       <button
         onClick={() => toggleAccordion(item.question)}
         className={`
@@ -83,7 +87,7 @@ export const QnAPage = () => {
       setQaContentMaxHeight(0);
       setTimeout(() => {
         setActiveCategory("");
-      }, 500);
+      }, 300);
     } else {
       setActiveCategory(categoryName);
       setQaContentMaxHeight(0);
@@ -144,7 +148,7 @@ export const QnAPage = () => {
         </div>
 
         <div
-          className={`mt-8 transition-all duration-500 ease-out`}
+          className={`mt-8 transition-all duration-300 ease-out`}
           style={{ maxHeight: `${qaContentMaxHeight}px` }}
         >
           <div
@@ -153,18 +157,29 @@ export const QnAPage = () => {
               activeCategory
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-8"
-            } transition-all duration-500 ease-out`}
+            } transition-all duration-300 ease-out`}
           >
             {activeCategory &&
               selectedCategory?.questions.map((item, index) => {
                 const isOpen = openQuestions.includes(item.question);
                 return (
-                  <QuestionAccordionItem
-                    key={index}
-                    item={item}
-                    isOpen={isOpen}
-                    toggleAccordion={toggleAccordion}
-                  />
+                  <>
+                    {item.question === "Blog" ? (
+                      <QuestionAccordionItem
+                        key={index}
+                        item={item}
+                        isOpen={isOpen}
+                        toggleAccordion={toggleAccordion}
+                      />
+                    ) : (
+                      <QuestionAccordionItem
+                        key={index}
+                        item={item}
+                        isOpen={isOpen}
+                        toggleAccordion={toggleAccordion}
+                      />
+                    )}
+                  </>
                 );
               })}
           </div>
