@@ -122,7 +122,7 @@ export const InfoHero = () => {
 
 
   return (
-    <div className={`w-full py-2 rounded-xl ${slideFromTopAnimation}`} ref={sectionRef}>
+    <div className={`w-full py-2 rounded-xl overflow-x-hidden ${slideFromTopAnimation}`} ref={sectionRef}>
       {" "}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 justify-items-center text-center">

@@ -1,9 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { resourceQuestionData } from "../../../data/componentData";
 import { useEffect, useRef, useState } from "react";
+import { BlogItem } from "./BlogQuestion";
 
 interface QuestionItemProps {
-  item: { question: string; answer: string };
+  item: { question: string; answer: string | string[] };
   isOpen: boolean;
   toggleAccordion: (question: string) => void;
 }
@@ -14,31 +15,28 @@ const QuestionAccordionItem: React.FC<QuestionItemProps> = ({
   toggleAccordion,
 }) => {
   const contentRef = useRef<HTMLDivElement>(null);
+  const itemString = item.answer as string;
 
   return (
-    <div
-      className={`mb-4 transition-all duration-500 ${
-        isOpen ? "opacity-0" : "opacity-100"
-      }`}
-    >
+    <div className={`mb-4 transition-all duration-500`} key={item.question}>
       <button
         onClick={() => toggleAccordion(item.question)}
         className={`
           flex flex-col w-full p-5 bg-button-secondary/15 transition-all duration-500 hover:bg-button-secondary/30 rounded-2xl cursor-pointer
         `}
       >
-        <span className="flex justify-between items-center">
+        <span className="flex justify-between items-center gap-1">
           <p className="font-semibold text-left text-xl sm:text-2xl text-black">
             {item.question}
           </p>
           <div
             className={`
               w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] 
-              transition-transform duration-500 transform
+              transition-transform duration-500 transform self-baseline mt-2
               ${
                 isOpen
-                  ? "border-t-hero-gray rotate-180"
-                  : "border-t-hero-gray/50"
+                  ? "border-t-hero-gray/50 rotate-180"
+                  : "border-t-hero-gray"
               }
             `}
           ></div>
@@ -52,7 +50,7 @@ const QuestionAccordionItem: React.FC<QuestionItemProps> = ({
             paddingTop: isOpen ? "" : "0",
           }}
         >
-          <p className="text-left text-base text-hero-gray">{item.answer}</p>
+          <p className="text-left text-base text-hero-gray">{itemString}</p>
         </div>
       </button>
     </div>
@@ -87,7 +85,7 @@ export const QnAPage = () => {
       setQaContentMaxHeight(0);
       setTimeout(() => {
         setActiveCategory("");
-      }, 300);
+      }, 100);
     } else {
       setActiveCategory(categoryName);
       setQaContentMaxHeight(0);
@@ -96,10 +94,13 @@ export const QnAPage = () => {
   };
 
   useEffect(() => {
-    if (activeCategory && qaContentRef.current) {
-      setQaContentMaxHeight(qaContentRef.current.scrollHeight);
-    }
-  }, [activeCategory, selectedCategory]);
+    const timer = setTimeout(() => {
+      if (activeCategory && qaContentRef.current) {
+        setQaContentMaxHeight(qaContentRef.current.scrollHeight);
+      }
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [activeCategory, selectedCategory, openQuestions]);
 
   return (
     <section className="shadow-lg rounded-2xl py-12 pb-36">
@@ -113,7 +114,7 @@ export const QnAPage = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-16">
+        <div className="grid grid-rows-3 md:grid-rows-2 lg:grid-rows-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
           {resourceQuestionData.map((data) => {
             const isActive = data.questionPlan === activeCategory;
             return (
@@ -157,15 +158,15 @@ export const QnAPage = () => {
               activeCategory
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-8"
-            } transition-all duration-300 ease-out`}
+            } transition-all duration-300 ease-out `}
           >
             {activeCategory &&
               selectedCategory?.questions.map((item, index) => {
                 const isOpen = openQuestions.includes(item.question);
                 return (
-                  <>
-                    {item.question === "Blog" ? (
-                      <QuestionAccordionItem
+                  <div key={index}>
+                    {activeCategory === "Blog" ? (
+                      <BlogItem
                         key={index}
                         item={item}
                         isOpen={isOpen}
@@ -179,7 +180,7 @@ export const QnAPage = () => {
                         toggleAccordion={toggleAccordion}
                       />
                     )}
-                  </>
+                  </div>
                 );
               })}
           </div>

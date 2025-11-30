@@ -13,6 +13,14 @@ const Header = () => {
   const languageDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
         mobileMenuRef.current &&

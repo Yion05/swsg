@@ -15,11 +15,7 @@ export const BlogItem: React.FC<QuestionItemProps> = ({
   const blogItem = item.answer as string[];
 
   return (
-    <div
-      className={`mb-4 transition-all duration-500 ${
-        isOpen ? "opacity-0" : "opacity-100"
-      }`}
-    >
+    <div className={`mb-4 transition-all duration-500`} key={item.question}>
       <button
         onClick={() => toggleAccordion(item.question)}
         className={`
@@ -45,13 +41,13 @@ export const BlogItem: React.FC<QuestionItemProps> = ({
 
         <div
           ref={contentRef}
-          className={`transition-all duration-500 ease-in-out overflow-y-hidden grid grid-cols-3`}
+          className={`transition-all duration-500 ease-in-out overflow-hidden grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8`}
           style={{
             maxHeight: isOpen ? `${contentRef.current?.scrollHeight}px` : "0",
             paddingTop: isOpen ? "" : "0",
           }}
         >
-          <span className="col-span-2">
+          <span className="col-span-1 md:col-span-2 flex flex-col gap-4">
             {blogItem.map((data, index) => (
               <p
                 className="text-base text-hero-gray text-justify"
@@ -62,7 +58,11 @@ export const BlogItem: React.FC<QuestionItemProps> = ({
               </p>
             ))}
           </span>
-          <img className="col-span-1" src={item.image} alt={item.question} />
+          <img
+            className="col-span-1 self-center w-full h-auto object-contain order-first md:order-none"
+            src={item.image}
+            alt={item.question}
+          />
         </div>
       </button>
     </div>

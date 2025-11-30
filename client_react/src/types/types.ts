@@ -27,7 +27,8 @@ export interface nationalityData_schema {
 
 export interface QuestionItem {
   question: string;
-  answer: string;
+  answer: string | string[];
+  image?: string
 };
 
 export interface ResourceCategory {

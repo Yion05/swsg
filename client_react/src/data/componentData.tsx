@@ -212,7 +212,8 @@ export const resourceQuestionData: ResourceCategory[] = [
         answer: "Pending.",
       },
       {
-        question: "How does SmartWills protect my data and payment information?",
+        question:
+          "How does SmartWills protect my data and payment information?",
         answer: "Pending.",
       },
       {
@@ -229,8 +230,7 @@ export const resourceQuestionData: ResourceCategory[] = [
         answer: "Pending.",
       },
       {
-        question:
-          "Who is SmartWills?",
+        question: "Who is SmartWills?",
         answer: "Pending.",
       },
     ],
@@ -238,32 +238,43 @@ export const resourceQuestionData: ResourceCategory[] = [
   {
     questionPlan: "Blog",
     questionSVG: "/assets/icon/otherQ.svg",
-        questions: [
+    questions: [
       {
         question: "Can I rewrite my Will using the SmartWills service?",
-        answer: "Pending.",
+        answer: [`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in gravida tellus. Ut suscipit sem ut ante commodo dapibus. Pellentesque sollicitudin magna nunc, a scelerisque dolor laoreet non. Duis euismod vel elit ut hendrerit. Cras accumsan accumsan ex, a euismod elit aliquam non. Pellentesque laoreet purus ut nisi mattis, vitae pretium magna auctor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque et urna ac dolor tincidunt scelerisque.`,
+          `Praesent tristique, justo nec sagittis egestas, lorem orci ultricies nisl, sodales vehicula lacus eros ut lacus. Sed eros diam, ultricies id eros non, iaculis gravida eros. Morbi maximus facilisis libero, a tincidunt sapien maximus et. Donec posuere sollicitudin turpis, sed aliquam sapien suscipit ac. Nunc sapien enim, imperdiet nec ex non, vestibulum sagittis arcu.`
+        ],
+        image: "https://placehold.co/350x215",
       },
       {
-        question: "How does SmartWills protect my data and payment information?",
-        answer: "Pending.",
+        question:
+          "How does SmartWills protect my data and payment information?",
+        answer: [`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in gravida tellus. Ut suscipit sem ut ante commodo dapibus. Pellentesque sollicitudin magna nunc, a scelerisque dolor laoreet non. Duis euismod vel elit ut hendrerit.`,
+          `Cras accumsan accumsan ex, a euismod elit aliquam non. Pellentesque laoreet purus ut nisi mattis, vitae pretium magna auctor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque et urna ac dolor tincidunt scelerisque.`,
+          `Praesent tristique, justo nec sagittis egestas, lorem orci ultricies nisl, sodales vehicula lacus eros ut lacus. Sed eros diam, ultricies id eros non, iaculis gravida eros. Morbi maximus facilisis libero, a tincidunt sapien maximus et. Donec posuere sollicitudin turpis, sed aliquam sapien suscipit ac. Nunc sapien enim, imperdiet nec ex non, vestibulum sagittis arcu.`
+        ],
+        image: "https://placehold.co/350x215",
       },
       {
         question: "What fees do I have to pay for this online service?",
-        answer: "Pending.",
+        answer: ["Pending."],
+        image: "https://placehold.co/350x215",
       },
       {
         question: "Which company provides this online Will-writing service?",
-        answer: "Pending.",
+        answer: ["Pending."],
+        image: "https://placehold.co/350x215",
       },
       {
         question:
           "If I face problems while writing my Will online, who can I contact for help?",
-        answer: "Pending.",
+        answer: ["Pending."],
+        image: "https://placehold.co/350x215",
       },
       {
-        question:
-          "Who is SmartWills?",
-        answer: "Pending.",
+        question: "Who is SmartWills?",
+        answer: ["Pending."],
+        image: "https://placehold.co/350x215",
       },
     ],
   },

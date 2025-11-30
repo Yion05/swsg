@@ -2,7 +2,7 @@ import { InfoHero } from "./sections/home/homeHero";
 
 const Footer = () => {
   return (
-    <footer className="text-white px-4 sm:px-16 lg:px-24 mt-12 mx-auto">
+    <footer className="text-white px-4 sm:px-16 lg:px-24 mt-12 mx-auto overflow-x-hidden" >
       <div className="bg-[url('/assets/footer/SWSGFooterBG.webp')] bg-cover bg-no-repeat bg-center rounded-lg">
         <section className="flex flex-col items-center xl:ml-48 px-12 py-6">
           <div className="flex flex-col items-center w-full md:w-1/5 mb-4">
