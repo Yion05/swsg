@@ -18,7 +18,7 @@ export const HeroBackgroundOne = () => {
         {t("2.1.1_quote")}
       </h3>
       <h1 className="text-5xl text-white font-semibold">{t("2.1.2_title")}</h1>
-      <p className="text-lg text-white mb-20">{t("2.1.3_title")}</p>
+      <p className="text-lg text-white mb-20 px-4">{t("2.1.3_title")}</p>
     </section>
   );
 };

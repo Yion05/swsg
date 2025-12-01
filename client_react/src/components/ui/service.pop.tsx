@@ -83,12 +83,12 @@ export const ServicePopup: React.FC<ServicePopupProps> = ({
                 <p className="text-xl">{data.extra_title}</p>
               )}
               {data.content.content_description.map((desc, i) => (
-                <p key={i} className="mb-4 text-base leading-relaxed pl-8">
+                <p key={i} className="mb-4 text-base leading-relaxed px-8 text-justify">
                   {desc}
                 </p>
               ))}
 
-              <span className="flex items-center gap-6 mt-24">
+              <span className="flex items-center gap-6 mt-24 px-4">
                 {" "}
                 <Link
                   to={"/"}

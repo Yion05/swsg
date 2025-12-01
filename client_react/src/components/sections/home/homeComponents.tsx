@@ -76,7 +76,7 @@ export const HeroTwoComponent = () => {
     setSelectedPlan(event.target.value as "SG" | "NOT_SG");
   };
   return (
-    <div className="bg-white shadow-2xl rounded-lg py-4 px-6 max-w-[1185px] flex flex-wrap lg:flex-nowrap items-center justify-center gap-4 mx-auto">
+    <div className="bg-white shadow-2xl rounded-lg py-4 px-2 max-w-[1185px] flex flex-wrap xl:flex-nowrap items-center justify-center gap-4 mx-auto">
       <div className="relative">
         <select
           className="appearance-none text-base px-8 pr-12 py-2.5 border-2 rounded-xl border-button-secondary bg-transparent cursor-pointer focus:outline-none focus:ring-2 focus:ring-button-secondary/50 transition-shadow"
