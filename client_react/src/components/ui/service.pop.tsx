@@ -74,21 +74,31 @@ export const ServicePopup: React.FC<ServicePopupProps> = ({
         </button>
 
         <div className={``}>
+          <div className="lg:hidden">
+            <img
+              src={`/assets/service/content/mobile/${imageIndex}.webp`}
+              alt={data.title}
+              className="w-full h-auto object-cover"
+            />
+          </div>
           <div className="flex flex-col md:flex-row items-start relative">
-            <div className="md:w-2/3">
-              <h2 className="text-5xl font-semibold mb-4 pt-4 pl-8">
+            <div className="w-full text-center lg:text-start lg:w-2/3 not-lg:mt-4">
+              <h2 className="text-3xl md:text-5xl font-semibold xl:mt-4 pl-0 md:pl-8">
                 {data.content.content_title}
               </h2>
               {data.extra_title && (
-                <p className="text-xl">{data.extra_title}</p>
+                <p className="text-lg md:text-xl">{data.extra_title}</p>
               )}
               {data.content.content_description.map((desc, i) => (
-                <p key={i} className="mb-4 text-base leading-relaxed px-8 text-justify">
+                <p
+                  key={i}
+                  className="mb-4 mt-2 text-base leading-relaxed px-8 text-justify"
+                >
                   {desc}
                 </p>
               ))}
 
-              <span className="flex items-center gap-6 mt-24 px-4">
+              <span className="pb-12 flex not-lg:justify-center items-center gap-6 mt-12 lg:mt-24 px-4">
                 {" "}
                 <Link
                   to={"/"}
@@ -98,18 +108,18 @@ export const ServicePopup: React.FC<ServicePopupProps> = ({
                 </Link>
                 <Link
                   to={"/"}
-                  className="text-lg font-semibold bg-button-secondary px-4 py-2 rounded-xl"
+                  className="text-lg font-semibold py-2 bg-button-secondary px-4 rounded-xl"
                 >
                   {t("talkToUs")}
                 </Link>
               </span>
             </div>
 
-            <div className="md:w-1/2 mt-6 md:mt-0 flex justify-center relative z-10 self-end">
+            <div className="not-lg:hidden md:w-1/2 mt-6 md:mt-0 flex justify-center relative z-10 self-start">
               <img
                 src={`/assets/service/content/${imageIndex}.webp`}
                 alt={data.title}
-                className=""
+                className="w-full h-auto object-cover"
               />
             </div>
           </div>
@@ -117,7 +127,7 @@ export const ServicePopup: React.FC<ServicePopupProps> = ({
 
         {data.content.benefits && (
           <div className="p-8">
-            <div className="bg-button text-white px-4 py-2 rounded-full inline-block font-semibold mb-6">
+            <div className="bg-button text-white px-4 py-2 rounded-full inline-block font-base mb-6">
               {data.content.benefit_title}
             </div>
 
@@ -134,7 +144,7 @@ export const ServicePopup: React.FC<ServicePopupProps> = ({
               ))}
             </ul>
 
-            <p className="mt-6 pt-4">{data.content.benefit_description}</p>
+            <p className="not-lg:text-center mt-6 pt-4">{data.content.benefit_description}</p>
           </div>
         )}
       </div>
