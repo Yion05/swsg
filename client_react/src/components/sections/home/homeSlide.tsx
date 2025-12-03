@@ -40,7 +40,7 @@ export const Hero4Slide = () => {
     if (highlight && index === 0) {
       return (
         <span className="not-xl:flex not-xl:flex-col not-xl:items-center">
-          <h1 className="text-4xl lg:text-5xl font-semibold mb-2">
+          <h1 className="text-4xl lg:text-5xl font-semibold mb-0 xl:mb-2">
             {part1} <b className="text-button font-semibold">{highlight}</b>
           </h1>
           <h1 className="text-4xl lg:text-5xl font-semibold mb-4 not-xl:text-center">{part2}</h1>
@@ -49,7 +49,7 @@ export const Hero4Slide = () => {
     } else {
       return (
         <span className="not-xl:flex not-xl:flex-col not-xl:items-center">
-          <h1 className="text-4xl lg:text-5xl font-semibold mb-2 text-button ">
+          <h1 className="text-4xl lg:text-5xl font-semibold mb-0 xl:mb-2 text-button ">
             {highlight} <b className="font-semibold text-black">{part1}</b>
           </h1>
           <h1 className="text-4xl lg:text-5xl font-semibold mb-4 not-xl:text-center">{part2}</h1>
@@ -111,7 +111,7 @@ export const Hero4Slide = () => {
                   </div>
                   <IoMdArrowDropleft
                     onClick={goToPrevious}
-                    className={`xl:hidden text-5xl absolute -left-0 z-20 cursor-pointer top-1/2 -translate-y-1/2 ${
+                    className={`xl:hidden text-5xl absolute -left-4 z-20 cursor-pointer top-1/2 -translate-y-1/2 ${
                       currentContent.alignment === "end"
                         ? "text-white not-xl:text-secondary"
                         : "text-secondary"
@@ -119,7 +119,7 @@ export const Hero4Slide = () => {
                   />
                   <IoMdArrowDropright
                     onClick={goToNext}
-                    className={`xl:hidden text-5xl absolute right-0 z-20 ${
+                    className={`xl:hidden text-5xl absolute -right-4 z-20 ${
                       currentContent.alignment === "start"
                         ? "text-white not-xl:text-secondary"
                         : "text-secondary"
