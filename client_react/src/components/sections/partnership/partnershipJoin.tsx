@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { ProgramPopup } from "./partnershipPop";
 import { useState } from "react";
 import { CSPSData, SmartWriterData } from "../../../data/partnership.reseller";
+import "../../../index.css";
 
 const resellerProgram = [
   {
@@ -69,26 +70,39 @@ export const CertifiedPlanner = () => {
 
   return (
     <>
-      <section className="relative bg-cover bg-center h-120 flex items-center justify-start bg-[url(/assets/partnership/partnershipTogether.webp)] ">
-        <div className="w-full md:w-1/2 p-8 md:pl-16 flex flex-col justify-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-black">
+      <section className="relative bg-cover bg-center flex flex-col xl:flex-row h-auto xl:h-120  items-center justify-start lg-no-bg bg-[url(/assets/partnership/partnershipTogether.webp)] ">
+        <div className=" xl:hidden w-full mb-4">
+          <img
+            src={`./assets/partnership/mobile/2.webp`}
+            alt={"Reseller Program Image"}
+            className="w-full h-auto object-cover"
+          />
+        </div>
+        <div className="w-full p-8 md:pl-16 flex flex-col justify-center not-xl:items-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-black not-xl:text-center">
             {t("Certified Smart Planner")}
           </h2>
-          <p className="text-black mb-8 text-lg max-w-2xl">
+          <p className="text-black mb-8 text-sm lg:text-base max-w-2xl not-xl:text-center">
             {t(
               "SmartPlanner is a certification program by SmartWills that trains advisors in modern estate planning using wills, trusts, and digital tools."
             )}
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-shrink flex-col not-xl:self-center md:flex-row gap-2 md:gap-4">
             <Link
               to="#"
-              className="mt-4 bg-button text-center text-white px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
+              className="not-md:self-center mt-2 md:mt-4 text-nowrap bg-button text-center text-white px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
             >
               Login
             </Link>
+            <Link
+              to="#"
+              className="not-md:self-center mt-2 md:mt-4 text-nowrap bg-element-one text-center text-white px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
+            >
+              Register Now
+            </Link>
             <button
               onClick={openPopup}
-              className="mt-4 bg-button-secondary text-center px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
+              className="not-md:self-center mt-2 md:mt-4 text-nowrap bg-button-secondary text-center px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
             >
               Know More
             </button>
@@ -112,8 +126,15 @@ export const SmartWriterPortal = () => {
 
   return (
     <>
-      <section className="relative bg-cover bg-blend-darken md:bg-center h-120 flex items-center justify-end bg-[url(/assets/partnership/partnershipWrite.webp)]">
-        <div className="w-full md:w-1/2 p-8 md:pl-16 flex flex-col justify-center items-end text-right">
+      <section className="relative bg-cover bg-center flex flex-col xl:flex-row h-auto xl:h-120  items-center justify-end  bg-[url(/assets/partnership/partnershipWrite.webp)] lg-no-bg">
+        <div className=" xl:hidden w-full mb-4">
+          <img
+            src={`./assets/partnership/mobile/3.webp`}
+            alt={"Reseller Program Image"}
+            className="w-full h-auto object-cover"
+          />
+        </div>
+        <div className="w-full xl:w-1/2 p-8 md:pl-16 flex flex-col justify-center items-center xl:items-end text-center xl:text-right">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-black">
             {t("SmartWriter Portal")}
           </h2>
@@ -122,24 +143,24 @@ export const SmartWriterPortal = () => {
               "Our registered reseller (SmartWriter) can log in here to create a Will for your client, anytime and anywhere."
             )}
           </p>
-          <div className="flex flex-col md:flex-row gap-4 items-end">
+          <div className="flex flex-shrink flex-col not-xl:self-center md:flex-row gap-2 md:gap-4">
             <Link
               to="#"
-              className="w-full sm:w-auto text-nowrap bg-button text-center text-white px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
+              className="not-md:self-center text-nowrap bg-button text-center text-white px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
             >
               Login
             </Link>
 
             <Link
               to="#"
-              className="w-full sm:w-auto text-nowrap bg-element-one text-center text-white px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
+              className="not-md:self-center text-nowrap bg-element-one text-center text-white px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
             >
-              Register SmartWriter Now
+              Register Now
             </Link>
 
             <button
               onClick={openPopup}
-              className="w-full sm:w-auto text-nowrap bg-button-secondary text-center px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
+              className="not-md:self-center text-nowrap bg-button-secondary text-center px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
             >
               Know More
             </button>
