@@ -89,7 +89,7 @@ const SmartWillPlan: FC<onCloseSchema> = ({ onClose }) => {
           <div className="grid grid-cols-2 gap-4 bg-button-secondary/30 px-2 rounded-full py-2 overflow-hidden mb-12 max-w-md mx-auto">
             <button
               onClick={() => handleSwapSelect("Singaporean")}
-              className={`text-sm text-nowrap md:text-base px-8 py-1 font-semibold rounded-full transition-colors duration-500 ${
+              className={`text-xs text-nowrap md:text-base px-2 md:px-4 lg:px-8 py-1 font-semibold rounded-full transition-colors duration-500 ${
                 selectedData.nationality === "Singaporean"
                   ? `bg-button text-white`
                   : `bg-none text-black`
@@ -99,7 +99,7 @@ const SmartWillPlan: FC<onCloseSchema> = ({ onClose }) => {
             </button>
             <button
               onClick={() => handleSwapSelect("Non-Singaporean")}
-              className={`text-sm text-nowrap md:text-base px-8 py-1 font-semibold rounded-full transition-colors duration-500 ${
+              className={`text-xs text-nowrap md:text-base px-2 md:px-4 lg:px-8 py-1 font-semibold rounded-full transition-colors duration-500 ${
                 selectedData.nationality === "Non-Singaporean"
                   ? `bg-button text-white`
                   : `bg-none text-black`
@@ -141,7 +141,7 @@ const SmartWillPlan: FC<onCloseSchema> = ({ onClose }) => {
             </section>
           </div>
 
-          <div className="max-w-7xl mx-auto mt-16 bg-button-secondary/30 rounded-full">
+          <div className="max-w-7xl mx-auto mt-16 bg-button-secondary/30 rounded-2xl md:rounded-full">
             {" "}
             <span className="relative text-sm py-2 px-6">
               <p className="text-[#404040] text-center mx-auto font-medium ">

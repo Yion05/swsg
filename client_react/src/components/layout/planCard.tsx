@@ -47,14 +47,14 @@ const PlanCard = ({
         `}
         >
           <div className="bg-white rounded-xl mb-12">
-            <div className="flex justify-between items-center px-6 pt-6 pb-4">
-              <span className="flex items-center gap-3">
+            <div className="flex justify-between items-center px-4 pt-6 pb-4">
+              <span className="flex items-center gap-1 md:gap-3">
                 <span
                   className={`bg-linear-to-l ${
                     planType == "Basic Plan"
                       ? " from-button to-element-one"
                       : " from-[#FFBB00] via-[#FF2626] to-[#C60000]"
-                  } p-3 rounded-2xl`}
+                  } p-2 lg:p-3 rounded-2xl`}
                 >
                   <img
                     src={iconSrc}
@@ -62,8 +62,10 @@ const PlanCard = ({
                     className="w-8 h-8 object-contain "
                   />
                 </span>
-                <p className="text-xl font-bold text-gray-900 text-wrap">
-                  {planType}
+                <p className="text-base md:text-lg font-bold text-gray-900 text-wrap">
+                  {planType.split(" ").map((data, index)=>(
+                    <p key={index}>{data}{index === 0 ? "+" : ""}</p>
+                  ))}
                 </p>
               </span>
               <span className="flex items-start gap-0.5">

@@ -12,7 +12,7 @@ interface serviceFunction {
 export const WillandTrust: FC<serviceFunction> = ({ openService }) => {
   return (
     <>
-      <h1 className="md:text-2xl text-3xl font-semibold bg-button-secondary/30 text-center p-2 rounded-full mb-4 mt-8">
+      <h1 className="md:text-2xl text-3xl font-semibold bg-button-secondary/30 text-center p-2 rounded-2xl lg:rounded-full mb-4 mt-8">
         Will and Trust Planning
       </h1>
       <section className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
@@ -61,7 +61,7 @@ export const WillandTrust: FC<serviceFunction> = ({ openService }) => {
 export const ExecutionandAdmin: FC<serviceFunction> = ({ openService }) => {
   return (
     <>
-      <h1 className="md:text-2xl text-3xl font-semibold bg-button-secondary/30 text-center p-2 rounded-full mb-4 mt-8">
+      <h1 className="md:text-2xl text-3xl font-semibold bg-button-secondary/30 text-center p-2 rounded-2xl lg:rounded-full mb-4 mt-8">
         Will Execution & Administration
       </h1>
       <section className=" grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
@@ -106,7 +106,7 @@ export const ExecutionandAdmin: FC<serviceFunction> = ({ openService }) => {
 export const ExtendedService: FC<serviceFunction> = ({ openService }) => {
   return (
     <>
-      <h1 className="md:text-2xl text-3xl font-semibold bg-button-secondary/30 text-center p-2 rounded-full mb-4 mt-8">
+      <h1 className="md:text-2xl text-3xl font-semibold bg-button-secondary/30 text-center p-2 rounded-2xl lg:rounded-full mb-4 mt-8">
         Extended Services
       </h1>
       <section className=" grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">

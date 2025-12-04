@@ -21,7 +21,7 @@ const AccoladesHero = () => {
       return (
         <>
           {part1}
-          <span className="text-main font-semibold whitespace-nowrap">
+          <span className="text-main font-semibold">
             {highlight}
           </span>
           {part2}
@@ -43,7 +43,7 @@ const AccoladesHero = () => {
         <p className="text-base sm:text-lg">{t("1.6.2_title")}</p>
 
         <div className="flex relative items-center justify-center w-full py-8">
-          <div className="flex flex-col items-center text-center w-full max-w-7xl px-12 md:px-24 opacity-100 transition-opacity duration-500 ease-in-out">
+          <div className="flex flex-col items-center text-center w-full max-w-7xl px-6 md:px-12 lg:px-24 opacity-100 transition-opacity duration-500 ease-in-out">
             <img
               src="/assets/accolades/ISO.webp"
               alt="Quality Management System, IAF, ACB 060"

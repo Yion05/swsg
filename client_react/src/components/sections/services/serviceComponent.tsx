@@ -27,7 +27,7 @@ export const SelectRightPlan = () => {
   const { t } = useTranslation("service");
 
   return (
-    <section className=" bg-button relative overflow-hidden text-center py-12 rounded-xl flex flex-col items-center">
+    <section className=" bg-button relative overflow-hidden text-center py-12 rounded-xl flex flex-col items-center px-2">
       <h1 className="text-white font-semibold text-4xl md:text-5xl text-center">
         {t("2.2.1_title")}
       </h1>

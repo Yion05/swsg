@@ -77,10 +77,7 @@ export const HeroOneComponentTwo = () => {
       "
       >
         <h3
-          className="text-white max-w-7xl w-full 
-          flex flex-col items-center gap-4 
-          pb-8 pt-4 sm:pb-24 sm:pt-8 md:pb-32 md:pt-12 
-          px-4 sm:px-8 lg:px-12 text-center"
+          className="text-base text-black bg-button-secondary/30 rounded-xl px-2 py-1 w-fit"
         >
           {t("1.1.5_quote")}
         </h3>
