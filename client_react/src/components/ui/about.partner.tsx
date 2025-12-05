@@ -20,7 +20,7 @@ export const PlatformPartnerCard: React.FC<PlatformPartnerCardProps> = ({
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const containerHeightClass = isFlipped
-    ? "h-auto min-h-[500px]"
+    ? `h-auto ${data.company_name === "Amazon Web Services (AWS)" ? "md:min-h-[800px] xl:min-h-[600px]" : data.company_name === "RiverSide Training" ? "min-h-[600px] xl:min-h-[500px]" : "min-h-[500px]"}`
     : "min-h-[350px]";
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
@@ -28,7 +28,7 @@ export const PlatformPartnerCard: React.FC<PlatformPartnerCardProps> = ({
   return (
     <div
       onClick={handleFlip}
-      className={`relative w-full cursor-pointer group transition-all duration-700 ease-in-out ${containerHeightClass}`}
+      className={`relative w-full cursor-pointer group transition-all duration-700 ease-in-out ${isFlipped ? 'not-lg:overflow-y-scroll' : ''} ${containerHeightClass}`}
       style={{ perspective: "1000px" }}
     >
       <div
@@ -91,7 +91,7 @@ export const AboutUsCompany: React.FC<platformPartnerSchema> = ({
   content,
 }) => {
   return (
-    <section className="max-w-[1440px] mx-auto py-8 bg-white flex flex-col justify-center text-center">
+    <section className="max-w-[1440px] mx-auto py-8 bg-white flex flex-col justify-center text-center clear-both">
       <div className=" flex flex-col items-center px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold mb-4">
           {title}

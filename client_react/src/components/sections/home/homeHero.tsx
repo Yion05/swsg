@@ -125,7 +125,7 @@ export const InfoHero = () => {
     <div className={`w-full py-2 rounded-xl overflow-x-hidden ${slideFromTopAnimation}`} ref={sectionRef}>
       {" "}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 justify-items-center text-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 justify-items-center text-center">
           {contactItems.map((item, index) => (
             <div key={index} className="flex flex-col items-center">
               <div className="bg-text-secondary p-2 rounded-full mb-4">
