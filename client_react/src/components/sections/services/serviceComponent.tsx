@@ -14,7 +14,7 @@ export const HeroBackgroundOne = () => {
 
   return (
     <section className="bg-[url(/assets/serviceBG.webp)] h-[50vh] px-2 rounded-xl bg-cover bg-center flex flex-col items-center justify-center gap-4 mt-8">
-      <h3 className="text-base bg-button-secondary/75 rounded-xl px-2 py-1 w-fit mb-4">
+      <h3 className="text-base bg-button-secondary/75 rounded-xl px-2 py-1 not-md:mt-12 md:mb-4">
         {t("2.1.1_quote")}
       </h3>
       <h1 className="text-5xl text-white font-semibold px-2">{t("2.1.2_title")}</h1>
