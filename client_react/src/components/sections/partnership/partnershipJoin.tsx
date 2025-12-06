@@ -4,6 +4,7 @@ import { ProgramPopup } from "./partnershipPop";
 import { useState } from "react";
 import { CSPSData, SmartWriterData } from "../../../data/partnership.reseller";
 import "../../../index.css";
+import { CustomExpand } from "../../../hook/expandHook";
 
 const resellerProgram = [
   {
@@ -63,10 +64,9 @@ export const JoinProgram = () => {
 
 export const CertifiedPlanner = () => {
   const { t } = useTranslation("partnership");
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const openPopup = () => setIsPopupOpen(true);
-  const closePopup = () => setIsPopupOpen(false);
+  const toggleExpand = () => setIsExpanded((prev) => !prev);
 
   return (
     <>
@@ -78,13 +78,23 @@ export const CertifiedPlanner = () => {
             className="w-full h-auto object-cover"
           />
         </div>
-        <div className="w-full p-8 md:pl-16 flex flex-col justify-center not-xl:items-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-black not-xl:text-center">
+        <div className="w-full xl:w-[57%] p-8 md:pr-16 flex flex-col justify-center not-xl:items-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-black not-xl:text-center">
             {t("Certified Smart Planner")}
           </h2>
-          <p className="text-black mb-8 text-sm lg:text-base max-w-2xl not-xl:text-center">
+          <p className="text-black mb-6 text-sm lg:text-base max-w-2xl not-xl:text-center">
             {t(
-              "SmartPlanner is a certification program by SmartWills that trains advisors in modern estate planning using wills, trusts, and digital tools."
+              "Certified SmartPlanner (CSPS) is a professional certification program by SmartWills Singapore, designed for individuals who want to build a career in estate and legacy planning."
+            )}
+          </p>
+          <p className="text-black mb-6 text-sm lg:text-base max-w-2xl not-xl:text-center">
+            {t(
+              "Our SmartWills solution is simple and easy to use, allowing you to help clients prepare Wills, Trusts, Testamentary Trusts, and cross-border plans confidently — without complicated legal processes."
+            )}
+          </p>
+          <p className="text-black mb-6 text-sm lg:text-base max-w-2xl not-xl:text-center">
+            {t(
+              "With CSPS, you can expand your advisory services, grow your client network, and explore cross-border estate planning opportunities across Singapore, Malaysia, Hong Kong and Southeast Asia."
             )}
           </p>
           <div className="flex flex-shrink flex-col not-xl:self-center md:flex-row gap-2 md:gap-4">
@@ -101,28 +111,28 @@ export const CertifiedPlanner = () => {
               Register Now
             </Link>
             <button
-              onClick={openPopup}
-              className="not-md:self-center mt-2 md:mt-4 text-nowrap bg-button-secondary text-center px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
+              onClick={toggleExpand}
+              className={`${
+                isExpanded ? "bg-button-secondary" : "bg-button-secondary/70"
+              } not-md:self-center mt-2 md:mt-4 text-nowrap text-center px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2`}
             >
               Know More
             </button>
           </div>
         </div>
       </section>
-
-      {isPopupOpen && (
-        <ProgramPopup data={CSPSData as any} onClose={closePopup} />
-      )}
+      <CustomExpand mode={isExpanded ? "visible" : "hidden"}>
+        <ProgramPopup data={CSPSData as any} isOpen={isExpanded} />
+      </CustomExpand>
     </>
   );
 };
 
 export const SmartWriterPortal = () => {
   const { t } = useTranslation("partnership");
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const openPopup = () => setIsPopupOpen(true);
-  const closePopup = () => setIsPopupOpen(false);
+  const toggleExpand = () => setIsExpanded((prev) => !prev);
 
   return (
     <>
@@ -134,13 +144,23 @@ export const SmartWriterPortal = () => {
             className="w-full h-auto object-cover"
           />
         </div>
-        <div className="w-full xl:w-1/2 p-8 md:pl-16 flex flex-col justify-center items-center xl:items-end text-center xl:text-right">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-black">
+        <div className="w-full xl:w-[57%] p-8 md:pl-16 flex flex-col justify-center items-center xl:items-end text-center xl:text-right">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4 text-black">
             {t("SmartWriter Portal")}
           </h2>
-          <p className="text-black mb-8 text-lg max-w-2xl">
+          <p className="text-black mb-6 text-base max-w-2xl">
             {t(
-              "Our registered reseller (SmartWriter) can log in here to create a Will for your client, anytime and anywhere."
+              "SmartWriter is an affiliate program by SmartWills Singapore that lets you earn income by helping clients fill in their Will forms easily through our user-friendly online platform."
+            )}
+          </p>
+          <p className="text-black mb-6 text-base max-w-2xl">
+            {t(
+              "No legal or financial background is required — anyone who knows how to use a mobile phone or computer device can start right away!"
+            )}
+          </p>
+          <p className="text-black mb-6 text-base max-w-2xl">
+            {t(
+              "You’ll also gain access to our Basic Will Knowledge e-Learning, designed to help you get started confidently."
             )}
           </p>
           <div className="flex flex-shrink flex-col not-xl:self-center md:flex-row gap-2 md:gap-4">
@@ -159,17 +179,19 @@ export const SmartWriterPortal = () => {
             </Link>
 
             <button
-              onClick={openPopup}
-              className="not-md:self-center text-nowrap bg-button-secondary text-center px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2"
+              onClick={toggleExpand}
+              className={`${
+                isExpanded ? "bg-button-secondary" : "bg-button-secondary/70"
+              } not-md:self-center text-nowrap text-center px-4 py-3 rounded-lg font-semibold md:text-lg self-start cursor-pointer duration-500 hover:-translate-y-2`}
             >
               Know More
             </button>
           </div>
         </div>
       </section>
-      {isPopupOpen && (
-        <ProgramPopup data={SmartWriterData as any} onClose={closePopup} />
-      )}
+      <CustomExpand mode={isExpanded ? "visible" : "hidden"}>
+        <ProgramPopup data={SmartWriterData as any} isOpen={isExpanded} />
+      </CustomExpand>
     </>
   );
 };

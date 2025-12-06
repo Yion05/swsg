@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { IoMdClose, IoMdThumbsUp } from "react-icons/io";
+import { useRef } from "react";
+import { IoMdThumbsUp } from "react-icons/io";
 import { IoPerson } from "react-icons/io5";
 
 interface ProgramData {
@@ -9,9 +9,9 @@ interface ProgramData {
   join_criteria: { criteria: string; description: string }[];
 }
 
-interface ProgramPopupProps {
+interface ProgramDetailsProps {
   data: ProgramData;
-  onClose: () => void;
+  isOpen: boolean;
 }
 
 const renderDescription = (description: string | string[]) => {
@@ -30,59 +30,24 @@ const renderDescription = (description: string | string[]) => {
   return <span>{description}</span>;
 };
 
-export const ProgramPopup: React.FC<ProgramPopupProps> = ({
+export const ProgramPopup: React.FC<ProgramDetailsProps> = ({
   data,
-  onClose,
+  isOpen,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  useEffect(() => {
-    setIsAnimating(true);
-
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        modalRef.current &&
-        !modalRef.current.contains(event.target as Node)
-      ) {
-        onClose();
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [onClose]);
-
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, []);
-
-  const animationClasses = isAnimating
-    ? "opacity-100 scale-100"
-    : "opacity-0 scale-0";
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
+    <div
+      className={`relative transition-all duration-700 ease-in-out ${
+        isOpen ? "translate-y-0" : "-translate-y-36"
+      }`}
+    >
       {" "}
       <div
         ref={modalRef}
         className={`
-            transition-all duration-500 transform 
-                   ${animationClasses}
-            bg-white rounded-xl max-w-7xl w-full relative transition-all duration-300 transform scale-100 overflow-x-hidden overflow-y-auto max-h-[95vh]`}
+            bg-white rounded-xl max-w-[1440px] w-full relative transition-all duration-300 transform scale-100 overflow-x-hidden overflow-y-auto mx-auto`}
       >
-        <button
-          onClick={onClose}
-          className="absolute -top-2 -right-2 bg-hero-gray rounded-full text-3xl z-50 p-2 cursor-pointer duration-500 hover:scale-105 group"
-          aria-label="Close modal"
-        >
-          <IoMdClose className="text-white duration-500 group-hover:text-button" />
-        </button>
-
         <div className="p-8 pb-4">
           <div className="flex justify-between items-start">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">

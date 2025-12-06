@@ -36,8 +36,8 @@ export const ProductSelect = () => {
       <h3 className="text-base sm:text-lg text-center mb-4">
         {t("Smart & Personalized Solutions")}
       </h3>
-      <section className="grid grid-cols-1 md:grid-cols-2 px-4 md:px-6 lg:px-12">
-        <span className=" col-span-1 md:col-span-2">
+      <section className="grid grid-cols-1 lg:grid-cols-2 px-4 md:px-6 lg:px-12">
+        <span className=" col-span-1 lg:col-span-2">
           <WillandTrust openService={openService}></WillandTrust>
         </span>
         <span className="col-span-1 pr-4">
